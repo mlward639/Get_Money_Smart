@@ -2,9 +2,9 @@ const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 // const uuid = require('uuid');
 
-class Account extends Model {}
+class Checking extends Model {}
 
-Account.init(
+Checking.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -14,10 +14,6 @@ Account.init(
     },
     account_number: {
       type: DataTypes.INTEGER,
-      allowNull: false,
-    },
-    account_label: {
-      type: DataTypes.STRING,
       allowNull: false,
     },
     current_balance: {
@@ -41,4 +37,4 @@ Account.init(
   }
 );
 
-module.exports = Account;
+module.exports = Checking;
