@@ -1,4 +1,4 @@
-const { Model, DataTypes } = require('sequelize');
+const { UUIDV4, Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 // const uuid = require('uuid');
 
@@ -13,8 +13,8 @@ Saving.init(
       autoIncrement: true,
     },
     account_number: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
+      type: DataTypes.UUID,
+      defaultValue: UUIDV4,
     },
     current_balance: {
       type: DataTypes.INTEGER,
