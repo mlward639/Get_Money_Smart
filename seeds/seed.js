@@ -14,21 +14,21 @@ const seedDatabase = async () => {
     returning: true,
   });
 
-  for (const saving of savingData) {
-    await Saving.create({
-      ...saving
+  for (const checking of checkingData) {
+    await Checking.create({
+      ...checking,
     });
   }
 
-  for (const checking of checkingData) {
-    await Checking.create({
-      ...checking
-  })
-}
+  for (const saving of savingData) {
+    await Saving.create({
+      ...saving,
+    });
+  }
 
   for (const credit of creditData) {
     await Credit.create({
-      ...credit
+      ...credit,
     });
   }
 

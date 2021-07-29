@@ -1,18 +1,18 @@
 [
     {
-        "current_balance": 150000,
+        "current_balance": 1500,
         "user_id": 1
     },
     {
-        "current_balance": 176000,
+        "current_balance": 17600,
         "user_id": 2
     },
     {
-        "current_balance": 193000,
+        "current_balance": 1930,
         "user_id": 3
     },
     {
-        "current_balance": 127000,
+        "current_balance": 1270,
         "user_id": 4
     }
 ]
