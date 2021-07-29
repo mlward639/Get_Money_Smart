@@ -1,0 +1,19 @@
+//randomly generate account number !!!
+[
+    {
+      "current_balance": "$0",
+      "user_id": "1"
+    },
+    {
+        "current_balance": "$5,000",
+        "user_id": "2"
+      },
+      {
+        "current_balance": "$10,000",
+        "user_id": "3"
+      },
+      {
+        "current_balance": "$500",
+        "user_id": "4"
+      }
+  ]

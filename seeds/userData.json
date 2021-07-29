@@ -1,0 +1,27 @@
+[
+    {
+      "fname": "Ebenezer",
+      "lname": "Scrooge",
+      "username": "bahHumbug",
+      "password": "password"
+    },
+    {
+      "fname": "Rebecca",
+      "lname": "Bloomwood",
+      "username": "confessionsOfAShopaholic",
+      "password": "password"
+    },
+    {
+        "fname": "Jay",
+        "lname": "Gatsby",
+        "username": "bigSpender",
+        "password": "password"
+      },
+      {
+        "fname": "Arthur",
+        "lname": "Weasley",
+        "username": "kidsAreExpensive",
+        "password": "password"
+      }
+  ]
+
