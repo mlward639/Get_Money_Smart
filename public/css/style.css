@@ -1,3 +1,4 @@
+
 :root {
   --green #32b558;
   --pink #b53260;
@@ -42,6 +43,90 @@
 .topbar-responsive .menu a:hover {
   color: #32b558;
 }
+
+/* ----------- FORM css --------------- */
+
+.transfer {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.transfer-form {
+  font: inherit;
+  padding-bottom: 20px;
+}
+
+.transfer-form h3 {
+  font-size: 24px;
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+
+.transfer-form h3 {
+  font-size: 24px;
+}
+
+.transfer-form {
+  font-size: 20px;
+  line-height: 1.6;
+}
+
+.transferOptions,
+.transferAmt,
+.transferComment {
+  font-size: 15px;
+  padding: 3px;
+  margin-bottom: 8px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.transferBtn {
+  font-size: 16px;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+.translucent-form-overlay {
+  max-width: 500px;
+  width: 100%;
+  background-color: rgba(54, 54, 54, 0.8);
+  padding: 20px;
+  color: #fefefe;
+}
+
+.translucent-form-overlay .columns.row {
+  display: block;
+}
+
+.translucent-form-overlay h3,
+.translucent-form-overlay label {
+  color: #fefefe;
+}
+
+.translucent-form-overlay input,
+.translucent-form-overlay select {
+  color: #8a8a8a;
+}
+
+.translucent-form-overlay input::-webkit-input-placeholder {
+  color: #8a8a8a;
+}
+
+.translucent-form-overlay input:-ms-input-placeholder {
+  color: #8a8a8a;
+}
+
+.translucent-form-overlay input::placeholder {
+  color: #8a8a8a;
+}
+
+/* -------------------------------------------------------------------------- */
+
 
 @media screen and (max-width: 39.9375em) {
   .topbar-responsive .menu a {
