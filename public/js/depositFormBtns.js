@@ -39,9 +39,17 @@ const depositFormHandler = async (event) => {
     } else {
       alert(response.statusText);
     }
+  } else {
+    errorMessage();
   }
 };
 
 document
   .querySelector('.depositBtn')
   .addEventListener('click', depositFormHandler);
+
+// error handling
+function errorMessage() {
+  var error = document.getElementById('error');
+  error.textContent = "* Please fill in 'From', 'To', and 'Amount'";
+}
