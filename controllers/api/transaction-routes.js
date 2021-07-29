@@ -97,11 +97,17 @@ router.get('/transfermoney', withAuth, async (req, res) => {
       where: {
         user_id: req.session.user_id
       }
-    })
+    });
+    const creditData = await Credit.findAll({
+      where: {
+        user_id: req.session.user_id,
+      },
+    });
     const checking = checkingData.get({ plain: true });
     const saving = savingData.get({ plain: true });
+    const credit = creditData.get({ plain: true });
     res.render('transfermoney', {
-      ...checking, ...saving,
+      ...checking, ...saving, ...credit,
       logged_in: true
     });
   } catch (err) {
@@ -121,6 +127,12 @@ router.put('/transfermoney', async (req, res) => {
         user_id: req.session.user_id,
       },
     });
+    const creditData = await Credit.findAll({
+      where: {
+        user_id: req.session.user_id,
+      },
+    });
+
     if (req.body.sender === checkingData.account_number) {
       checkingData.current_balance =
         checkingData.current_balance - parseInt(req.body.transfer_amount);
