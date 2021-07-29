@@ -46,7 +46,8 @@
 
 /* ----------- FORM css --------------- */
 
-.transfer {
+.transfer,
+.deposit {
   margin: 0;
   position: absolute;
   top: 50%;
@@ -54,29 +55,31 @@
   transform: translate(-50%, -50%);
 }
 
-.transfer-form {
+.transfer-form,
+.deposit-form {
   font: inherit;
   padding-bottom: 20px;
 }
 
-.transfer-form h3 {
+.transfer-form h3,
+.deposit-form h3 {
   font-size: 24px;
   margin-top: 0;
   margin-bottom: 5px;
 }
 
-.transfer-form h3 {
-  font-size: 24px;
-}
-
-.transfer-form {
-  font-size: 20px;
+.transfer-form label,
+.deposit-form label {
+  font-size: 16px;
   line-height: 1.6;
 }
 
 .transferOptions,
 .transferAmt,
-.transferComment {
+.transferComment,
+.depositOptions,
+.depositAmt,
+.depositComment {
   font-size: 15px;
   padding: 3px;
   margin-bottom: 8px;
@@ -84,11 +87,17 @@
   box-sizing: border-box;
 }
 
-.transferBtn {
+.deposit-pic label {
+  font-size: 16px;
+}
+
+.transferBtn,
+.depositBtn {
   font-size: 16px;
   position: absolute;
   left: 50%;
   transform: translate(-50%);
+  margin-top: 10px;
 }
 
 .translucent-form-overlay {
