@@ -1,10 +1,10 @@
 const sequelize = require("../config/connection");
-const { Account, Credit, User } = require("../models");
-const { v4: uuidv4 } = require("uuid");
+const { User, Checking, Saving, Credit } = require("../models");
 
-const accountData = require("./accountData.json");
-const creditData = require("./creditData.json");
 const userData = require("./userData.json");
+const savingData = require("./savingData.json");
+const checkingData = require("./checkingData.json");
+const creditData = require("./creditData.json");
 
 const seedDatabase = async () => {
   await sequelize.sync({ force: true });
@@ -14,18 +14,27 @@ const seedDatabase = async () => {
     returning: true,
   });
 
-  for (const account of accountData) {
-    await Account.create({
-      ...account,
-      account_number: uuidv4(),
+  for (const saving of savingData) {
+    await Saving.create({
+      ...saving,
+      user_id: users[Math.floor(Math.random() * users.length)].id,
     });
   }
+
+  for (const checking of checkingData) {
+    await Checking.create({
+      ...checking,
+      user_id: users[Math.floor(Math.random() * users.length)].id,
+    });
+  }
+
   for (const credit of creditData) {
     await Credit.create({
       ...credit,
-      account_number: uuidv4(),
+      user_id: users[Math.floor(Math.random() * users.length)].id,
     });
   }
+
   process.exit(0);
 };
 
