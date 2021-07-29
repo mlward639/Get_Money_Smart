@@ -10,12 +10,10 @@ router.get('/chargecard', withAuth, async (req, res) => {
       },
     });
     const credit = creditData.get({ plain: true });
-
     res.render('chargecard', {
       ...credit,
       logged_in: true
     });
-    res.redirect('/dashboard');
   } catch (err) {
     res.status(500).json(err);
   }
@@ -36,6 +34,29 @@ router.put('/chargecard', withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+router.get('/depositmoney', withAuth, async (req, res) => {
+  try {
+    const checkingData = await Credit.findAll({
+      where: {
+        user_id: req.session.user_id
+      },
+    });
+    const savingData = await Credit.findAll({
+      where: {
+        user_id: req.session.user_id
+      }
+    })
+    const checking = checkingData.get({ plain: true });
+    const saving = savingData.get({ plain: true });
+    res.render('depositmoney', {
+      ...checking, ...saving,
+      logged_in: true
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+})
 
 router.put('/depositmoney', async (req, res) => {
   try {
@@ -64,6 +85,29 @@ router.put('/depositmoney', async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+router.get('/transfermoney', withAuth, async (req, res) => {
+  try {
+    const checkingData = await Credit.findAll({
+      where: {
+        user_id: req.session.user_id
+      },
+    });
+    const savingData = await Credit.findAll({
+      where: {
+        user_id: req.session.user_id
+      }
+    })
+    const checking = checkingData.get({ plain: true });
+    const saving = savingData.get({ plain: true });
+    res.render('transfermoney', {
+      ...checking, ...saving,
+      logged_in: true
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+})
 
 router.put('/transfermoney', async (req, res) => {
   try {
@@ -98,6 +142,5 @@ router.put('/transfermoney', async (req, res) => {
     res.status(500).json(err);
   }
 });
-
 
 module.exports = router;
