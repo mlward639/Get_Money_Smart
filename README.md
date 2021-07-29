@@ -4,13 +4,13 @@
 
 ## Description
 
-Online banking application that allows user to manage their finances including bank accounts and loans. Features include ability to open new accounts, transfer money between accounts, transfer money to loans, and apply for new loans.
+Educational online banking application that allows students to manage their virtual finances including bank accounts and credit cards. Features include ability to open new accounts, transfer money between accounts, and make payment on credit card. Tooltips with descriptive comments are added to assist students in learning about finance.
 
 ## User Story
 
-AS A distrusting user of traditional banking
-I WANT TO deposit money, send money, receive money, and apply for loans
-SO THAT I can manage my finances in a safe and convenient way.
+AS A teacher of basic financial management
+I WANT TO have an instructional banking application
+SO THAT I can show students how to navigate an online banking platform in an instructional manner
 
 ## Acceptance criteria:
 
@@ -18,23 +18,22 @@ SO THAT I can manage my finances in a safe and convenient way.
 - WHEN I visit the site for the first time
 - THEN I am presented with the homepage, which includes login and sign up options
 - WHEN I choose to sign up
-- THEN I am prompted to create a username and password and enter first name, last name, city of birth, and phone number
+- THEN I am prompted to create a username and password and enter first name and last name
 - WHEN I click on the sign-up button
 - THEN my user credentials are saved and I am logged into the site
 - WHEN I revisit the site at a later time and choose to sign in
 - THEN I am prompted to enter my username and password
 - WHEN I am logged into the site,
-- THEN I am taken to my dashboard where I can view my accounts with their balances, as well as my loans with their balances
-- WHEN I click on the Open New Account option in the navigation
+- THEN I am taken to my dashboard where I can view my accounts with their balances, as well as my credit card with its balance- WHEN I click on the Open New Account option in the navigation
 - THEN I am taken to the Open New Account page and presented with a form to enter the current balance and submit
 - WHEN I click on Deposit Money option in the navigation
 - THEN I am taken to a form where I can choose which account and amount to deposit
 - WHEN I click on Transfer Money option in the navigation
 - THEN I am taken to a form where I can choose which account to withdraw money from and which account or loan to transfer that money
-- WHEN I click on Apply for Loan option in the navigation
-- THEN I am taken to a form where I can choose the loan amount I am requesting
-- WHEN I click on the Make Payment option for my loan
-- THEN I am taken to the transfer page that references my loan account
+- WHEN I click on Charge Card option in the Card section of dashboard
+- THEN I am taken to a form where I can choose an amount to spend of my credit card and add a reason
+- WHEN I click on the Make Payment option for my credit card
+- THEN I am taken to the transfer page to make a payment on my card
 - WHEN I click on the logout option in the navigation
 - THEN I am signed out of the site
 - WHEN I am idle on the site for more than a set time
@@ -56,9 +55,9 @@ SO THAT I can manage my finances in a safe and convenient way.
         npm install
 
 - To populate database with test data, type the following in the terminal:
-        run node seeds
+  run node seeds
 - To begin application, type the following in the terminal:
-         npm start
+  npm start
 
 ## Usage
 
@@ -78,14 +77,14 @@ Libraries:
 - Node.js and Express.js: RESTful API
 - Handlebar.js: template engine (express-handlebars package to implement Handlebar.js)
 - MySQL2 and Sequelize ORM: DB
-- New library/package/technology: -------------
-- Bootstrap +/- new technology: CDN
+- Foundation: CDN
 - Hatchful: logo
 - Lucid: wireframe
 - Bcrypt: hash password
 - Dotenv: store sensitive info using environmental variables
 - UUID: create unique acct number
 - Express-session and connect-session-sequelize: authentication
+- css-tooltip: tooltips
 - Heroku: deploy
 
 ## Contribution Guidelines

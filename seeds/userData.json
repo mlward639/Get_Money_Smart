@@ -1,4 +1,35 @@
 [
+  
+ {
+     "id": 1,
+     "fname": "Simone",
+     "lname": "Biles",
+     "username": "simone_biles",
+     "password": 123456789
+ },
+ {
+     "id": 2,
+    "fname": "Megan",
+    "lname": "Rapinoe",
+    "username": "megan_rapinoe",
+    "password": 123456789
+},
+{
+    "id": 3,
+    "fname": "Nevin",
+    "lname": "Harrison",
+    "username": "nevin_harrison",
+    "password": 123456789
+},
+{
+    "id": 4,
+    "fname": "Noah",
+    "lname": "Lyles",
+    "username": "noah_lyles",
+    "password": 123456789
+}
+]
+
     {
         "id": 1,
         "fname": "Simone",
@@ -28,3 +59,4 @@
         "password": 987654321
     }
 ]
+

@@ -1,10 +1,10 @@
-const sequelize = require('../config/connection');
-const { User, Checking, Saving, Credit } = require('../models');
+const sequelize = require("../config/connection");
+const { User, Checking, Saving, Credit } = require("../models");
 
-const userData = require('./userData.json');
-const savingData = require('./savingData.json');
-const checkingData = require('./checkingData.json');
-const creditData = require('./creditData.json');
+const userData = require("./userData.json");
+const savingData = require("./savingData.json");
+const checkingData = require("./checkingData.json");
+const creditData = require("./creditData.json");
 
 const seedDatabase = async () => {
   await sequelize.sync({ force: true });
