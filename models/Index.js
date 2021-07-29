@@ -1,14 +1,28 @@
 const User = require('./User');
-const Account = require('./Account');
+const Checking = require('./Checking');
+const Saving = require('./Saving');
 const Credit = require('./Credit')
 
-User.hasMany(Account, {
+User.hasOne(Checking, {
   foreignKey: 'user_id',
-  onDelete: 'CASCADE'
+  onDelete: 'CASCADE',
+});
+Checking.belongsTo(User, {
+  foreignKey: 'user_id'
 });
 
-Account.belongsTo(User, {
+User.hasOne(Saving, {
+  foreignKey: 'user_id',
+  onDelete: 'CASCADE',
+});
+
+Saving.belongsTo(User, {
   foreignKey: 'user_id'
+});
+
+User.hasOne(Credit, {
+  foreignKey: 'user_id',
+  onDelete: 'CASCADE',
 });
 
 Credit.belongsTo(User, {
@@ -17,4 +31,4 @@ Credit.belongsTo(User, {
 
 
 
-module.exports = { User, Account, Credit };
+module.exports = { Saving, Checking, Credit, User};

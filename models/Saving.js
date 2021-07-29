@@ -1,10 +1,10 @@
-const { Model, DataTypes } = require('sequelize');
+const { UUIDV4, Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 // const uuid = require('uuid');
 
-class Account extends Model {}
+class Saving extends Model {}
 
-Account.init(
+Saving.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -13,12 +13,8 @@ Account.init(
       autoIncrement: true,
     },
     account_number: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
-    account_label: {
-      type: DataTypes.STRING,
-      allowNull: false,
+      type: DataTypes.UUID,
+      defaultValue: UUIDV4,
     },
     current_balance: {
       type: DataTypes.INTEGER,
@@ -41,4 +37,4 @@ Account.init(
   }
 );
 
-module.exports = Account;
+module.exports = Saving;

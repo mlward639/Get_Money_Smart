@@ -2,9 +2,9 @@ const { UUIDV4, Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 // const uuid = require('uuid');
 
-class Credit extends Model {}
+class Checking extends Model {}
 
-Credit.init(
+Checking.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -37,4 +37,4 @@ Credit.init(
   }
 );
 
-module.exports = Credit;
+module.exports = Checking;

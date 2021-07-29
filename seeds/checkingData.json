@@ -1,0 +1,18 @@
+[
+    {
+        "account_number": 11234567890,
+        "current_balance": 150000
+    },
+    {
+        "account_number": 11234567890,
+        "current_balance": 150000
+    },
+    {
+        "account_number": 5432167890,
+        "current_balance": 150000
+    },
+    {
+        "account_number": 6789054321,
+        "current_balance": 150000
+    }
+]
