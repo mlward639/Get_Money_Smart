@@ -15,10 +15,6 @@ Saving.init(
       type: DataTypes.UUID,
       defaultValue: UUIDV4,
     },
-    account_type: {
-      type: DataTypes.STRING,
-      defaultValue: "saving"
-    },
     current_balance: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -39,7 +35,7 @@ Saving.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'account',
+    modelName: 'saving',
   }
 );
 

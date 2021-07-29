@@ -15,10 +15,6 @@ Checking.init(
       type: DataTypes.UUID,
       defaultValue: UUIDV4,
     },
-    account_type: {
-      type: DataTypes.STRING,
-      defaultValue: "checking"
-    },
     current_balance: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -39,7 +35,7 @@ Checking.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'account',
+    modelName: 'checking',
   }
 );
 
