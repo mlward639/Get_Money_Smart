@@ -21,12 +21,13 @@ router.get('/', withAuth, async (req, res) => {
     }
 
     res.status(200).json(checkingData);
+    res.render.json(checkingData);
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
-// get saving by user id
+get saving by user id
 router.get('/', withAuth, async (req, res) => {
   try {
     const savingData = await Saving.findAll({
@@ -43,6 +44,7 @@ router.get('/', withAuth, async (req, res) => {
     }
 
     res.status(200).json(savingData);
+    res.render.json(savingData);
   } catch (err) {
     res.status(500).json(err);
   }
@@ -65,6 +67,7 @@ router.get('/', withAuth, async (req, res) => {
     }
 
     res.status(200).json(creditData);
+    res.render.json(creditData);
   } catch (err) {
     res.status(500).json(err);
   }
