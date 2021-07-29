@@ -1,18 +1,18 @@
 [
     {
-        "account_number": 11234567890,
-        "current_balance": 150000
+        "current_balance": 130000,
+        "user_id": 1
     },
     {
-        "account_number": 11234567890,
-        "current_balance": 150000
+        "current_balance": 120000,
+        "user_id": 2
     },
     {
-        "account_number": 5432167890,
-        "current_balance": 150000
+        "current_balance": 170000,
+        "user_id": 3
     },
     {
-        "account_number": 6789054321,
-        "current_balance": 150000
+        "current_balance": 190000,
+        "user_id": 4
     }
 ]
