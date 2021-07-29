@@ -33,7 +33,7 @@ SO THAT I can show students how to navigate an online banking platform in an ins
 - WHEN I click on Charge Card option in the Card section of dashboard
 - THEN I am taken to a form where I can choose an amount to spend of my credit card and add a reason
 - WHEN I click on the Make Payment option for my credit card
-  THEN I am taken to the transfer page to make a payment on my card
+- THEN I am taken to the transfer page to make a payment on my card
 - WHEN I click on the logout option in the navigation
 - THEN I am signed out of the site
 - WHEN I am idle on the site for more than a set time
@@ -77,7 +77,7 @@ Libraries:
 - Node.js and Express.js: RESTful API
 - Handlebar.js: template engine (express-handlebars package to implement Handlebar.js)
 - MySQL2 and Sequelize ORM: DB
-- Bootstrap +/- new technology: CDN
+- Foundation: CDN
 - Hatchful: logo
 - Lucid: wireframe
 - Bcrypt: hash password
