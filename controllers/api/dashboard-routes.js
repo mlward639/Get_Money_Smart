@@ -27,7 +27,7 @@ router.get('/', withAuth, async (req, res) => {
   }
 });
 
-get saving by user id
+// get saving by user id
 router.get('/', withAuth, async (req, res) => {
   try {
     const savingData = await Saving.findAll({
