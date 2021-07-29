@@ -1,6 +1,5 @@
 const { UUIDV4, Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
-// const uuid = require('uuid');
 
 class Credit extends Model {}
 
@@ -16,9 +15,16 @@ Credit.init(
       type: DataTypes.UUID,
       defaultValue: UUIDV4,
     },
+    account_type: {
+      type: DataTypes.STRING,
+      defaultValue: "credit"
+    },
     current_balance: {
       type: DataTypes.INTEGER,
       allowNull: false,
+      validate: {
+        min: 0
+      }
     },
     user_id: {
       type: DataTypes.INTEGER,
@@ -33,7 +39,7 @@ Credit.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'project',
+    modelName: 'account',
   }
 );
 
