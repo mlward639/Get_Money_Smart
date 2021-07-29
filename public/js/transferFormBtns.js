@@ -2,10 +2,18 @@
 const transferFormHandler = async (event) => {
   event.preventDefault();
   // Collect values from transfer money form
-  const transferFrom = document.querySelector('.transferFrom').value.trim();
-  //console.log("transfer from", transferFrom);
-  const transferTo = document.querySelector('.transferTo').value.trim();
-  //console.log("transfer to", transferTo);
+  let transferFrom = document
+    .querySelector('.transferFrom')
+    .value.trim()
+    .split('(');
+  transferFrom = transferFrom[0].trim();
+  //console.log('transfer from', transferFrom);
+  let transferTo = document
+    .querySelector('.transferTo')
+    .value.trim()
+    .split('(');
+  transferTo = transferTo[0].trim();
+  //console.log('transfer to', transferTo);
   const transferAmount = document.querySelector('.transferAmt').value.trim();
   //console.log("transfer amt", transferAmount);
   const transferComment = document
@@ -26,8 +34,8 @@ const transferFormHandler = async (event) => {
       }),
       headers: { 'Content-Type': 'application/json' },
     });
-    // if response goes through correctly, redirect browser to the dashboard page
-    if (response.ok) {
+    // if response goes through correctly, display their transaction and then redirect browser to the dashboard page
+    if (!response.ok) {
       let comment = '';
       if (transferComment) {
         comment = `Comment: ${transferComment}`;
