@@ -15,10 +15,6 @@ Credit.init(
       type: DataTypes.UUID,
       defaultValue: UUIDV4,
     },
-    account_type: {
-      type: DataTypes.STRING,
-      defaultValue: "credit"
-    },
     current_balance: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -39,7 +35,7 @@ Credit.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'account',
+    modelName: 'credit',
   }
 );
 
