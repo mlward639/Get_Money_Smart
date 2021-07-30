@@ -28,15 +28,10 @@ router.get('/', withAuth, async (req, res) => {
     if (!historyData) {
       res.status(404).json({ message: "User doesn't have past transaction" });
     }
-
     const checking = checkingData.get({ plain: true });
     const saving = savingData.get({ plain: true });
     const credit = creditData.get({ plain: true });
     const history = historyData.get({ plain: true });
-    // res.status(200).json(checkingData);
-    // res.status(200).json(savingData);
-    // res.status(200).json(historyData);
-    // res.status(200).json(creditData);
     res.render('dashboard', {
       ...credit,
       ...saving,
