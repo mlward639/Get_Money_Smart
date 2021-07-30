@@ -5,17 +5,17 @@ const { Checking, Saving, Credit, History } = require('../../models/');
 //sends Data(Checking, Saving, Credit, History) to 'dashboard' handlebar
 router.get('/', withAuth, async (req, res) => {
   try {
-    const checkingData = await Checking.findAll({
+    const checkingData = await Checking.findOne({
       where: {
         user_id: req.session.user_id,
       },
     });
-    const savingData = await Saving.findAll({
+    const savingData = await Saving.findOne({
       where: {
         user_id: req.session.user_id,
       },
     });
-    const creditData = await Credit.findAll({
+    const creditData = await Credit.findOne({
       where: {
         user_id: req.session.user_id,
       },
@@ -25,6 +25,9 @@ router.get('/', withAuth, async (req, res) => {
         user_id: req.session.user_id,
       },
     });
+    if (!historyData) {
+      res.status(404).json({ message: "User doesn't have past transaction" });
+    }
 
     const checking = checkingData.get({ plain: true });
     const saving = savingData.get({ plain: true });

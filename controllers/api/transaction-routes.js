@@ -5,7 +5,7 @@ const withAuth = require('../../utils/auth');
 //Send data to 'chargecard' handlebar to be rendered.
 router.get('/chargecard', withAuth, async (req, res) => {
   try {
-    const creditData = await Credit.findAll({
+    const creditData = await Credit.findOne({
       where: {
         user_id: req.session.user_id,
       },
@@ -21,36 +21,40 @@ router.get('/chargecard', withAuth, async (req, res) => {
 });
 
 //Updates the Credit Account after a transaction. It stores the transaction in the History table.
-router.put('/chargecard', withAuth, async (req, res) => {
-  try {
-    const creditData = await Credit.findAll({
-      where: {
-        user_id: req.session.user_id,
-      },
-    });
-    await History.Create({
-      merchant: req.body.chargeTo,
-      amount: req.body.chargeAmount,
+router.put('/chargecard', async (req, res) => {
+  const creditData = await Credit.findOne({
+    where: {
       user_id: req.session.user_id,
+    },
+  });
+  const chargeAmount = parseInt(req.body.chargeAmount);
+  Credit.update(
+    { current_balance: creditData.current_balance + chargeAmount },
+    { returning: true, where: { user_id: req.session.user_id } }
+  )
+    .then(function () {
+      History.create({
+        merchant: req.body.chargeTo,
+        amount: req.body.chargeAmount,
+        user_id: req.session.user_id,
+      });
+      res.status(200).json('transaction saved');
+      res.redirect('/dashboard');
+    })
+    .catch((err) => {
+      res.status(500).json(err);
     });
-    creditData.current_balance =
-      creditData.current_balance + parseInt(req.body.chargeAmount);
-    await creditData.save();
-    res.redirect('/dashboard');
-  } catch (err) {
-    res.status(500).json(err);
-  }
 });
 
 //Send data to 'depositmoney' handlebar to be rendered.
 router.get('/depositmoney', withAuth, async (req, res) => {
   try {
-    const checkingData = await Checking.findAll({
+    const checkingData = await Checking.findOne({
       where: {
         user_id: req.session.user_id,
       },
     });
-    const savingData = await Saving.findAll({
+    const savingData = await Saving.findOne({
       where: {
         user_id: req.session.user_id,
       },
@@ -70,12 +74,12 @@ router.get('/depositmoney', withAuth, async (req, res) => {
 ///Update Checking or Saving Accounts deposit amount. Then, it redirects to the 'dashboard'.
 router.put('/depositmoney', withAuth, async (req, res) => {
   try {
-    const checkingData = await Checking.findAll({
+    const checkingData = await Checking.findOne({
       where: {
         user_id: req.session.user_id,
       },
     });
-    const savingData = await Saving.findAll({
+    const savingData = await Saving.findOne({
       where: {
         user_id: req.session.user_id,
       },
@@ -99,17 +103,17 @@ router.put('/depositmoney', withAuth, async (req, res) => {
 //Send data to 'transfermoney' handlebar to be rendered.
 router.get('/transfermoney', withAuth, async (req, res) => {
   try {
-    const checkingData = await Checking.findAll({
+    const checkingData = await Checking.findOne({
       where: {
         user_id: req.session.user_id,
       },
     });
-    const savingData = await Saving.findAll({
+    const savingData = await Saving.findOne({
       where: {
         user_id: req.session.user_id,
       },
     });
-    const creditData = await Credit.findAll({
+    const creditData = await Credit.findOne({
       where: {
         user_id: req.session.user_id,
       },
@@ -131,17 +135,17 @@ router.get('/transfermoney', withAuth, async (req, res) => {
 //Update Checking, Saving and/or Credit Accounts after a money transfer. Then, it redirects to the dashboard.
 router.put('/transfermoney', withAuth, async (req, res) => {
   try {
-    const checkingData = await Checking.findAll({
+    const checkingData = await Checking.findOne({
       where: {
         user_id: req.session.user_id,
       },
     });
-    const savingData = await Saving.findAll({
+    const savingData = await Saving.findOne({
       where: {
         user_id: req.session.user_id,
       },
     });
-    const creditData = await Credit.findAll({
+    const creditData = await Credit.findOne({
       where: {
         user_id: req.session.user_id,
       },

@@ -34,7 +34,7 @@ router.post('/login', async (req, res) => {
     if (!validPassword) {
       res
         .status(400)
-        .json({ message: 'Incorrect email or password, please try again' });
+        .json({ message: 'Incorrect username or password, please try again' });
       return;
     }
     req.session.save(() => {
@@ -62,21 +62,21 @@ router.get("/signup", async (req, res) => {
 //Create New User with Accounts. The initial balance for accounts will be $0.
 router.post('/signup', async (req, res) => {
   try {
-    const userData = await User.Create({
+    const userData = await User.create({
       fname: req.body.first_name,
       lname: req.body.last_name,
       username: req.body.username,
       password: req.body.password
      });
-     await Checking.Create({
+     await Checking.create({
       current_balance: 0,
       user_id: userData.id
      })
-     await Saving.Create({
+     await Saving.create({
       current_balance: 0,
       user_id: userData.id
      })
-     await Credit.Credit({
+     await Credit.create({
       current_balance: 0,
       user_id: userData.id
      })
