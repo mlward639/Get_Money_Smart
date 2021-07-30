@@ -1,7 +1,3 @@
-<div>
-  Hellow
-</div>
-
 <!-- add to dashboard -->
 <button
   type='button'
@@ -40,9 +36,13 @@
         {{#each creditHistory as |history|}}
           <div class='history col-md-5'>
             <p>
-              {{history.time_charged}}
+              Date:
+              {{format_date_time history.time_charged}}
+              <br />
+              Merchant:
               {{history.merchant}}
-              {{history.amount}}
+              <br />
+              Amount: ${{format_amount history.amount}}
             </p>
             <hr class='line' />
           </div>
