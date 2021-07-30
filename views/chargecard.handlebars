@@ -1,1 +1,32 @@
-This is a page to demonstrate charging money
+{{!-- This is a page to demonstrate charging money --}}
+
+<div class="translucent-form-overlay charge">
+        <form class="charge-form">
+          <h3>Simulate Credit Card Charges</h3>
+          <div class="row columns charge-to">
+            <label>Merchant Name
+                <input type="text" name="chargeTo" class="chargeTo" placeholder="Kroger">
+            </label>
+          </div>
+          <div class="row columns charge-from">
+            <label>From 
+                <input type="text" name="chargeFrom" class="chargeFrom" value="Credit card (current balance: {{Credit.current_balance}})"readonly></label>
+          </div>
+          <div class="row columns charge-amount">
+            <label>Amount
+                <input type="number" name="chargeAmt" class="chargeAmt" placeholder="Any">
+            </label>
+          </div>
+          <div class="row columns charge-comment">
+            <label>Comment
+                <input type="text" name="chargeComment" class="chargeComment" placeholder="Any">
+            </label>
+          </div>
+          <button type="button" class="primary button expanded search-button chargeBtn">
+            Charge
+          </button>
+          <span id="error"></span>
+       </form>
+      </div>
+
+      <script src="../public/js/chargeFormBtns.js"></script>
