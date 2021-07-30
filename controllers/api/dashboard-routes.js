@@ -1,11 +1,9 @@
 const router = require('express').Router();
 const withAuth = require('../../utils/auth');
-const { Checking } = require('../../models/Checking');
-const { Saving } = require('../../models/Saving');
-const { Credit } = require('../../models/Credit');
+const { Checking, Saving, Credit } = require('../../models/');
 
 // get checking by user id
-router.get('/', withAuth, async (req, res) => {
+router.get('/checking', withAuth, async (req, res) => {
   try {
     const checkingData = await Checking.findAll({
       where: {
@@ -28,7 +26,7 @@ router.get('/', withAuth, async (req, res) => {
 });
 
 // get saving by user id
-router.get('/', withAuth, async (req, res) => {
+router.get('/saving', withAuth, async (req, res) => {
   try {
     const savingData = await Saving.findAll({
       where: {
@@ -51,7 +49,7 @@ router.get('/', withAuth, async (req, res) => {
 });
 
 // get credit by user id
-router.get('/', withAuth, async (req, res) => {
+router.get('/credit', withAuth, async (req, res) => {
   try {
     const creditData = await Credit.findAll({
       where: {

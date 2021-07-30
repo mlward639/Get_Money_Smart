@@ -37,15 +37,15 @@ User.init(
     },
   },
   {
-    hooks: {
-      beforeCreate: async (newUserData) => {
-        newUserData.password = await bcrypt.hash(newUserData.password, 10);
-        newUserData.fname = await newUserData.fname.toLowerCase();
-        newUserData.lname = await newUserData.lname.toLowerCase();
-        newUserData.username = await newUserData.username.toLowerCase();
-        return newUserData;
-      },
-    },
+    //   // hooks: {
+    //   //   beforeCreate: async (newUserData) => {
+    //   //     newUserData.password = await bcrypt.hash(newUserData.password, 10);
+    //   //     newUserData.fname = await newUserData.fname.toLowerCase();
+    //   //     newUserData.lname = await newUserData.lname.toLowerCase();
+    //   //     newUserData.username = await newUserData.username.toLowerCase();
+    //   //     return newUserData;
+    //   //   },
+    //   },
     sequelize,
     timestamps: false,
     freezeTableName: true,
