@@ -146,6 +146,19 @@
   color: #8a8a8a;
 }
 
+/* --------- Credit transaction history modal --------*/
+#historyModal {
+  font-family: inherit;
+}
+
+/*-------Educational Modals----------*/
+.checkPic {
+  width: 100%;
+  height: auto;
+}
+
+/*SET a link colors so they dont change when clicked!!!!!!!!!!!!! */
+
 /*----------Registration Form--------*/
 .reg-form {
   margin: 0;
@@ -158,10 +171,6 @@
   text-align: center;
 }
 
-.checkPic {
-  width: 100%;
-  height: auto;
-}
 .reg-form .reg-form-icons h4 {
   margin-bottom: 1rem;
 }
