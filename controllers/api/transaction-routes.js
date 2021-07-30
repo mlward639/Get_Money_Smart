@@ -85,13 +85,11 @@ router.put('/depositmoney', withAuth, async (req, res) => {
       },
     });
     if (req.body.depositTo === 'checking') {
-      checkingData.current_balance =
-        checkingData.current_balance + parseInt(req.body.depositAmount);
+      checkingData.current_balance = checkingData.current_balance + parseInt(req.body.depositAmount);
       await checkingData.save();
     }
     if (req.body.depositTo === 'saving') {
-      savingData.current_balance =
-        savingData.current_balance + parseInt(req.body.depositAmount);
+      savingData.current_balance = savingData.current_balance + parseInt(req.body.depositAmount);
       await savingData.save();
     }
     res.redirect('/dashboard');
@@ -189,7 +187,7 @@ router.put('/transfermoney', withAuth, async (req, res) => {
 });
 
 //Delete Transaction History
-router.delete('/clear', withAuth, async (req, res) => {
+router.delete('/clear', async (req, res) => {
   try {
     const historyData = await History.destroy({
       where: {

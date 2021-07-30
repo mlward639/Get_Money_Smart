@@ -33,9 +33,16 @@ router.get('/', withAuth, async (req, res) => {
     const saving = savingData.get({ plain: true });
     const credit = creditData.get({ plain: true });
     const history = historyData.get({ plain: true });
+    // res.status(200).json(checkingData);
+    // res.status(200).json(savingData);
+    // res.status(200).json(historyData);
+    // res.status(200).json(creditData);
     res.render('dashboard', {
-      ...credit, ...saving, ...checking, ...history,
-      logged_in: true
+      ...credit,
+      ...saving,
+      ...checking,
+      ...history,
+      logged_in: true,
     });
   } catch (err) {
     res.status(500).json(err);

@@ -1,59 +1,56 @@
-<!-- TESTING PURPOSES, DELETE LATER -->
-
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Get Money Smart</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Schoolbell&display=swap"
+      rel="stylesheet"
+    />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css"
       integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I="
       crossorigin="anonymous"
     />
+
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="https://unpkg.com/css-tooltip" />
+    <link rel="stylesheet" href="/path/to/css-tooltip.min.css" />
+    <link rel="stylesheet" href="../public/css/style.css" />
+
   </head>
 
-  <div class="translucent-form-overlay transfer">
-    <form class="transfer-form">
-      <h3>Make a Transfer</h3>
-      <div class="row columns transfer-from">
-        <label>From
-            <select name="status transferFrom" type="text" class="transferOptions transferFrom">
-              <option value="checking">Checking (current balance: {{checking.current_balance}})</option>
-              <option value="savings">Savings (current balance: {{saving.current_balance}})</option>
-            </select>
-        </label>
-      </div>
-      <div class="row columns transfer-to">
-        <label>To
-          <select name="status transferTo" type="text" class="transferOptions transferTo">
-            <option value="checking">Checking (current balance: {{checking.current_balance}})</option>
-            <option value="savings">Savings (current balance: {{saving.current_balance}})</option>
-            <option value="credit-card">Credit Card (current balance: {{credit.current_balance}})</option>
-          </select>
-        </label>
-      </div>
-      <div class="row columns transfer-amount">
-        <label>Amount
-            <input type="number" name="transferAmt" class="transferAmt" placeholder="Any">
-        </label>
-      </div>
-      <div class="row columns transfer-comment">
-        <label>Comment
-            <input type="text" name="transferComment" class="transferComment" placeholder="Any">
-        </label>
-      </div>
-      <button type="button" class="primary button expanded search-button transferBtn">
-        Transfer
-      </button>
-      <span id="error"></span>
-   </form>
-  </div>
+  <body>
 
-  <script src="/js/transferFormBtns.js"></script>
-</body>
+    <nav class="top-bar topbar-responsive">
+      <div class="top-bar-title">
+        <span data-responsive-toggle="topbar-responsive" data-hide-for="medium">
+        </span>
+        <a class="topbar-responsive-logo"><img
+            src="assets/images/logo.png"
+          />Get Money Smart <a class="tooltip-multiline tooltip-bottom tooltip-bank" data-tooltip="A bank is a financial institution that handles money, including keeping it for saving or commercial purposes, and exchanging, investing, and supplying it for loans.">Bank</a></a>
+      </div>
+      <div id="topbar-responsive" class="topbar-responsive-links">
+        <div class="top-bar-right">
+          <ul class="menu simple vertical medium-horizontal">
+            <li><a href="/signup">Create</a></li>
+            <li>
+              <a href='/login'>
+                <button
+                  type="button"
+                  class="button hollow topbar-responsive-button"
+                >Login</button>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
 
+    </html>
+  </body>
 </html>

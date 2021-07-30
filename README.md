@@ -4,7 +4,7 @@
 
 ## Description
 
-Educational online banking application that allows students to manage their virtual finances including bank accounts and credit cards. Features include ability to open new accounts, transfer money between accounts, and make payment on credit card. Tooltips with descriptive comments are added to assist students in learning about finance.
+Educational online banking application that allows students to manage their virtual finances including bank accounts and credit cards. Features include ability to open new account, transfer money between bank accounts, and make payment on credit card. Tooltips and educational modals with descriptive comments are added to assist students in learning about finance.
 
 ## User Story
 
@@ -64,10 +64,10 @@ SO THAT I can show students how to navigate an online banking platform in an ins
 - Homepage: takes user to homepage to sign up/login
 - Dashboard: user's homepage once signed in. displays user's accounts and loans with their balances
   - Navigation links:
-    - Open new account
     - Deposit Money
     - Transfer Money
-    - Apply for a loan
+    - Make payment on credit card
+    - Create charges on credit card
     - Logoff
 
 ## Credits
@@ -77,7 +77,8 @@ Libraries:
 - Node.js and Express.js: RESTful API
 - Handlebar.js: template engine (express-handlebars package to implement Handlebar.js)
 - MySQL2 and Sequelize ORM: DB
-- Foundation: CDN
+- Foundation: CSS framework
+- Bootstrap: CSS framework
 - Hatchful: logo
 - Lucid: wireframe
 - Bcrypt: hash password
@@ -86,6 +87,8 @@ Libraries:
 - Express-session and connect-session-sequelize: authentication
 - css-tooltip: tooltips
 - Heroku: deploy
+- <a href='https://youth.handsonbanking.org/grades/middle-school-course/'>Hands on Banking</a>: educational banking information
+- <a href='https://www.bankrate.com/'>Bankrate</a>: check image and credit card information
 
 ## Contribution Guidelines
 
