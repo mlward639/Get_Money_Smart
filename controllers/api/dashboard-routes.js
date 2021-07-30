@@ -1,10 +1,8 @@
 const router = require('express').Router();
 const withAuth = require('../../utils/auth');
-const { Checking } = require('../../models/Checking');
-const { Saving } = require('../../models/Saving');
-const { Credit } = require('../../models/Credit');
+const { Checking, Saving, Credit, History } = require('../../models/');
 
-// get checking by user id
+//sends Data(Checking, Saving, Credit, History) to 'dashboard' handlebar
 router.get('/', withAuth, async (req, res) => {
   try {
     const checkingData = await Checking.findAll({
@@ -12,62 +10,30 @@ router.get('/', withAuth, async (req, res) => {
         user_id: req.session.user_id,
       },
     });
-
-    if (!checkingData) {
-      res
-        .status(404)
-        .json({ message: 'no checking account found with this id!' });
-      return;
-    }
-
-    res.status(200).json(checkingData);
-    res.render.json(checkingData);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
-// get saving by user id
-router.get('/', withAuth, async (req, res) => {
-  try {
     const savingData = await Saving.findAll({
       where: {
         user_id: req.session.user_id,
       },
     });
-
-    if (!savingData) {
-      res
-        .status(404)
-        .json({ message: 'no savings account found with this id!' });
-      return;
-    }
-
-    res.status(200).json(savingData);
-    res.render.json(savingData);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
-// get credit by user id
-router.get('/', withAuth, async (req, res) => {
-  try {
     const creditData = await Credit.findAll({
       where: {
         user_id: req.session.user_id,
       },
     });
+    const historyData = await History.findAll({
+      where: {
+        user_id: req.session.user_id,
+      },
+    });
 
-    if (!creditData) {
-      res
-        .status(404)
-        .json({ message: 'no checking account found with this id!' });
-      return;
-    }
-
-    res.status(200).json(creditData);
-    res.render.json(creditData);
+    const checking = checkingData.get({ plain: true });
+    const saving = savingData.get({ plain: true });
+    const credit = creditData.get({ plain: true });
+    const history = historyData.get({ plain: true });
+    res.render('dashboard', {
+      ...credit, ...saving, ...checking, ...history,
+      logged_in: true
+    });
   } catch (err) {
     res.status(500).json(err);
   }

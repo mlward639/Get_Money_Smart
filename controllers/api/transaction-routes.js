@@ -1,7 +1,8 @@
 const router = require('express').Router();
-const { Checking, Saving, Credit } = require('../../models/');
+const { Checking, Saving, Credit, History } = require('../../models/');
 const withAuth = require('../../utils/auth');
 
+//Send data to 'chargecard' handlebar to be rendered.
 router.get('/chargecard', withAuth, async (req, res) => {
   try {
     const creditData = await Credit.findAll({
@@ -10,17 +11,16 @@ router.get('/chargecard', withAuth, async (req, res) => {
       },
     });
     const credit = creditData.get({ plain: true });
-
     res.render('chargecard', {
       ...credit,
-      logged_in: true
+      logged_in: true,
     });
-    res.redirect('/dashboard');
   } catch (err) {
     res.status(500).json(err);
   }
-})
+});
 
+//Updates the Credit Account after a transaction. It stores the transaction in the History table.
 router.put('/chargecard', withAuth, async (req, res) => {
   try {
     const creditData = await Credit.findAll({
@@ -28,8 +28,13 @@ router.put('/chargecard', withAuth, async (req, res) => {
         user_id: req.session.user_id,
       },
     });
+    await History.Create({
+      merchant: req.body.chargeTo,
+      amount: req.body.chargeAmount,
+      user_id: req.session.user_id,
+    });
     creditData.current_balance =
-      creditData.current_balance + parseInt(req.body.charge_amount);
+      creditData.current_balance + parseInt(req.body.chargeAmount);
     await creditData.save();
     res.redirect('/dashboard');
   } catch (err) {
@@ -37,7 +42,8 @@ router.put('/chargecard', withAuth, async (req, res) => {
   }
 });
 
-router.put('/depositmoney', async (req, res) => {
+//Send data to 'depositmoney' handlebar to be rendered.
+router.get('/depositmoney', withAuth, async (req, res) => {
   try {
     const checkingData = await Checking.findAll({
       where: {
@@ -49,23 +55,20 @@ router.put('/depositmoney', async (req, res) => {
         user_id: req.session.user_id,
       },
     });
-    if (req.body.selected_account === checkingData.account_number) {
-      checkingData.current_balance =
-        checkingData.current_balance + parseInt(req.body.deposit_amount);
-      await checkingData.save();
-    } 
-    if (req.body.selected_account === savingData.account_number) {
-      savingData.current_balance =
-        savingData.current_balance + parseInt(req.body.deposit_amount);
-      await savingData.save();
-      res.redirect('/dashboard');
-    }
+    const checking = checkingData.get({ plain: true });
+    const saving = savingData.get({ plain: true });
+    res.render('depositmoney', {
+      ...checking,
+      ...saving,
+      logged_in: true,
+    });
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
-router.put('/transfermoney', async (req, res) => {
+///Update Checking or Saving Accounts deposit amount. Then, it redirects to the 'dashboard'.
+router.put('/depositmoney', withAuth, async (req, res) => {
   try {
     const checkingData = await Checking.findAll({
       where: {
@@ -77,21 +80,15 @@ router.put('/transfermoney', async (req, res) => {
         user_id: req.session.user_id,
       },
     });
-    if (req.body.sender === checkingData.account_number) {
+    if (req.body.depositTo === 'checking') {
       checkingData.current_balance =
-        checkingData.current_balance - parseInt(req.body.transfer_amount);
+        checkingData.current_balance + parseInt(req.body.depositAmount);
       await checkingData.save();
+    }
+    if (req.body.depositTo === 'saving') {
       savingData.current_balance =
-        savingData.current_balance + parseInt(req.body.transfer_amount);
+        savingData.current_balance + parseInt(req.body.depositAmount);
       await savingData.save();
-    } 
-    if (req.body.sender === savingData.account_number) {
-      savingData.current_balance =
-        savingData.current_balance - parseInt(req.body.deposit_amount);
-      await savingData.save();
-      checkingData.current_balance =
-        checkingData.current_balance + parseInt(req.body.deposit_amount);
-      await checkingData.save();
     }
     res.redirect('/dashboard');
   } catch (err) {
@@ -99,5 +96,111 @@ router.put('/transfermoney', async (req, res) => {
   }
 });
 
+//Send data to 'transfermoney' handlebar to be rendered.
+router.get('/transfermoney', withAuth, async (req, res) => {
+  try {
+    const checkingData = await Checking.findAll({
+      where: {
+        user_id: req.session.user_id,
+      },
+    });
+    const savingData = await Saving.findAll({
+      where: {
+        user_id: req.session.user_id,
+      },
+    });
+    const creditData = await Credit.findAll({
+      where: {
+        user_id: req.session.user_id,
+      },
+    });
+    const checking = checkingData.get({ plain: true });
+    const saving = savingData.get({ plain: true });
+    const credit = creditData.get({ plain: true });
+    res.render('transfermoney', {
+      ...checking,
+      ...saving,
+      ...credit,
+      logged_in: true,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+//Update Checking, Saving and/or Credit Accounts after a money transfer. Then, it redirects to the dashboard.
+router.put('/transfermoney', withAuth, async (req, res) => {
+  try {
+    const checkingData = await Checking.findAll({
+      where: {
+        user_id: req.session.user_id,
+      },
+    });
+    const savingData = await Saving.findAll({
+      where: {
+        user_id: req.session.user_id,
+      },
+    });
+    const creditData = await Credit.findAll({
+      where: {
+        user_id: req.session.user_id,
+      },
+    });
+    let sender = req.body.transferFrom;
+    let receiver = req.body.transferTo;
+    let amount = parseInt(req.body.transferAmount);
+
+    switch ((sender, receiver)) {
+      case ('checking', 'saving'):
+        checkingData.current_balance = checkingData.current_balance - amount;
+        savingData.current_balance = savingData.current_balance + amount;
+        await checkingData.save();
+        await savingData.save();
+        break;
+      case ('checking', 'credit'):
+        checkingData.current_balance = checkingData.current_balance - amount;
+        creditData.current_balance = creditData.current_balance + amount;
+        await checkingData.save();
+        await creditData.save();
+        break;
+      case ('saving', 'checking'):
+        savingData.current_balance = savingData.current_balance - amount;
+        checkingData.current_balance = checkingData.current_balance + amount;
+        await savingData.save();
+        await checkingData.save();
+        break;
+      case ('saving', 'credit'):
+        savingData.current_balance = savingData.current_balance - amount;
+        creditData.current_balance = creditData.current_balance - amount;
+        await savingData.save();
+        await creditData.save();
+        break;
+      default:
+        return;
+    }
+    res.redirect('/dashboard');
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+//Delete Transaction History
+router.delete('/clear', withAuth, async (req, res) => {
+  try {
+    const historyData = await History.destroy({
+      where: {
+        user_id: req.session.user_id,
+      },
+    });
+    if (!historyData) {
+      res.status(404).json({ message: "User doesn't have past transaction" });
+      return;
+    }
+    res.redirect('/dashboard');
+    res.status(200).json(historyData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 module.exports = router;
