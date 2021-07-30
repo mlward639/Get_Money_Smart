@@ -46,6 +46,17 @@ router.put('/chargecard', async (req, res) => {
     });
 });
 
+//create another route for pulling history
+router.get('/history', async (req, res) => {
+  try {
+    const historyData = await History.findAll({});
+    const creditHistory = historyData.map((item) => item.get({ plain: true }));
+    res.render('dashboard', { creditHistory });
+  } catch (err) {
+    console.log(err);
+  }
+});
+
 //Send data to 'depositmoney' handlebar to be rendered.
 router.get('/depositmoney', withAuth, async (req, res) => {
   try {
@@ -85,11 +96,13 @@ router.put('/depositmoney', withAuth, async (req, res) => {
       },
     });
     if (req.body.depositTo === 'checking') {
-      checkingData.current_balance = checkingData.current_balance + parseInt(req.body.depositAmount);
+      checkingData.current_balance =
+        checkingData.current_balance + parseInt(req.body.depositAmount);
       await checkingData.save();
     }
     if (req.body.depositTo === 'saving') {
-      savingData.current_balance = savingData.current_balance + parseInt(req.body.depositAmount);
+      savingData.current_balance =
+        savingData.current_balance + parseInt(req.body.depositAmount);
       await savingData.save();
     }
     res.redirect('/dashboard');

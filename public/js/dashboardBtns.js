@@ -28,3 +28,7 @@ function clearURL() {
 }
 
 document.querySelector('.clearBtn').addEventListener('click', clearURL); // WHY WONT THIS QUERY SELECTOR WORK! ONLY WORKS WITH ONCLICK=CLEARURL IN THE HTML FILE
+
+//TO DO
+// fetch call to get /history
+// event listener to button on dashboards
