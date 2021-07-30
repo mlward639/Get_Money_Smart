@@ -28,7 +28,7 @@ router.put('/chargecard', withAuth, async (req, res) => {
         user_id: req.session.user_id,
       },
     });
-    await History.Create({
+    await History.create({
       merchant: req.body.chargeTo,
       amount: req.body.chargeAmount,
       user_id: req.session.user_id,
@@ -185,11 +185,11 @@ router.put('/transfermoney', withAuth, async (req, res) => {
 });
 
 //Delete Transaction History
-router.delete('/clear', withAuth, async (req, res) => {
+router.delete('/clear', async (req, res) => {
   try {
     const historyData = await History.destroy({
       where: {
-        user_id: req.session.user_id,
+        user_id: 2,
       },
     });
     if (!historyData) {
