@@ -20,7 +20,7 @@ const chargeFormHandler = async (event) => {
   // Send POST request to API endpoint if required fields are filled out
   if (chargeFrom && chargeTo && chargeAmount) {
     //NOT SURE ABOUT ROUTE AND PUT vs POST HERE (seems like put would completely override, i think want post to send the info and let backend manipulate it)
-    const response = await fetch('/api/chargemoney', {
+    const response = await fetch('/api/transaction/chargemoney', {
       method: 'POST',
       body: JSON.stringify({
         chargeFrom,
