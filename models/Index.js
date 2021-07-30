@@ -39,6 +39,12 @@ History.belongsTo(User, {
   foreignKey: 'user_id'
 })
 
+User.hasMany(History, {
+  foreignKey: 'user_id',
+  onDelete: 'CASCADE',
+});
+
+
 
 
 module.exports = { Saving, Checking, Credit, History, User};
