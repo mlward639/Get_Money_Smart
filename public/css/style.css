@@ -166,25 +166,62 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+<<<<<<< Updated upstream
+=======
 }
-.reg-form .reg-form-icons {
+.reg-form .form-icons {
   text-align: center;
 }
 
-.reg-form .reg-form-icons h4 {
+.reg-form .form-icons h4 {
   margin-bottom: 1rem;
 }
 
-.reg-form .reg-form-icons .input-group-label {
+.reg-form .form-icons .input-group-label {
   background-color: var(--orange);
   border-color: var(--green);
 }
 
-.reg-form .reg-form-icons .input-group-field {
+.reg-form .form-icons .input-group-field {
+  border-color: var(--green);
+>>>>>>> Stashed changes
+}
+
+.reg-form .form-icons .fa {
+  color: white;
+  width: 1rem;
+}
+
+/*----------Login Form--------*/
+
+.login-page {
+  margin-top: 10%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.log-form {
+  margin: 0;
+}
+
+.log-form .form-icons {
+  text-align: center;
+}
+
+.log-form .form-icons h4 {
+  margin-bottom: 1rem;
+}
+
+.log-form .form-icons .input-group-label {
+  background-color: var(--orange);
   border-color: var(--green);
 }
 
-.reg-form .reg-form-icons .fa {
+.log-form .form-icons .input-group-field {
+  border-color: var(--green);
+}
+
+.log-form .form-icons .fa {
   color: white;
   width: 1rem;
 }
