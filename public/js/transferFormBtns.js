@@ -29,7 +29,7 @@ const transferFormHandler = async (event) => {
     transferFrom !== transferTo
   ) {
     //NOT SURE ABOUT ROUTE AND PUT vs POST HERE (seems like put would completely override, i think want post to send the info and let backend manipulate it)
-    const response = await fetch('/api/transfermoney', {
+    const response = await fetch('/api/transaction/transfermoney', {
       method: 'POST',
       body: JSON.stringify({
         transferFrom,
