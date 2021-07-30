@@ -77,7 +77,8 @@ Libraries:
 - Node.js and Express.js: RESTful API
 - Handlebar.js: template engine (express-handlebars package to implement Handlebar.js)
 - MySQL2 and Sequelize ORM: DB
-- Foundation: CDN
+- Foundation: CSS framework
+- Bootstrap: CSS framework
 - Hatchful: logo
 - Lucid: wireframe
 - Bcrypt: hash password
