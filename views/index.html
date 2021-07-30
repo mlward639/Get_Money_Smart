@@ -16,45 +16,50 @@
     <link rel="stylesheet" href="../../public/css/style.css" />
   </head>
 
-  <div class="translucent-form-overlay transfer">
-    <form class="transfer-form">
-      <h3>Make a Transfer</h3>
-      <div class="row columns transfer-from">
+
+  <div class="translucent-form-overlay deposit">
+    <form class="deposit-form">
+      <h3>Make a Deposit</h3>
+      <div class="row columns deposit-from">
         <label>From
-            <select name="status transferFrom" type="text" class="transferOptions transferFrom">
-              <option value="checking">Checking (current balance: {{Checking.current_balance}})</option>
-              <option value="savings">Savings (current balance: {{Saving.current_balance}})</option>
-              <option value="credit-card">Credit Card (current balance: {{Credit.current_balance}})</option>
+            <select name="status depositFrom" type="text" class="depositOptions depositFrom">
+              <option value="personal_check">Personal Check</option>
+              <option value="paycheck">Paycheck</option>
+              <option value="investment_return">Investment Return</option>
             </select>
         </label>
       </div>
-      <div class="row columns transfer-to">
+      <div class="row columns deposit-to">
         <label>To
-          <select name="status transferTo" type="text" class="transferOptions transferTo">
+          <select name="status depositTo" type="text" class="depositOptions depositTo">
             <option value="checking">Checking (current balance: {{Checking.current_balance}})</option>
             <option value="savings">Savings (current balance: {{Saving.current_balance}})</option>
             <option value="credit-card">Credit Card (current balance: {{Credit.current_balance}})</option>
           </select>
         </label>
       </div>
-      <div class="row columns transfer-amount">
+      <div class="row columns deposit-amount">
         <label>Amount
-            <input type="number" name="transferAmt" class="transferAmt" placeholder="Any">
+            <input type="number" name="depositAmt" class="depositAmt" placeholder="Any">
         </label>
       </div>
-      <div class="row columns transfer-comment">
+      <div class="row columns deposit-comment">
         <label>Comment
-            <input type="text" name="transferComment" class="transferComment" placeholder="Any">
+            <input type="text" name="depositComment" class="depositComment" placeholder="Any">
         </label>
       </div>
-      <button type="button" class="primary button expanded search-button transferBtn">
-        Transfer
+      <div class="row columns deposit-pic">
+          <label><a href="#"><i class="fas fa-camera fa-lg"></i></a> Attach a picture of check, if applicable
+          </label>
+      </div>
+      <button type="button" class="primary button expanded search-button depositBtn">
+        Deposit
       </button>
       <span id="error"></span>
    </form>
   </div>
 
-  <script src="../public/js/transferFormBtns.js"></script>
+  <script src="../public/js/depositFormBtns.js"></script>
 </body>
 
 </html>

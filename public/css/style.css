@@ -144,6 +144,10 @@
 
 /* -------------------------------------------------------------------------- */
 
+.checkPic {
+  width: 100%;
+  height: auto;
+}
 
 @media screen and (max-width: 39.9375em) {
   .topbar-responsive .menu a {
