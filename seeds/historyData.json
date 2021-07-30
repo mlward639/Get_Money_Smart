@@ -1,0 +1,26 @@
+[
+    {
+        "merchant": "Kroger",
+        "amount": 1500,
+        "time-charged": "CURRENT_TIMESTAMP",
+        "user_id": 1
+    },
+    {
+        "merchant": "Publix",
+        "amount": 2000,
+        "time-charged": "CURRENT_TIMESTAMP",
+        "user_id": 2
+    },
+    {
+        "merchant": "Walmart",
+        "amount": 1000,
+        "time-charged": "CURRENT_TIMESTAMP",
+        "user_id": 3
+    },
+    {
+        "merchant": "Target",
+        "amount": 500,
+        "time-charged": "CURRENT_TIMESTAMP",
+        "user_id": 4
+    }
+]
