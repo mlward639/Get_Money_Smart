@@ -1,13 +1,12 @@
-
 :root {
-  --green #32b558;
-  --pink #b53260;
-  --orange #b55b32;
+  --green: #32b558;
+  --pink: #b53260;
+  --orange: #b55b32;
   font-family: 'Schoolbell', cursive;
 }
 
 .topbar-responsive {
-  background: #b55b32;
+  background: var(--orange);
   padding: 1rem 1.5rem;
   display: flex;
   justify-content: space-around;
@@ -28,7 +27,7 @@
 }
 
 .topbar-responsive .menu {
-  background: #b55b32;
+  background: var(--orange);
 }
 
 .topbar-responsive .menu li:last-of-type {
@@ -41,13 +40,14 @@
 }
 
 .topbar-responsive .menu a:hover {
-  color: #32b558;
+  color: var(--green);
 }
 
 /* ----------- FORM css --------------- */
 
 .transfer,
-.deposit, .charge {
+.deposit,
+.charge {
   margin: 0;
   position: absolute;
   top: 50%;
@@ -56,20 +56,23 @@
 }
 
 .transfer-form,
-.deposit-form, .charge-form {
+.deposit-form,
+.charge-form {
   font: inherit;
   padding-bottom: 20px;
 }
 
 .transfer-form h3,
-.deposit-form h3, .charge-form h3 {
+.deposit-form h3,
+.charge-form h3 {
   font-size: 24px;
   margin-top: 0;
   margin-bottom: 5px;
 }
 
 .transfer-form label,
-.deposit-form label, .charge-form label {
+.deposit-form label,
+.charge-form label {
   font-size: 16px;
   line-height: 1.6;
 }
@@ -95,7 +98,8 @@
 }
 
 .transferBtn,
-.depositBtn, .chargeBtn {
+.depositBtn,
+.chargeBtn {
   font-size: 16px;
   position: absolute;
   left: 50%;
@@ -111,7 +115,7 @@
 .translucent-form-overlay {
   max-width: 500px;
   width: 100%;
-  background-color: rgba(54, 54, 54, 0.8);
+  background-color: var(--pink);
   padding: 20px;
   color: #fefefe;
 }
@@ -142,8 +146,37 @@
   color: #8a8a8a;
 }
 
-/* -------------------------------------------------------------------------- */
+/*----------Registration Form--------*/
+.reg-form {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%)
+}
+.reg-form .reg-form-icons {
+  text-align: center;
+}
 
+.reg-form .reg-form-icons h4 {
+  margin-bottom: 1rem;
+}
+
+.reg-form .reg-form-icons .input-group-label {
+  background-color: var(--orange);
+  border-color: var(--green);
+}
+
+.reg-form .reg-form-icons .input-group-field {
+  border-color: var(--green);
+}
+
+.reg-form .reg-form-icons .fa {
+  color: white;
+  width: 1rem;
+}
+
+/* -------------------------------------------------------------------------- */
 
 @media screen and (max-width: 39.9375em) {
   .topbar-responsive .menu a {
@@ -159,8 +192,8 @@
 }
 
 .topbar-responsive .menu .topbar-responsive-button:hover {
-  color: #b53260;
-  border-color: #b53260;
+  color: var(--pink);
+  border-color: var(--pink);
 }
 
 @media screen and (max-width: 39.9375em) {
