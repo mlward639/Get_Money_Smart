@@ -22,7 +22,12 @@ const transferFormHandler = async (event) => {
   //console.log("transfer cmt", transferComment);
 
   // Send POST request to API endpoint if required fields are filled out
-  if (transferFrom && transferTo && transferAmount) {
+  if (
+    transferFrom &&
+    transferTo &&
+    transferAmount &&
+    transferFrom !== transferTo
+  ) {
     //NOT SURE ABOUT ROUTE AND PUT vs POST HERE (seems like put would completely override, i think want post to send the info and let backend manipulate it)
     const response = await fetch('/api/transfermoney', {
       method: 'POST',
@@ -35,7 +40,7 @@ const transferFormHandler = async (event) => {
       headers: { 'Content-Type': 'application/json' },
     });
     // if response goes through correctly, display their transaction and then redirect browser to the dashboard page
-    if (!response.ok) {
+    if (response.ok) {
       let comment = '';
       if (transferComment) {
         comment = `Comment: ${transferComment}`;
@@ -48,9 +53,26 @@ const transferFormHandler = async (event) => {
     } else {
       alert(response.statusText);
     }
+  } else if (!transferFrom || !transferTo || !transferAmount) {
+    errorMessage();
+  } else if (transferFrom === transferTo) {
+    errorMessage2();
   }
 };
 
 document
   .querySelector('.transferBtn')
   .addEventListener('click', transferFormHandler);
+
+// ERROR handling
+// From, To, and Amount are required fields
+function errorMessage() {
+  var error = document.getElementById('error');
+  error.textContent = "* Please fill in 'From', 'To', and 'Amount'";
+}
+
+// Must transfer to a different account
+function errorMessage2() {
+  var error = document.getElementById('error');
+  error.textContent = "* 'From' and 'To' must be different accounts.";
+}

@@ -1,4 +1,6 @@
-// CHARGE
+// CHARGE FORM
+
+// charge form handling
 const chargeFormHandler = async (event) => {
   event.preventDefault();
   // Collect values from charge money form
@@ -43,9 +45,18 @@ const chargeFormHandler = async (event) => {
     } else {
       alert(response.statusText);
     }
+  } else {
+    errorMessage();
   }
 };
 
 document
   .querySelector('.chargeBtn')
   .addEventListener('click', chargeFormHandler);
+
+// error handling
+function errorMessage() {
+  var error = document.getElementById('error');
+  error.textContent =
+    '*Please enter a valid Merchant Name and Amount (number).';
+}

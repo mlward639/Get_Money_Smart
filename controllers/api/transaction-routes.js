@@ -27,7 +27,7 @@ router.put('/chargecard', withAuth, async (req, res) => {
       },
     });
     creditData.current_balance =
-      creditData.current_balance + parseInt(req.body.charge_amount);
+      creditData.current_balance + parseInt(req.body.chargeAmount);
     await creditData.save();
     res.redirect('/dashboard');
   } catch (err) {
@@ -70,17 +70,17 @@ router.put('/depositmoney', async (req, res) => {
         user_id: req.session.user_id,
       },
     });
-    if (req.body.selected_account === checkingData.account_number) {
+    if (req.body.depositTo === 'checking') {
       checkingData.current_balance =
-        checkingData.current_balance + parseInt(req.body.deposit_amount);
+        checkingData.current_balance + parseInt(req.body.depositAmount);
       await checkingData.save();
     } 
-    if (req.body.selected_account === savingData.account_number) {
+    if (req.body.depositTo === 'saving') {
       savingData.current_balance =
-        savingData.current_balance + parseInt(req.body.deposit_amount);
+        savingData.current_balance + parseInt(req.body.depositAmount);
       await savingData.save();
-      res.redirect('/dashboard');
     }
+    res.redirect('/dashboard');
   } catch (err) {
     res.status(500).json(err);
   }
@@ -132,22 +132,37 @@ router.put('/transfermoney', async (req, res) => {
         user_id: req.session.user_id,
       },
     });
+    let sender = req.body.transferFrom;
+    let receiver = req.body.transferTo;
+    let amount = parseInt(req.body.transferAmount);
 
-    if (req.body.sender === checkingData.account_number) {
-      checkingData.current_balance =
-        checkingData.current_balance - parseInt(req.body.transfer_amount);
-      await checkingData.save();
-      savingData.current_balance =
-        savingData.current_balance + parseInt(req.body.transfer_amount);
-      await savingData.save();
-    } 
-    if (req.body.sender === savingData.account_number) {
-      savingData.current_balance =
-        savingData.current_balance - parseInt(req.body.deposit_amount);
-      await savingData.save();
-      checkingData.current_balance =
-        checkingData.current_balance + parseInt(req.body.deposit_amount);
-      await checkingData.save();
+    switch (sender, receiver) {
+      case 'checking', 'saving': 
+        checkingData.current_balance = checkingData.current_balance - amount;
+        savingData.current_balance = savingData.current_balance + amount;
+        await checkingData.save();
+        await savingData.save();
+      break;
+      case 'checking', 'credit':
+        checkingData.current_balance = checkingData.current_balance - amount;
+        creditData.current_balance = creditData.current_balance + amount;
+        await checkingData.save();
+        await creditData.save();
+      break;
+      case 'saving', 'checking':
+        savingData.current_balance = savingData.current_balance - amount;
+        checkingData.current_balance = checkingData.current_balance + amount;
+        await savingData.save();
+        await checkingData.save();
+      break;
+      case 'saving', 'credit':
+        savingData.current_balance = savingData.current_balance - amount;
+        creditData.current_balance = creditData.current_balance - amount;
+        await savingData.save();
+        await creditData.save();
+      break;     ;;
+      default:
+        throw error;
     }
     res.redirect('/dashboard');
   } catch (err) {
