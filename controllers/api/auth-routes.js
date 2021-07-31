@@ -1,25 +1,6 @@
 const router = require('express').Router();
 const { User, Checking, Saving, Credit } = require('../../models');
 
-router.get('/', (req, res) => {
-  // If a session exists, redirect the request to the dashboard
-  if (req.session.logged_in) {
-    res.redirect('/dashboard');
-    return;
-  }
-  res.render('login');
-});
-
-//It will direct to login page
-router.get('/login', (req, res) => {
-  // If a session exists, redirect the request to the dashboard
-  if (req.session.logged_in) {
-    res.redirect('/dashboard');
-    return;
-  }
-  res.render('login');
-});
-
 //Log in the application after username and password verification
 router.post('/login', async (req, res) => {
   try {
@@ -32,10 +13,7 @@ router.post('/login', async (req, res) => {
         .json({ message: 'Incorrect username or password, please try again' });
       return;
     }
-    console.log(userData)
-    console.log('req', req.body.password)
     const validPassword = await userData.validPassword(req.body.password)
-    console.log('password', validPassword)
     if (!validPassword) {
       res
         .status(400)
@@ -47,21 +25,9 @@ router.post('/login', async (req, res) => {
       req.session.logged_in = true;
       res.json({ user: userData, message: 'You are now logged in!' });
     });
-    res.redirect('/dashboard');
   } catch (err) {
-    console.log(err.message)
     res.status(400).json(err);
   }
-});
-
-//It will direct to signup page
-router.get('/signup', async (req, res) => {
-  // If a session exists, redirect the request to the dashboard
-  if (req.session.logged_in) {
-    res.redirect('/dashboard');
-    return;
-  }
-  res.render('signup');
 });
 
 //Create New User with Accounts. The initial balance for accounts will be $0.
@@ -92,7 +58,6 @@ router.post('/signup', async (req, res) => {
         .status(200)
         .json({ user: userData, message: 'You are now logged in!' });
     });
-    res.redirect('/dashboard');
   } catch (err) {
     res.status(400).json(err);
   }
@@ -104,7 +69,7 @@ router.post('/logout', (req, res) => {
     req.session.destroy(() => {
       res.status(204).end();
     });
-    res.redirect('/login');
+    res.status(204).end();
   } else {
     res.status(404).end();
   }
