@@ -2,11 +2,16 @@
 // fetch call to get /history
 // event listener to button on dashboards
 
-const { restore } = require('../../models/User');
+const { restore } = require('../../models/User'); ????
 
 const creditHistoryHandler = async (event) => {
   // Send GET request to API endpoint
-  const response = await fetch('/api/transaction/history', {
+  const response = await fetch('/api/ 
+  //??? 
+  // /api/transaction/history'
+  // or api/dashboard
+  // or charge card???
+  , {
     method: 'GET',
     headers: { 'Content-Type': 'application/json' },
   });
@@ -18,11 +23,6 @@ const creditHistoryHandler = async (event) => {
 };
 
 document
-  .querySelector('.depositBtn')
-  .addEventListener('click', depositFormHandler);
+  .querySelector('#historyModalLabel')
+  .addEventListener('click', creditHistoryHandler);
 
-// error handling
-function errorMessage() {
-  var error = document.getElementById('error');
-  error.textContent = "* Please fill in 'From', 'To', and 'Amount'";
-}

@@ -1,142 +1,224 @@
-<button onclick='creditHistoryHandler()'>NAME</button>
-
-<!-- add to dashboard -->
-<button
-  type='button'
-  class='btn btn-primary'
-  data-toggle='modal'
-  data-target='#historyModal'
->
-  <a
-    class='tooltip-multiline tooltip-top'
-    data-tooltip='View your prior transactions.'
-  >View transaction history</a>
-</button>
-<!-- Modal -->
-<div
-  class='modal fade'
-  id='historyModal'
-  tabindex='-1'
-  aria-labelledby='historyModalLabel'
-  aria-hidden='true'
->
-  <div class='modal-dialog'>
-    <div class='modal-content'>
-      <div class='modal-header'>
-        <h5 class='modal-title' id='historyModalLabel'>Transaction history</h5>
-        <button
-          type='button'
-          class='close'
-          data-dismiss='modal'
-          aria-label='Close'
-        >
-          <span aria-hidden='true'>&times;</span>
-        </button>
-      </div>
-      <div class='modal-body'>
-        <!-- Iterate over creditData -->
-        {{#each creditHistory as |history|}}
-          <div class='history col-md-5'>
-            <p>
-              Date:
-              {{format_date_time history.time_charged}}
-              <br />
-              Merchant:
-              {{history.merchant}}
-              <br />
-              Amount: ${{format_amount history.amount}}
-            </p>
-            <hr class='line' />
-          </div>
-        {{/each}}
-      </div>
-      <div class='modal-footer'>
-        <button
-          type='button'
-          class='btn btn-primary clearBtn'
-          id='clearBtn'
-          onclick='clearURL()'
-        >Clear transaction history</button>
-        <button
-          type='button'
-          class='btn btn-secondary'
-          data-dismiss='modal'
-          class='closebtn'
-        >Close</button>
-
-      </div>
-    </div>
-  </div>
-</div>
-
-<script src='../public/js/dashboardBtns.js'></script>
-<script
-  src='https://code.jquery.com/jquery-3.2.1.slim.min.js'
-  integrity='sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN'
-  crossorigin='anonymous'
-></script>
-<script
-  src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js'
-  integrity='sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q'
-  crossorigin='anonymous'
-></script>
-<script
-  src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js'
-  integrity='sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl'
-  crossorigin='anonymous'
-></script>
 <section class='dashboard-section'>
 
-  <div class='buttons'>
-    <button class='button button-rounded-hover' id='transferButton'>Transfer
-      Money</button>
-    <button class='button button-rounded-hover' id='depositButton'>Deposit Money</button>
-  </div>
+    <div class='buttons'>
+        <button class='button button-rounded-hover transferMoney' id='transferButton'><a class="tooltip-multiline tooltip-bottom" data-tooltip="Transfer money between accounts.">Transfer</a></button>
+        <button class='button button-rounded-hover depositMoney' id='depositButton'><a class="tooltip-multiline tooltip-bottom" data-tooltip="To put money into your account.">Deposit</a></button>
+    </div>
 
+    <!-- Checking section -->
     <div class='account-section'>
+        <div class='account-info-section'>
+            <button type="button" class="button-hover-account button" data-toggle="modal" data-target="#checkingModal"><span><a class="tooltip-multiline tooltip-bottom" data-tooltip="A bank account that allows a customer to deposit and withdraw money and write checks. Using a checking account can be safer and more convenient than handling cash.">Checking account</a></span><i class="fas fa-money-check-alt"></i></button>
+            <p class='feature-desc'>Account Number</p>
+        </div>
+        <div class='account-balance-section'>
+            <p class='feature-desc'><a class="tooltip-multiline tooltip-bottom" data-tooltip="Available balance is the amount of money in your account that you can use or withdraw.">Current Balance</a></p>
+        </div>
+    </div>
 
-      <div class='account-info-section'>
-          <button class="button-hover-account button"><span>Checking</span><i class="fas fa-money-check-alt"></i></button>
-          <p class='feature-desc'>Account Number</p>
-      </div>
+    <!-- Savings section -->
+    <div class='account-section'>
+        <div class='account-info-section'>
+            <button class="button-hover-account button" data-toggle='modal' data-target='#savingModal'><span><a class='tooltip-multiline tooltip-top' data-tooltip='A bank account that allows a customer to deposit and withdraw money and earn interest on the balance.'>Savings Account</a></span><i class="fas fa-money-check-alt"></i></button>
+            <p class='feature-desc'>Account Number</p>
+        </div>
+        <div class='account-balance-section'>
+            <p class='feature-desc'><a class="tooltip-multiline tooltip-bottom" data-tooltip="Available balance is the amount of money in your account that you can use or withdraw.">Current Balance</a></p>
+        </div>
+    </div>
 
-      <div class='account-balance-section'>
-          <p class='feature-desc'>Current Balance</p>
-      </div>
+    
+
+    <!-- Credit card section -->
+    <div class='account-section'>
+        <div class='account-info-section'>
+            <button class="button-hover-account button" type="button" data-toggle='modal' data-target='#creditModal'>
+                <span><a class='tooltip-multiline tooltip-top' data-tooltip='A credit card is a type of payment card in which charges are made against a line of credit instead of the account holder’s cash deposits.'>Credit card</a></span><i class="fas fa-money-check-alt"></i>
+            </button>
+            <p class='feature-desc'>Account Number</p>
+        </div>
+
+        <div class='account-balance-section'>
+            <button type="button" class="primary button">
+                Charge Card
+            </button>
+            <p class='feature-desc'><a class="tooltip-multiline tooltip-bottom" data-tooltip="Unpaid balance is the amount that is still owed on a loan or credit card debt.">Credit Card Balance</a></p>
+            <button type="button" class="primary button makePayment">
+                Make Payment
+            </button>
+        </div>
 
     </div>
 
-    <div class='account-section'>
+</section <!-- EDUCATIONAL MODALS -->
 
-      <div class='account-info-section'>
-          <button class="button-hover-account button"><span>Savings</span><i class="fas fa-money-check-alt"></i></button>
-          <p class='feature-desc'>Account Number</p>
+<button>
+    type='button'
+    class='btn btn-primary'
+    data-toggle='modal'
+    data-target='#historyModal'
+    >
+    <a class='tooltip-multiline tooltip-top' data-tooltip='View your prior transactions.'>View transaction history</a>
+</button>
+<!-- Credit Transaction History Modal -->
+<div class='modal fade' id='historyModal' tabindex='-1' aria-labelledby='historyModalLabel' aria-hidden='true'>
+    <div class='modal-dialog'>
+        <div class='modal-content'>
+            <div class='modal-header'>
+                <h5 class='modal-title' id='historyModalLabel'>Transaction history</h5>
+                <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
+                    <span aria-hidden='true'>&times;</span>
+                </button>
+            </div>
+            <div class='modal-body'>
+                <!-- Iterate over creditData -->
+                {{#each creditHistory as |history|}}
+                <div class='history col-md-5'>
+                    <p>
+                        Date:
+                        {{format_date_time history.time_charged}}
+                        <br />
+                        Merchant:
+                        {{history.merchant}}
+                        <br />
+                        Amount: ${{format_amount history.amount}}
+                    </p>
+                    <hr class='line' />
+                </div>
+                {{/each}}
+            </div>
+            <div class='modal-footer'>
+                <button type='button' class='btn btn-primary clearBtn' id='clearBtn' onclick='clearURL()'>Clear
+                    transaction history</button>
+                <button type='button' class='btn btn-secondary' data-dismiss='modal' class='closebtn'>Close</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Checking Account Modal -->
+<div class="modal fade" id="checkingModal" tabindex="-1" aria-labelledby="checkingModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="myModalLabel">Checking Account</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <ul class="savingActList">
+                    <li>Usually doesn't earn interest, but allows greater access to your money.</li>
+                    <li>Use for money you spend day-to-day.</li>
+                    <li>Use checks, ATM card, and/or debit card so you can use your money without using cash.</li>
+                    <li>Overdraft: When there is not enough money in an account to cover a transaction and the bank pays
+                        it on your behalf, creating a negative balance in the account that you need to repay. Often
+                        results in a fee.</li>
+                    <li>Some banks offer overdraft protection where the bank automatically transfers money from a linked
+                        account that you select, such as a savings or credit account, when you don’t have enough money
+                        in your checking account to pay your transactions.</li>
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" class='closebtn'>Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Savings Account Modal -->
+<div class='modal fade' id='savingModal' tabindex='-1' aria-labelledby='savingModalLabel' aria-hidden='true'>
+    <div class='modal-dialog'>
+        <div class='modal-content'>
+            <div class='modal-header'>
+                <h5 class='modal-title' id='myModalLabel'>Saving Account</h5>
+                <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
+                    <span aria-hidden='true'>&times;</span>
+                </button>
+            </div>
+            <div class='modal-body'>
+                <ul class='savingActList'>Types of saving accounts
+                    <li>Regular savings account: Earn interest that’s paid every
+                        month.</li>
+                    <li>Certificate of deposit (CD): Money must stay in the account
+                        for a fixed period of time (a term), but higher interest rate.</li>
+                    <li>Money market accounts: Write a limited number of checks and
+                        usually has higher interest rates than regular savings accounts.</li>
+                </ul>
+            </div>
+            <div class='modal-footer'>
+                <button type='button' class='btn btn-secondary' data-dismiss='modal' class='closebtn'>Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Credit Card Modal -->
+<div
+      class='modal fade'
+      id='creditModal'
+      tabindex='-1'
+      aria-labelledby='creditModalLabel'
+      aria-hidden='true'
+    >
+      <div class='modal-dialog'>
+        <div class='modal-content'>
+          <div class='modal-header'>
+            <h5 class='modal-title' id='myModalLabel'>Credit Card</h5>
+            <button
+              type='button'
+              class='close'
+              data-dismiss='modal'
+              aria-label='Close'
+            >
+              <span aria-hidden='true'>&times;</span>
+            </button>
+          </div>
+          <div class='modal-body'>
+            <p>With credit cards, you are borrowing money and your account
+              accrues a balance that must be paid off each month. Failure to pay
+              off the credit card on time could result in interest charges and
+              late fees.</p>
+            <ul class='creditList'>Important terms:
+              <li>Credit limit: The maximum amount of money you’re allowed to
+                charge.</li>
+              <li>Credit history/record: A written record of a person’s use of
+                credit, including applying for credit, and using credit or loans
+                to make purchases. Provided by a credit bureau to a lender or
+                other business. Establish your credit history by using credit
+                cards and paying your bill on time each month.</li>
+              <li>Minimum payment: The minimum amount the bank requires you to
+                pay back every month. The remainder of your balance accrues
+                interest.</li>
+              <li>Interest: a fee the bank charges you for borrowing their
+                money. If you pay off your credit card balance every month, you
+                avoid this.</li>
+            </ul>
+          </div>
+          <div class='modal-footer'>
+            <button
+              type='button'
+              class='btn btn-secondary'
+              data-dismiss='modal'
+              class='closebtn'
+            >Close</button>
+          </div>
+        </div>
       </div>
-
-      <div class='account-balance-section'>
-          
-          <p class='feature-desc'>Current Balance</p>
-      </div>
-
     </div>
 
-    <div class='account-section'>
 
-     <div class='account-info-section'>
-          <button class="button-hover-account button"><span>Credit Card</span><i class="fas fa-money-check-alt"></i></button>
-          <p class='feature-desc'>Account Number</p>
-      </div>
-
-      <div class='account-balance-section'>
-          <button type="button" class="primary button">
-      Charge Card
-    </button>
-          <p class='feature-desc'>Current Balance</p>
-          <button type="button" class="primary button">
-      Make Payment
-    </button>
-      </div>
-
-    </div>
-
-</section
+<!-- Additional scripts needed for modals -->
+<script src='js/dashboardBtns.js'></script>
+<script src='https://code.jquery.com/jquery-3.2.1.slim.min.js'
+    integrity='sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN'
+    crossorigin='anonymous'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js'
+    integrity='sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q'
+    crossorigin='anonymous'></script>
+<script src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js'
+    integrity='sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl'
+    crossorigin='anonymous'></script>

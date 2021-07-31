@@ -47,15 +47,20 @@ router.put('/chargecard', async (req, res) => {
 });
 
 //create another route for pulling history
-router.get('/history', async (req, res) => {
-  try {
-    const historyData = await History.findAll({});
-    const creditHistory = historyData.map((item) => item.get({ plain: true }));
-    res.render('dashboard', { creditHistory });
-  } catch (err) {
-    console.log(err);
+router.get(
+  '/_______ // /history? or /dashboard. /history worked on insomnia but not sure it would work on the webpage with the modal. would you just get it to the dashboard (where the modal is) and then go from there? ',
+  async (req, res) => {
+    try {
+      const historyData = await History.findAll({});
+      const creditHistory = historyData.map((item) =>
+        item.get({ plain: true })
+      );
+      res.render('dashboard', { creditHistory });
+    } catch (err) {
+      console.log(err);
+    }
   }
-});
+);
 
 //Send data to 'depositmoney' handlebar to be rendered.
 router.get('/depositmoney', withAuth, async (req, res) => {

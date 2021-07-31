@@ -1,43 +1,123 @@
-{{!-- This is a page to demonstrate depositing money --}}
-<div class="translucent-form-overlay deposit">
-        <form class="deposit-form">
-          <h3>Make a Deposit</h3>
-          <div class="row columns deposit-from">
-            <label>From
-                <select name="status depositFrom" type="text" class="depositOptions depositFrom">
-                  <option value="personal_check">Personal Check</option>
-                  <option value="paycheck">Paycheck</option>
-                  <option value="investment_return">Investment Return</option>
-                </select>
-            </label>
-          </div>
-          <div class="row columns deposit-to">
-            <label>To
-              <select name="status depositTo" type="text" class="depositOptions depositTo">
-                <option value="checking">Checking (current balance: {{checking.current_balance}})</option>
-                <option value="savings">Savings (current balance: {{saving.current_balance}})</option>
-              </select>
-            </label>
-          </div>
-          <div class="row columns deposit-amount">
-            <label>Amount
-                <input type="number" name="depositAmt" class="depositAmt" placeholder="Any">
-            </label>
-          </div>
-          <div class="row columns deposit-comment">
-            <label>Comment
-                <input type="text" name="depositComment" class="depositComment" placeholder="Any">
-            </label>
-          </div>
-          <div class="row columns deposit-pic">
-              <label><a href="#"><a class="tooltip-multiline tooltip-top" data-tooltip="A check is a piece of paper that formally asks the bank to pay someone some money from your account."><i class="fas fa-camera fa-lg"></i></a>Attach a picture of check, if applicable
-              </label>
-          </div>
-          <button type="button" class="primary button expanded search-button depositBtn">
-            Deposit
-          </button>
-          <span id="error"></span>
-       </form>
-      </div>
+{{! This is a page to demonstrate depositing money }}
+<div class='translucent-form-overlay deposit'>
+  <form class='deposit-form'>
+    <h3>Make a Deposit</h3>
+    <div class='row columns deposit-from'>
+      <label>From
+        <select
+          name='status depositFrom'
+          type='text'
+          class='depositOptions depositFrom'
+        >
+          <option value='personal_check'>Personal Check</option>
+          <option value='paycheck'>Paycheck</option>
+          <option value='investment_return'>Investment Return</option>
+        </select>
+      </label>
+    </div>
+    <div class='row columns deposit-to'>
+      <label>To
+        <select
+          name='status depositTo'
+          type='text'
+          class='depositOptions depositTo'
+        >
+          <option value='checking'>Checking (current balance:
+            {{checking.current_balance}})</option>
+          <option value='savings'>Savings (current balance:
+            {{saving.current_balance}})</option>
+        </select>
+      </label>
+    </div>
+    <div class='row columns deposit-amount'>
+      <label>Amount
+        <input
+          type='number'
+          name='depositAmt'
+          class='depositAmt'
+          placeholder='Any'
+        />
+      </label>
+    </div>
+    <div class='row columns deposit-comment'>
+      <label>Comment
+        <input
+          type='text'
+          name='depositComment'
+          class='depositComment'
+          placeholder='Any'
+        />
+      </label>
+    </div>
+    <div class='row columns deposit-pic'>
+      <label>
+        <a data-toggle='modal' data-target='#checkModal' class='checkModal'><i
+            class='fas fa-camera fa-lg'
+          ></i></a>
+        Attach a picture of
+        <a
+          class='tooltip-multiline tooltip-top'
+          data-tooltip='A check is a piece of paper that formally asks the bank to pay someone some money from your account.'
+        >check</a>, if applicable
+      </label>
+    </div>
+    <button
+      type='button'
+      class='primary button expanded search-button depositBtn'
+    >
+      Deposit
+    </button>
+    <span id='error'></span>
+  </form>
+</div>
 
-      <script src="/js/depositFormBtns.js"></script>
+<!-- Check Educational Modal -->
+<div
+  class='modal fade'
+  id='checkModal'
+  tabindex='-1'
+  aria-labelledby='checkModalLabel'
+  aria-hidden='true'
+>
+  <div class='modal-dialog modal-dialog-scrollable'>
+    <div class='modal-content'>
+      <div class='modal-header'>
+        <h5 class='modal-title' id='myModalLabel'>Check</h5>
+        <button
+          type='button'
+          class='close'
+          data-dismiss='modal'
+          aria-label='Close'
+        >
+          <span aria-hidden='true'>&times;</span>
+        </button>
+      </div>
+      <div class='modal-body'>
+        <img
+          class='checkPic'
+          src='assets/images/different-parts-of-a-check.png'
+        />
+        <ul class='checkList'>
+          <li>A check is a written order instructing the bank to pay a specific
+            amount of money to a specific person or entity.</li>
+          <li>A check must contain a date, payee (person, company, or
+            organization to be paid), amount, and an authorized signature.</li>
+          <li>
+            Checks should only be written if you’re sure you have the money in
+            your account. Otherwise, the check is bad and will bounce. If not,
+            the bank will charge a fee and it's against the law.</li>
+        </ul>
+      </div>
+      <div class='modal-footer'>
+        <button
+          type='button'
+          class='btn btn-secondary'
+          data-dismiss='modal'
+          class='closebtn'
+        >Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src='/js/depositFormBtns.js'></script>
