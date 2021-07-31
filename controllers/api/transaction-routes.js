@@ -62,8 +62,8 @@ router.get('/depositmoney', withAuth, async (req, res) => {
     const checking = checkingData.get({ plain: true });
     const saving = savingData.get({ plain: true });
     res.render('depositmoney', {
-      ...checking,
-      ...saving,
+      checking,
+      saving,
       logged_in: true,
     });
   } catch (err) {
@@ -120,9 +120,9 @@ router.get('/transfermoney', withAuth, async (req, res) => {
     const saving = savingData.get({ plain: true });
     const credit = creditData.get({ plain: true });
     res.render('transfermoney', {
-      ...checking,
-      ...saving,
-      ...credit,
+      checking,
+      saving,
+      credit,
       logged_in: true,
     });
   } catch (err) {

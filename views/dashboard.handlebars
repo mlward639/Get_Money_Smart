@@ -1,55 +1,39 @@
 <section class='dashboard-section'>
-
   <div class='buttons'>
-    <button class='button button-rounded-hover' id='transferButton'>Transfer
-      Money</button>
-    <button class='button button-rounded-hover' id='depositButton'>Deposit Money</button>
+    <button class='button button-rounded-hover' id='transferButton' onclick="location.href = '/api/transaction/transfermoney';">TRANSFER MONEY</button>
+    <button class='button button-rounded-hover' id='depositButton' onclick="location.href = '/api/transaction/depositmoney';">DEPOSIT MONEY</button>
   </div>
-
     <div class='account-section'>
-
       <div class='account-info-section'>
           <button class="button-hover-account button"><span>Checking</span><i class="fas fa-money-check-alt"></i></button>
-          <p class='feature-desc'>Account Number</p>
+          <p class='feature-desc'>Account Number: {{checking.account_number}}</p>
       </div>
 
       <div class='account-balance-section'>
-          <p class='feature-desc'>Current Balance</p>
+          <p class='feature-desc'>Current Balance: {{checking.current_balance}}</p>
       </div>
-
     </div>
-
     <div class='account-section'>
-
       <div class='account-info-section'>
           <button class="button-hover-account button"><span>Savings</span><i class="fas fa-money-check-alt"></i></button>
-          <p class='feature-desc'>Account Number</p>
+          <p class='feature-desc'>Account Number: {{saving.account_number}}</p>
       </div>
-
-      <div class='account-balance-section'>
-          
-          <p class='feature-desc'>Current Balance</p>
+      <div class='account-balance-section'>   
+          <p class='feature-desc'>Current Balance: {{saving.account_number}}</p>
       </div>
-
     </div>
-
     <div class='account-section'>
-
      <div class='account-info-section'>
           <button class="button-hover-account button"><span>Credit Card</span><i class="fas fa-money-check-alt"></i></button>
-          <p class='feature-desc'>Account Number</p>
+          <p class='feature-desc'>Account Number: {{credit.account_number}}</p>
       </div>
-
       <div class='account-balance-section'>
           <button type="button" class="primary button">
       Charge Card
     </button>
-          <p class='feature-desc'>Current Balance</p>
-          <button type="button" class="primary button">
-      Make Payment
-    </button>
+          <p class='feature-desc'>Current Balance: {{credit.current_balance}}</p>
+          <button type="button" class="primary button" id="makepayment">Make Payment</button>
       </div>
-
     </div>
-
 </section
+<script src="/js/logout.js"></script>

@@ -1,6 +1,6 @@
 const router = require('express').Router();
-const withAuth = require('../../utils/auth');
-const { Checking, Saving, Credit, History } = require('../../models/');
+const withAuth = require('../utils/auth');
+const { Checking, Saving, Credit, History } = require('../models');
 
 //sends Data(Checking, Saving, Credit, History) to 'dashboard' handlebar
 router.get('/', withAuth, async (req, res) => {
@@ -31,16 +31,17 @@ router.get('/', withAuth, async (req, res) => {
     const checking = checkingData.get({ plain: true });
     const saving = savingData.get({ plain: true });
     const credit = creditData.get({ plain: true });
-    const history = historyData.get({ plain: true });
+    const history = historyData.length > 0 ? historyData.get({ plain: true }) : null;
     res.render('dashboard', {
-      ...credit,
-      ...saving,
-      ...checking,
-      ...history,
+      credit,
+      saving,
+      checking,
+      history,
       logged_in: true,
     });
   } catch (err) {
     res.status(500).json(err);
+
   }
 });
 
