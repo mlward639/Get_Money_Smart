@@ -5,43 +5,23 @@ const loginFormHandler = async (event) => {
   const username = document.querySelector('#username-login').value.trim();
   const password = document.querySelector('#password-login').value.trim();
 
-    // Send a POST request to the API endpoint
-    const response = await fetch('/api/login', {
-      method: 'POST',
-      body: JSON.stringify({ username, password }),
-      headers: { 'Content-Type': 'application/json' },
-    });
-
-    if (response.ok) {
-      // If successful, redirect the browser to the dashboard page
-      document.location.replace('/dashboard');
-    } else {
-      alert('Failed to login');
-    }
+  // Send a POST request to the API endpoint
+  const response = await fetch('/api/login', {
+    method: 'POST',
+    body: JSON.stringify({ username, password }),
+    headers: { 'Content-Type': 'application/json' },
+  });
+  console.log("Response " + response);
+  if (response.ok) {
+    // If successful, redirect the browser to the dashboard page
+    document.location.replace('/dashboard');
+    // res.render('dashboard');
+  } else {
+    alert('Failed to login');
+  }
 };
 
-const signupFormHandler = async (event) => {
-  event.preventDefault();
-
-  const firstName = document.querySelector('#firstName-signup').value.trim();
-  const lastName = document.querySelector('#lastName-signup').value.trim();
-  const username = document.querySelector('#username-signup').value.trim();
-  const password = document.querySelector('#password-signup').value.trim();
 
 
-    const response = await fetch('/api/signup', {
-      method: 'POST',
-      body: JSON.stringify({ firstName, lastName, username, password }),
-      headers: { 'Content-Type': 'application/json' },
-    });
-
-    if (response.ok) {
-      document.location.replace('/dashboard');
-    } else {
-      alert('Failed to sign up');
-    }
-};
-
-document.querySelector('.login-form').addEventListener('submit', loginFormHandler);
-
-document.querySelector('.signup-form').addEventListener('submit', signupFormHandler);
+let login = document.getElementById('login-form');
+login.addEventListener('click', loginFormHandler);
