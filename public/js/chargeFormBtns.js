@@ -21,7 +21,7 @@ const chargeFormHandler = async (event) => {
   if (chargeFrom && chargeTo && chargeAmount) {
     //NOT SURE ABOUT ROUTE AND PUT vs POST HERE (seems like put would completely override, i think want post to send the info and let backend manipulate it)
     const response = await fetch('/api/transaction/chargemoney', {
-      method: 'POST',
+      method: 'PUT',
       body: JSON.stringify({
         chargeFrom,
         chargeTo,
@@ -51,7 +51,7 @@ const chargeFormHandler = async (event) => {
 };
 
 document
-  .querySelector('.chargeBtn')
+  .querySelector('#chargeBtn')
   .addEventListener('click', chargeFormHandler);
 
 // error handling
