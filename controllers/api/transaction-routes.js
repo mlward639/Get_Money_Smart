@@ -12,7 +12,7 @@ router.get('/chargecard', withAuth, async (req, res) => {
     });
     const credit = creditData.get({ plain: true });
     res.render('chargecard', {
-      ...credit,
+      credit,
       logged_in: true,
     });
   } catch (err) {
@@ -48,7 +48,7 @@ router.put('/chargecard', async (req, res) => {
 
 //create another route for pulling history
 router.get(
-  '/_______ // /history? or /dashboard. /history worked on insomnia but not sure it would work on the webpage with the modal. would you just get it to the dashboard (where the modal is) and then go from there? ',
+  // '/_______ // /history? or /dashboard. /history worked on insomnia but not sure it would work on the webpage with the modal. would you just get it to the dashboard (where the modal is) and then go from there? ',
   async (req, res) => {
     try {
       const historyData = await History.findAll({});
@@ -105,12 +105,12 @@ router.put('/depositmoney', withAuth, async (req, res) => {
         checkingData.current_balance + parseInt(req.body.depositAmount);
       await checkingData.save();
     }
-    if (req.body.depositTo === 'saving') {
+    if (req.body.depositTo === 'savings') {
       savingData.current_balance =
         savingData.current_balance + parseInt(req.body.depositAmount);
       await savingData.save();
     }
-    res.redirect('/dashboard');
+    res.render('dashboard');
   } catch (err) {
     res.status(500).json(err);
   }
@@ -171,7 +171,7 @@ router.put('/transfermoney', withAuth, async (req, res) => {
     let amount = parseInt(req.body.transferAmount);
 
     switch ((sender, receiver)) {
-      case ('checking', 'saving'):
+      case ('checking', 'savings'):
         checkingData.current_balance = checkingData.current_balance - amount;
         savingData.current_balance = savingData.current_balance + amount;
         await checkingData.save();
@@ -183,13 +183,13 @@ router.put('/transfermoney', withAuth, async (req, res) => {
         await checkingData.save();
         await creditData.save();
         break;
-      case ('saving', 'checking'):
+      case ('savings', 'checking'):
         savingData.current_balance = savingData.current_balance - amount;
         checkingData.current_balance = checkingData.current_balance + amount;
         await savingData.save();
         await checkingData.save();
         break;
-      case ('saving', 'credit'):
+      case ('savings', 'credit'):
         savingData.current_balance = savingData.current_balance - amount;
         creditData.current_balance = creditData.current_balance - amount;
         await savingData.save();
@@ -198,7 +198,7 @@ router.put('/transfermoney', withAuth, async (req, res) => {
       default:
         return;
     }
-    res.redirect('/dashboard');
+    res.render('dashboard');
   } catch (err) {
     res.status(500).json(err);
   }

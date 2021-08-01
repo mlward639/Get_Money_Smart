@@ -11,7 +11,6 @@ router.get('/', withAuth, async (req, res) => {
         id: req.session.user_id,
       },
     });
-    console.log("user data", userData)
     const checkingData = await Checking.findOne({
       where: {
         user_id: req.session.user_id,
