@@ -1,39 +1,73 @@
-{{!-- This is a page to demonstrate transferring money --}}
-<div class="translucent-form-overlay transfer">
-        <form class="transfer-form">
-          <h3>Make a Transfer</h3>
-          <div class="row columns transfer-from">
-            <label>From
-                <select name="status transferFrom" type="text" class="transferOptions transferFrom">
-                  <option value="checking">Checking (current balance: {{checking.current_balance}})</option>
-                  <option value="savings">Savings (current balance: {{saving.current_balance}})</option>
-                </select>
-            </label>
-          </div>
-          <div class="row columns transfer-to">
-            <label>To
-              <select name="status transferTo" type="text" class="transferOptions transferTo">
-                <option value="checking">Checking (current balance: {{checking.current_balance}})</option>
-                <option value="savings">Savings (current balance: {{saving.current_balance}})</option>
-                <option value="credit-card">Credit Card (current balance: {{credit.current_balance}})</option>
-              </select>
-            </label>
-          </div>
-          <div class="row columns transfer-amount">
-            <label>Amount
-                <input type="number" name="transferAmt" class="transferAmt" placeholder="Any">
-            </label>
-          </div>
-          <div class="row columns transfer-comment">
-            <label>Comment
-                <input type="text" name="transferComment" class="transferComment" placeholder="Any">
-            </label>
-          </div>
-          <button type="button" class="primary button expanded search-button transferBtn">
-            Transfer
-          </button>
-          <span id="error"></span>
-       </form>
-      </div>
+{{! This is a page to demonstrate transferring money }}
+<div class='translucent-form-overlay transfer'>
+  <form class='transfer-form'>
+    <button
+      type='button'
+      class='btn btn-secondary btn-close closebtn closeTransfer'
+      data-dismiss='modal'
+      aria-label='Close'
+      onclick='closeTransfer()'
+    ><span aria-hidden='true'></span>
+    </button>
+    <h3>Make a Transfer</h3>
+    <div class='row columns transfer-from'>
+      <label>From
+        <select
+          name='status transferFrom'
+          type='text'
+          class='transferOptions transferFrom'
+        >
+          <option value='checking'>Checking (current balance:
+            {{checking.current_balance}})</option>
+          <option value='savings'>Savings (current balance:
+            {{saving.current_balance}})</option>
+        </select>
+      </label>
+    </div>
+    <div class='row columns transfer-to'>
+      <label>To
+        <select
+          name='status transferTo'
+          type='text'
+          class='transferOptions transferTo'
+        >
+          <option value='checking'>Checking (current balance:
+            {{checking.current_balance}})</option>
+          <option value='savings'>Savings (current balance:
+            {{saving.current_balance}})</option>
+          <option value='credit-card'>Credit Card (current balance:
+            {{credit.current_balance}})</option>
+        </select>
+      </label>
+    </div>
+    <div class='row columns transfer-amount'>
+      <label>Amount
+        <input
+          type='number'
+          name='transferAmt'
+          class='transferAmt'
+          placeholder='Any'
+        />
+      </label>
+    </div>
+    <div class='row columns transfer-comment'>
+      <label>Comment
+        <input
+          type='text'
+          name='transferComment'
+          class='transferComment'
+          placeholder='Any'
+        />
+      </label>
+    </div>
+    <button
+      type='button'
+      class='primary button expanded search-button transferBtn'
+    >
+      Transfer
+    </button>
+    <span id='error'></span>
+  </form>
+</div>
 
-      <script src="/js/transferFormBtns.js"></script>
+<script src='/js/transferFormBtns.js'></script>

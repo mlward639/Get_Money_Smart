@@ -76,3 +76,8 @@ function errorMessage2() {
   var error = document.getElementById('error');
   error.textContent = "* 'From' and 'To' must be different accounts.";
 }
+
+// close the Transfer page and return to dashboard
+function closeTransfer() {
+  document.location.assign('/dashboard');
+}

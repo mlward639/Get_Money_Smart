@@ -54,10 +54,7 @@ function errorMessage() {
   error.textContent = "* Please fill in 'From', 'To', and 'Amount'";
 }
 
-// on clicking the 'X', page returns to dashboard
-// const closeDeposit = document.querySelector('.closeDeposit');
-// closeDeposit.addEventListener('click', );
-
+// close the Deposit page and return to dashboard
 function closeDeposit() {
   document.location.assign('/dashboard');
 }
