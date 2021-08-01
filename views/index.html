@@ -1,101 +1,130 @@
+<!-- Learning modals and tooltips... in progress -->
+
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Get Money Smart</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-    <link
-      href="https://fonts.googleapis.com/css2?family=Schoolbell&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css"
-      integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I="
-      crossorigin="anonymous"
-    />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-    <link rel="stylesheet" href="https://unpkg.com/css-tooltip" />
-    <link rel="stylesheet" href="/path/to/css-tooltip.min.css" />
-    <link rel="stylesheet" href="../public/css/style.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Schoolbell&display=swap"
+  rel="stylesheet"
+/>
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css"
+  integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I="
+  crossorigin="anonymous"
+/>
 
-  </head>
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+<link rel="stylesheet" href="https://unpkg.com/css-tooltip" />
+<link rel="stylesheet" href="/path/to/css-tooltip.min.css" />
+<link rel="stylesheet" href="../public/css/style.css" />
 
-  <body>
 
-    {{!-- This is a page to demonstrate depositing money --}}
-    <div class="translucent-form-overlay deposit">
-            <form class="deposit-form">
-              <h3>Make a Deposit</h3>
-              <div class="row columns deposit-from">
-                <label>From
-                    <select name="status depositFrom" type="text" class="depositOptions depositFrom">
-                      <option value="personal_check">Personal Check</option>
-                      <option value="paycheck">Paycheck</option>
-                      <option value="investment_return">Investment Return</option>
-                    </select>
-                </label>
-              </div>
-              <div class="row columns deposit-to">
-                <label>To
-                  <select name="status depositTo" type="text" class="depositOptions depositTo">
-                    <option value="checking">Checking (current balance: {{checking.current_balance}})</option>
-                    <option value="savings">Savings (current balance: {{saving.current_balance}})</option>
-                  </select>
-                </label>
-              </div>
-              <div class="row columns deposit-amount">
-                <label>Amount
-                    <input type="number" name="depositAmt" class="depositAmt" placeholder="Any">
-                </label>
-              </div>
-              <div class="row columns deposit-comment">
-                <label>Comment
-                    <input type="text" name="depositComment" class="depositComment" placeholder="Any">
-                </label>
-              </div>
-              <div class="row columns deposit-pic">
-                  <label><button data-target="#checkModal"><a class="tooltip-multiline tooltip-top" data-tooltip="A check is a piece of paper that formally asks the bank to pay someone some money from your account."><i class="fas fa-camera fa-lg"></i></a></button>Attach a picture of check, if applicable
-                  </label>
-              </div>
-              <button type="button" class="primary button expanded search-button depositBtn">
-                Deposit
-              </button>
-              <span id="error"></span>
-           </form>
-          </div>
-    
-          <div class="modal fade" id="checkModal" tabindex="-1" aria-labelledby="checkModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-scrollable">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="myModalLabel">Check</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <img class="checkPic" src="different-parts-of-a-check.png">
-                        <ul class="checkList">
-                            <li>A check is a written order instructing the bank to pay a specific amount of money to a specific person or entity.</li>
-                            <li>A check must contain a date, payee (person, company, or organization to be paid), amount, and an authorized signature.</li>
-                            <li> Checks should only be written if you’re sure you have the money in your account. Otherwise, the check is bad and will bounce. If not, the bank will charge a fee and it's against the law.</li>
-                        </ul>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal" class='closebtn'>Close</button>
-                    </div>
-                </div>
-            </div>
+</head>
+<body> 
+
+
+
+  <!-- add to dashboard -->
+  <button
+    type='button'
+    class='btn btn-primary'
+    data-toggle='modal'
+    data-target='#historyModal'
+  >
+    <a
+      class='tooltip-multiline tooltip-top'
+      data-tooltip='View your prior transactions.'
+    >View transaction history</a>
+  </button>
+  <!-- Modal -->
+  <div
+    class='modal fade'
+    id='historyModal'
+    tabindex='-1'
+    aria-labelledby='historyModalLabel'
+    aria-hidden='true'
+  >
+    <div class='modal-dialog'>
+      <div class='modal-content'>
+        <div class='modal-header'>
+          <h5 class='modal-title' id='historyModalLabel'>Transaction history</h5>
+          <button type='button'   class='btn btn-primary'
+          onclick='creditHistoryHandler()'>TEST</button>
+          <button
+            type='button'
+            class='close'
+            data-dismiss='modal'
+            aria-label='Close'
+          >
+            <span aria-hidden='true'>&times;</span>
+          </button>
         </div>
+        <div class='modal-body'>
+          <!-- Iterate over creditData -->
+          {{#each creditHistory as |history|}}
+            <div class='history col-md-5'>
+              <p>
+                Date:
+                {{format_date_time history.time_charged}}
+                <br />
+                Merchant:
+                {{history.merchant}}
+                <br />
+                Amount: ${{format_amount history.amount}}
+              </p>
+              <hr class='line' />
+            </div>
+          {{/each}}
+        </div>
+        <div class='modal-footer'>
+          <button
+            type='button'
+            class='btn btn-primary clearBtn'
+            id='clearBtn'
+            onclick='clearURL()'
+          >Clear transaction history</button>
+          <button
+            type='button'
+            class='btn btn-secondary'
+            data-dismiss='modal'
+            class='closebtn'
+          >Close</button>
+  
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script src='../public/js/dashboardBtns.js'></script>
+  <script
+    src='https://code.jquery.com/jquery-3.2.1.slim.min.js'
+    integrity='sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN'
+    crossorigin='anonymous'
+  ></script>
+  <script
+    src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js'
+    integrity='sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q'
+    crossorigin='anonymous'
+  ></script>
+  <script
+    src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js'
+    integrity='sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl'
+    crossorigin='anonymous'
+  ></script>
+
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-          <script src="/js/depositFormBtns.js"></script>
-  </body>
+
+</body>
 </html>
