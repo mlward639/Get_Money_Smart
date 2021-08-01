@@ -326,6 +326,10 @@ a {
   justify-content: space-between;
 }
 
+.closebtn {
+  float: right;
+}
+
 @media print, screen and (min-width: 40em) {
 .account-section {
   display: -webkit-flex;
