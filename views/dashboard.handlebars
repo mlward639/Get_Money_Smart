@@ -2,6 +2,7 @@
 
     <div class='buttons'>
         <button class='button button-rounded-hover transferMoney' id='transferButton' onclick="location.href = '/api/transaction/transfermoney'"><a class="tooltip-multiline tooltip-bottom" data-tooltip="Transfer money between accounts.">Transfer</a></button>
+        <p> HELLO, {{user.fname}} {{user.lname}}</p>
         <button class='button button-rounded-hover depositMoney' id='depositButton' onclick="location.href = '/api/transaction/depositmoney'"><a class="tooltip-multiline tooltip-bottom" data-tooltip="To put money into your account.">Deposit</a></button>
     </div>
 
@@ -9,10 +10,10 @@
     <div class='account-section'>
         <div class='account-info-section'>
             <button type="button" class="button-hover-account button" data-toggle="modal" data-target="#checkingModal"><span><a class="tooltip-multiline tooltip-bottom" data-tooltip="A bank account that allows a customer to deposit and withdraw money and write checks. Using a checking account can be safer and more convenient than handling cash.">Checking account</a></span><i class="fas fa-money-check-alt"></i></button>
-            <p class='feature-desc'>Account Number: {{checking.account_number}}</p>
+            <p class='feature-desc account_number'>Account Number: {{checking.account_number}}</p>
         </div>
         <div class='account-balance-section'>
-            <p class='feature-desc'><a class="tooltip-multiline tooltip-bottom" data-tooltip="Available balance is the amount of money in your account that you can use or withdraw.">Current Balance: {{checking.current_balance}}</a></p>
+            <p class='feature-desc current_balance'><a class="tooltip-multiline tooltip-bottom" data-tooltip="Available balance is the amount of money in your account that you can use or withdraw.">Current Balance: {{checking.current_balance}}</a></p>
         </div>
     </div>
 
@@ -20,10 +21,10 @@
     <div class='account-section'>
         <div class='account-info-section'>
             <button class="button-hover-account button" data-toggle='modal' data-target='#savingModal'><span><a class='tooltip-multiline tooltip-top' data-tooltip='A bank account that allows a customer to deposit and withdraw money and earn interest on the balance.'>Savings Account</a></span><i class="fas fa-money-check-alt"></i></button>
-            <p class='feature-desc'>Account Number: {{saving.account_number}}</p>
+            <p class='feature-desc account_number'>Account Number: {{saving.account_number}}</p>
         </div>
         <div class='account-balance-section'>
-            <p class='feature-desc'><a class="tooltip-multiline tooltip-bottom" data-tooltip="Available balance is the amount of money in your account that you can use or withdraw.">Current Balance: {{saving.account_number}}</a></p>
+            <p class='feature-desc current_balance'><a class="tooltip-multiline tooltip-bottom" data-tooltip="Available balance is the amount of money in your account that you can use or withdraw.">Current Balance: {{saving.current_balance}}</a></p>
         </div>
     </div>
 
@@ -33,33 +34,29 @@
             <button class="button-hover-account button" type="button" data-toggle='modal' data-target='#creditModal'>
                 <span><a class='tooltip-multiline tooltip-top' data-tooltip='A credit card is a type of payment card in which charges are made against a line of credit instead of the account holder’s cash deposits.'>Credit card</a></span><i class="fas fa-money-check-alt"></i>
             </button>
-            <p class='feature-desc'>Account Number: {{credit.account_number}}</p>
+            <p class='feature-desc account_number'>Account Number: {{credit.account_number}}</p>
         </div>
         <div class='account-balance-section'>
+            <p class='feature-desc current_balance'><a class="tooltip-multiline tooltip-bottom" data-tooltip="Unpaid balance is the amount that is still owed on a loan or credit card debt.">Credit Card Balance: {{credit.current_balance}}</a></p>
             <button type="button" class="primary button chargeCard">
                 Charge Card
             </button>
-            <p class='feature-desc'><a class="tooltip-multiline tooltip-bottom" data-tooltip="Unpaid balance is the amount that is still owed on a loan or credit card debt.">Credit Card Balance: {{credit.current_balance}}</a></p>
             <button type="button" class="primary button makePayment" id="makepayment">
                 Make Payment
             </button>
+            <!-- EDUCATIONAL MODALS -->
+            <button
+                type='button'
+                class='primary button'
+                data-toggle='modal'
+                data-target='#historyModal'
+                >
+                <a class='tooltip-multiline tooltip-top' data-tooltip='View your prior transactions.'>View transaction history</a>
+            </button>
         </div>
-
     </div>
-
 </section 
 
-
-<!-- EDUCATIONAL MODALS -->
-
-<button>
-    type='button'
-    class='btn btn-primary'
-    data-toggle='modal'
-    data-target='#historyModal'
-    >
-    <a class='tooltip-multiline tooltip-top' data-tooltip='View your prior transactions.'>View transaction history</a>
-</button>
 <!-- Credit Transaction History Modal -->
 <div class='modal fade' id='historyModal' tabindex='-1' aria-labelledby='historyModalLabel' aria-hidden='true'>
     <div class='modal-dialog'>
@@ -223,41 +220,4 @@
 <script src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js'
     integrity='sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl'
     crossorigin='anonymous'></script>
-  <div class='buttons'>
-    <button class='button button-rounded-hover' id='transferButton' onclick="location.href = '/api/transaction/transfermoney';">TRANSFER MONEY</button>
-    <button class='button button-rounded-hover' id='depositButton' onclick="location.href = '/api/transaction/depositmoney';">DEPOSIT MONEY</button>
-  </div>
-    <div class='account-section'>
-      <div class='account-info-section'>
-          <button class="button-hover-account button"><span>Checking</span><i class="fas fa-money-check-alt"></i></button>
-          <p class='feature-desc'>Account Number: {{checking.account_number}}</p>
-      </div>
-
-      <div class='account-balance-section'>
-          <p class='feature-desc'>Current Balance: {{checking.current_balance}}</p>
-      </div>
-    </div>
-    <div class='account-section'>
-      <div class='account-info-section'>
-          <button class="button-hover-account button"><span>Savings</span><i class="fas fa-money-check-alt"></i></button>
-          <p class='feature-desc'>Account Number: {{saving.account_number}}</p>
-      </div>
-      <div class='account-balance-section'>   
-          <p class='feature-desc'>Current Balance: {{saving.account_number}}</p>
-      </div>
-    </div>
-    <div class='account-section'>
-     <div class='account-info-section'>
-          <button class="button-hover-account button"><span>Credit Card</span><i class="fas fa-money-check-alt"></i></button>
-          <p class='feature-desc'>Account Number: {{credit.account_number}}</p>
-      </div>
-      <div class='account-balance-section'>
-          <button type="button" class="primary button">
-      Charge Card
-    </button>
-          <p class='feature-desc'>Current Balance: {{credit.current_balance}}</p>
-          <button type="button" class="primary button" id="makepayment">Make Payment</button>
-      </div>
-    </div>
-</section
-<script src="/js/logout.js"></script>
+  

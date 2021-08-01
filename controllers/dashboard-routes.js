@@ -1,10 +1,17 @@
 const router = require('express').Router();
 const withAuth = require('../utils/auth');
 const { Checking, Saving, Credit, History } = require('../models');
+const { User } = require('../models');
 
 //sends Data(Checking, Saving, Credit, History) to 'dashboard' handlebar
 router.get('/', withAuth, async (req, res) => {
   try {
+    const userData = await User.findOne({
+      where: {
+        id: req.session.user_id,
+      },
+    });
+    console.log("user data", userData)
     const checkingData = await Checking.findOne({
       where: {
         user_id: req.session.user_id,
@@ -31,8 +38,10 @@ router.get('/', withAuth, async (req, res) => {
     const checking = checkingData.get({ plain: true });
     const saving = savingData.get({ plain: true });
     const credit = creditData.get({ plain: true });
+    const user = userData.get({ plain: true });
     const history = historyData.length > 0 ? historyData.get({ plain: true }) : null;
     res.render('dashboard', {
+      user,
       credit,
       saving,
       checking,
