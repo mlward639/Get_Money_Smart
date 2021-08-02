@@ -39,6 +39,8 @@ const transferFormHandler = async (event) => {
       }),
       headers: { 'Content-Type': 'application/json' },
     });
+    console.log('from', transferFrom)
+    console.log('To', transferTo) 
     // if response goes through correctly, display their transaction and then redirect browser to the dashboard page
     if (response.ok) {
       let comment = '';
