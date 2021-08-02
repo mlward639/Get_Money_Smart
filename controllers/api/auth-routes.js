@@ -13,7 +13,7 @@ router.post('/login', async (req, res) => {
         .json({ message: 'Incorrect username or password, please try again' });
       return;
     }
-    const validPassword = await userData.validPassword(req.body.password)
+    const validPassword = await userData.validPassword(req.body.password);
     if (!validPassword) {
       res
         .status(400)
@@ -37,17 +37,17 @@ router.post('/signup', async (req, res) => {
       fname: req.body.firstName,
       lname: req.body.lastName,
       username: req.body.username,
-      password: req.body.password
-     });
-     await Checking.create({
+      password: req.body.password,
+    });
+    await Checking.create({
       current_balance: 0,
-      user_id: userData.id
-     })
-     await Saving.create({
+      user_id: userData.id,
+    });
+    await Saving.create({
       current_balance: 0,
-      user_id: userData.id
-     })
-     await Credit.create({
+      user_id: userData.id,
+    });
+    await Credit.create({
       current_balance: 0,
       user_id: userData.id,
     });
@@ -66,9 +66,6 @@ router.post('/signup', async (req, res) => {
 //Log out and delete session data
 router.post('/logout', (req, res) => {
   if (req.session.logged_in) {
-    res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate');
-    res.header('Expires', '-1');
-    res.header('Pragma', 'no-cache');
     req.session.destroy(() => {
       res.status(204).end();
     });

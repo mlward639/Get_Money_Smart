@@ -10,10 +10,6 @@ function transferURL() {
 function chargeCardURL() {
   document.location.assign('/api/transaction/chargecard ');
 }
-// If click Clear Transaction History, clear the history by going to /clear URL
-// function clearURL() {
-//   document.location.assign('/api/transaction/clear');
-// }
 
 const delButtonHandler = async (event) => {
   const response = await fetch('/api/transaction/clear', {
@@ -38,5 +34,3 @@ document
 document.querySelector('#makePayment').addEventListener('click', transferURL);
 // If click on the Charge Card button, go to the Charge Card page
 document.querySelector('#chargeCard').addEventListener('click', chargeCardURL);
-document.querySelector('#clearBtn').addEventListener('click', clearURL);
-// WHY WONT THIS QUERY SELECTOR WORK! ONLY WORKS WITH ONCLICK=CLEARURL IN THE HTML FILE
