@@ -51,16 +51,17 @@ body {
 footer {
   color: white;
   font-family: 'Schoolbell', cursive;
-  font-size: 24px;
+  font-size: 20px;
   background-color: var(--orange);
-  position: fixed;
   justify-content: space-between;
   left: 0;
   right: 0;
   bottom: 0;
-  display: flex;
   padding: 10px;
   list-style: none;
+  display: flex;
+  padding-left: 40px;
+  padding-right: 40px;
 }
 
 /* ----------- FORM css --------------- */
