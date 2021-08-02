@@ -61,9 +61,12 @@ footer {
   list-style: none;
   display: flex;
   justify-content: space-between;
-  position: absolute;
   padding-left: 40px;
   padding-right: 40px;
+}
+
+.loginFormTest {
+  z-index: -1;
 }
 
 /* ----------- FORM css --------------- */
@@ -181,20 +184,18 @@ footer {
   height: auto;
 }
 
-#checkModal, #checkingModal, #savingModal, #creditModal{
+#checkModal, #checkingModal, #savingModal, #creditModal, #historyModal{
   font-family: inherit;
   background-color: #e1bdad; 
 }
 
-.modalMain{
+.modalMain, {
   background-color: var(--orange);
 }
 
 .modalHeader, .modalFooter {
   background-color: var(--orange);
 }
-
-/*SET a link colors so they don't change when clicked!!!!!!!!!!!!! */
 
 /*----------Registration Form--------*/
 .reg-form {
@@ -293,11 +294,21 @@ a {
   text-decoration: underline dashed rgba(255, 255, 255, 0.671)
 }
 
+.tooltip-bank {
+  z-index: 10;
+}
+
 /*----------------dashboard----------------------*/
 .buttons {
   margin-top: 30px;
   display: flex;
   justify-content: space-evenly;
+}
+
+.buttons p {
+  font-weight: bold;
+  font-family: 'Schoolbell';
+  font-size: 25px;
 }
 
 .button-rounded-hover {

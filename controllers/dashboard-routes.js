@@ -11,6 +11,8 @@ router.get('/', withAuth, async (req, res) => {
         id: req.session.user_id,
       },
     });
+    userData.fname = userData.fname.toUpperCase();
+    userData.lname = userData.lname.toUpperCase();
     const checkingData = await Checking.findOne({
       where: {
         user_id: req.session.user_id,
