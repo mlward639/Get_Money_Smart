@@ -38,7 +38,6 @@ router.get('/', withAuth, async (req, res) => {
     const saving = savingData.get({ plain: true });
     const credit = creditData.get({ plain: true });
     const user = userData.get({ plain: true });
-    user = user.to
     const history =
       historyData.length > 0
         ? historyData.map((item) => item.get({ plain: true }))

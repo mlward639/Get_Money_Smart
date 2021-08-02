@@ -167,6 +167,7 @@ footer {
   color: #8a8a8a;
 }
 
+
 /* --------- Credit transaction history modal --------*/
 #historyModal {
   font-family: inherit;
@@ -275,6 +276,9 @@ footer {
   transform: translate(-50%);  
   font-family: 'Schoolbell', cursive;
   color: white;
+  padding: 5px;
+  border: 2px solid white;
+  font-size: 28px;
 }
 
 
@@ -477,7 +481,6 @@ a {
 .button-hover-account {
   border: 2px solid var(--green);background-color: #e1bdad;
   color: var(--green);
-  background-color: #ebf8ee;
   letter-spacing: 0.07rem;
   transition: all 0.2s ease-in-out;
   position: relative;
