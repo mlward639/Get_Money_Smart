@@ -2,7 +2,7 @@
   --green: #32b558;
   --pink: #b53260;
   --orange: #b55b32;
-  --blue: ##328cb5;
+  --blue: #328cb5;
   font-family: 'Schoolbell', cursive;
 }
 
@@ -51,16 +51,17 @@ body {
 footer {
   color: white;
   font-family: 'Schoolbell', cursive;
-  font-size: 24px;
+  font-size: 20px;
   background-color: var(--orange);
-  position: fixed;
   justify-content: space-between;
   left: 0;
   right: 0;
   bottom: 0;
-  display: flex;
   padding: 10px;
   list-style: none;
+  display: flex;
+  padding-left: 40px;
+  padding-right: 40px;
 }
 
 /* ----------- FORM css --------------- */
@@ -474,9 +475,9 @@ a {
 
 
 .button-hover-account {
-  border: 2px solid var(--green);
-  background: transparent;
+  border: 2px solid var(--green);background-color: #e1bdad;
   color: var(--green);
+  background-color: #ebf8ee;
   letter-spacing: 0.07rem;
   transition: all 0.2s ease-in-out;
   position: relative;
@@ -500,7 +501,7 @@ a {
 
 .button-hover-account:hover {
   border-color: var(--pink);
-  background: transparent;
+  background-color: #f8ebef;
   transition: border-color 0.2s;
 }
 
