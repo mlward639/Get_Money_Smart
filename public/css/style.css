@@ -60,6 +60,7 @@ footer {
   width: 100%;
   list-style: none;
   display: flex;
+  position: absolute;
   justify-content: space-between;
   padding-left: 40px;
   padding-right: 40px;
