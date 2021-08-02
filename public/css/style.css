@@ -8,6 +8,9 @@
 
 body {
   background-color: #f0ded6;
+  position: relative;
+  min-height: 100%;
+  padding-bottom: 6rem;
 }
 
 .topbar-responsive {
@@ -54,13 +57,14 @@ footer {
   font-size: 20px;
   background-color: var(--orange);
   justify-content: space-between;
+  position: absolute;
+  display: flex;
+  padding: 10px 10px 0px 10px;
   left: 0;
-  right: 0;
   bottom: 0;
   width: 100%;
+  height: 60px;
   list-style: none;
-  display: flex;
-  position: absolute;
   justify-content: space-between;
   padding-left: 40px;
   padding-right: 40px;
