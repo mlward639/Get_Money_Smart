@@ -60,3 +60,8 @@ function errorMessage() {
   error.textContent =
     '*Please enter a valid Merchant Name and Amount (number).';
 }
+
+// close the Charge Card page and return to dashboard
+function closeChargeCard() {
+  document.location.assign('/dashboard');
+}

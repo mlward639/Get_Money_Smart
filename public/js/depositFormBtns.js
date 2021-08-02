@@ -53,3 +53,8 @@ function errorMessage() {
   var error = document.getElementById('error');
   error.textContent = "* Please fill in 'From', 'To', and 'Amount'";
 }
+
+// close the Deposit page and return to dashboard
+function closeDeposit() {
+  document.location.assign('/dashboard');
+}
