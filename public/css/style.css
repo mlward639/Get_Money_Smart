@@ -54,21 +54,27 @@ body {
 footer {
   color: white;
   font-family: 'Schoolbell', cursive;
-  font-size: 20px;
+  font-size: 15px;
   background-color: var(--orange);
-  justify-content: space-between;
   position: absolute;
-  display: flex;
   padding: 10px 10px 0px 10px;
   left: 0;
   bottom: 0;
   width: 100%;
-  /* height: 60px; */
   list-style: none;
-  justify-content: space-between;
   padding-left: 40px;
   padding-right: 40px;
 }
+
+  footer #footer-one {
+      text-align: center;
+  }
+  
+  footer #footer-two {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
 
 /* ----------- FORM css --------------- */
 
