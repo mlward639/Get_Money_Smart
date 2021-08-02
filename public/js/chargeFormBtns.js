@@ -16,16 +16,19 @@ const chargeFormHandler = async (event) => {
   // Send POST request to API endpoint if required fields are filled out
   if (chargeTo && chargeAmount) {
     //NOT SURE ABOUT ROUTE AND PUT vs POST HERE (seems like put would completely override, i think want post to send the info and let backend manipulate it)
-    const response = await fetch('/api/transaction/chargecard', {
-      method: 'PUT',
-      body: JSON.stringify({
-        // chargeFrom,
-        chargeTo,
-        chargeAmount,
-        chargeComment,
-      }),
-      headers: { 'Content-Type': 'application/json' },
-    });
+    const response = await fetch(
+      'https://polar-river-76787.herokuapp.com/api/transaction/chargecard',
+      {
+        method: 'PUT',
+        body: JSON.stringify({
+          // chargeFrom,
+          chargeTo,
+          chargeAmount,
+          chargeComment,
+        }),
+        headers: { 'Content-Type': 'application/json' },
+      }
+    );
     console.log(response);
     // if response goes through correctly, display their transaction and then redirect browser to the dashboard page
     if (response.ok) {
