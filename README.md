@@ -54,9 +54,8 @@ SO THAT I can show students how to navigate an online banking platform in an ins
 
         npm install
 
-- To populate database with test data, type the following in the terminal:
-  run node seeds
 - To begin application, type the following in the terminal:
+  
   npm start
 
 ## Usage
