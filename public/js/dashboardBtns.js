@@ -1,6 +1,5 @@
 // If click on the Deposit Money button, go to the /deposit URL
 function depositURL() {
-  console.log('deposit!!');
   document.location.assign('/api/transaction/depositmoney');
 }
 // If click on the Transfer Money button, go to the /transfer URL
