@@ -7,20 +7,15 @@ const transferFormHandler = async (event) => {
     .value.trim()
     .split('(');
   transferFrom = transferFrom[0].trim();
-  //console.log('transfer from', transferFrom);
   let transferTo = document
     .querySelector('.transferTo')
     .value.trim()
     .split('(');
   transferTo = transferTo[0].trim();
-  //console.log('transfer to', transferTo);
   const transferAmount = document.querySelector('.transferAmt').value.trim();
-  //console.log("transfer amt", transferAmount);
   const transferComment = document
     .querySelector('.transferComment')
     .value.trim();
-  //console.log("transfer cmt", transferComment);
-
   // Send POST request to API endpoint if required fields are filled out
   if (
     transferFrom &&

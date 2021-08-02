@@ -29,13 +29,15 @@
           >CHECKING ACCOUNT</a></span><i
           class='fas fa-money-check-alt'
         ></i></button>
-      <p class='feature-desc account_number'><b>Account Number:</b>
+      <p class='feature-desc account_number' id='account-number'><b>Account
+          Number:</b>
         {{checking.account_number}}</p>
     </div>
     <div class='account-balance-section'>
       <p class='feature-desc current_balance'><a
           class='tooltip-multiline tooltip-bottom'
           data-tooltip='Available balance is the amount of money in your account that you can use or withdraw.'
+          id='balance-number'
         ><b>Current Balance:</b> {{checking.current_balance}}</a></p>
     </div>
   </div>
@@ -53,13 +55,15 @@
           >SAVINGS ACCOUNT</a></span><i
           class='fas fa-money-check-alt'
         ></i></button>
-      <p class='feature-desc account_number'><b>Account Number:</b>
+      <p class='feature-desc account_number' id='account-number'><b>Account
+          Number:</b>
         {{saving.account_number}}</p>
     </div>
     <div class='account-balance-section'>
       <p class='feature-desc current_balance'><a
           class='tooltip-multiline tooltip-bottom'
           data-tooltip='Available balance is the amount of money in your account that you can use or withdraw.'
+          id='balance-number'
         ><b>Current Balance:</b> {{saving.current_balance}}</a></p>
     </div>
   </div>
@@ -78,14 +82,16 @@
             data-tooltip='A credit card is a type of payment card in which charges are made against a line of credit instead of the account holder’s cash deposits.'
           >CREDIT CARD</a></span><i class='fas fa-money-check-alt'></i>
       </button>
-      <p class='feature-desc account_number'><b>Account Number:</b>
+      <p class='feature-desc account_number' id='account-number'><b>Account
+          Number:</b>
         {{credit.account_number}}</p>
     </div>
     <div class='account-balance-section'>
       <p class='feature-desc current_balance'><a
           class='tooltip-multiline tooltip-bottom'
           data-tooltip='Unpaid balance is the amount that is still owed on a loan or credit card debt.'
-        ><a>Credit Card Balance:</a> {{credit.current_balance}}</a></p>
+          id='balance-number'
+        ><b>Credit Card Balance:</b> {{credit.current_balance}}</a></p>
       <button type='button' class='primary button' id='chargeCard'>
         Charge Card
       </button>
@@ -130,7 +136,7 @@
         </button>
       </div>
       <div class='modal-body'>
-        <!-- Iterate over creditData -->
+        <!-- Iterate over history of credit transactions -->
         {{#each history as |historyList|}}
           <div class='history col-md-5'>
             <p>
@@ -151,7 +157,7 @@
           type='button'
           class='btn btn-primary clearBtn'
           id='clearBtn'
-          onclick='clearURL()'
+          onclick='delButtonHandler()'
         >Clear transaction history</button>
         <button
           type='button'
