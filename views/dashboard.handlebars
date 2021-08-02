@@ -136,7 +136,7 @@
         </button>
       </div>
       <div class='modal-body'>
-        <!-- Iterate over creditData -->
+        <!-- Iterate over history of credit transactions -->
         {{#each history as |historyList|}}
           <div class='history col-md-5'>
             <p>
@@ -157,7 +157,7 @@
           type='button'
           class='btn btn-primary clearBtn'
           id='clearBtn'
-          onclick='clearURL()'
+          onclick='delButtonHandler()'
         >Clear transaction history</button>
         <button
           type='button'

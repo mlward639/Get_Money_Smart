@@ -4,7 +4,6 @@ const withAuth = require('../../utils/auth');
 
 //Send data to 'chargecard' handlebar to be rendered.
 router.get('/chargecard', withAuth, async (req, res) => {
-
   try {
     const creditData = await Credit.findOne({
       where: {
@@ -190,7 +189,7 @@ router.put('/transfermoney', withAuth, async (req, res) => {
 });
 
 //Delete Transaction History
-router.delete('/clear', async (req, res) => {
+router.delete('/clear', withAuth, async (req, res) => {
   try {
     const historyData = await History.destroy({
       where: {
@@ -201,7 +200,6 @@ router.delete('/clear', async (req, res) => {
       res.status(404).json({ message: "User doesn't have past transaction" });
       return;
     }
-    res.redirect('/dashboard');
     res.status(200).json(historyData);
   } catch (err) {
     res.status(500).json(err);
