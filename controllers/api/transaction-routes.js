@@ -4,6 +4,7 @@ const withAuth = require('../../utils/auth');
 
 //Send data to 'chargecard' handlebar to be rendered.
 router.get('/chargecard', withAuth, async (req, res) => {
+
   try {
     const creditData = await Credit.findOne({
       where: {
@@ -21,12 +22,13 @@ router.get('/chargecard', withAuth, async (req, res) => {
 });
 
 //Updates the Credit Account after a transaction. It stores the transaction in the History table.
-router.put('/chargecard', async (req, res) => {
+router.put('/chargecard', withAuth, async (req, res) => {
   const creditData = await Credit.findOne({
     where: {
       user_id: req.session.user_id,
     },
   });
+  console.log("GOALLLLLLLLLL", creditData)
   const chargeAmount = parseInt(req.body.chargeAmount);
   Credit.update(
     { current_balance: creditData.current_balance + chargeAmount },
