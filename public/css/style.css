@@ -2,20 +2,16 @@
   --green: #32b558;
   --pink: #b53260;
   --orange: #b55b32;
-  --yellow: #dea703;
-  --blue: #1779ba;
+  --blue: ##328cb5;
   font-family: 'Schoolbell', cursive;
 }
+
 body {
-  background: url(../assets/images/background.jpg) no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+  background-color: #f0ded6;
 }
 
 .topbar-responsive {
-  background: var(--yellow);
+  background: var(--orange);
   padding: 1rem 1.5rem;
   display: flex;
   justify-content: space-around;
@@ -36,7 +32,7 @@ body {
 }
 
 .topbar-responsive .menu {
-  background: var(--blue);
+  background: var(--orange);
 }
 
 .topbar-responsive .menu li:last-of-type {
@@ -52,6 +48,20 @@ body {
   color: var(--green);
 }
 
+footer {
+  color: white;
+  font-family: 'Schoolbell', cursive;
+  font-size: 24px;
+  background-color: var(--orange);
+  position: fixed;
+  justify-content: space-between;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  padding: 10px;
+  list-style: none;
+}
 
 /* ----------- FORM css --------------- */
 
@@ -125,7 +135,7 @@ body {
 .translucent-form-overlay {
   max-width: 500px;
   width: 100%;
-  background-color: var(--pink);
+  background-color: var(--orange);
   padding: 20px;
   color: #fefefe;
 }
@@ -169,18 +179,18 @@ body {
 
 #checkModal, #checkingModal, #savingModal, #creditModal{
   font-family: inherit;
-  background-color: #b55b32d0; 
+  background-color: #e1bdad; 
 }
 
 .modalMain{
-  background-color: var(--green);
+  background-color: var(--orange);
 }
 
 .modalHeader, .modalFooter {
-  background-color: var(--pink);
+  background-color: var(--orange);
 }
 
-/*SET a link colors so they dont change when clicked!!!!!!!!!!!!! */
+/*SET a link colors so they don't change when clicked!!!!!!!!!!!!! */
 
 /*----------Registration Form--------*/
 .reg-form {
@@ -337,7 +347,6 @@ a {
 
 .account-section {
   padding: 1rem;
-
 }
 
 .account-section {
@@ -349,7 +358,7 @@ a {
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  background: var(--yellow);
+  background: var(--orange);
   margin-top: 20px;
   margin-bottom: 20px;
 }
@@ -357,6 +366,18 @@ a {
 .account-info-section {
   display: flex;
   justify-content: space-between;
+}
+
+#account-number {
+  border: 1px solid black;
+  padding: 2px;
+  background-color: #e1bdad;
+}
+
+#balance-number {
+  border: 1px solid black;
+  padding: 2px;
+  background-color: #e1bdad;
 }
 
 /*  Transfer/charge/deposit forms */
