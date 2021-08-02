@@ -65,9 +65,6 @@ footer {
   padding-right: 40px;
 }
 
-.loginFormTest {
-  z-index: -1;
-}
 
 /* ----------- FORM css --------------- */
 
@@ -294,9 +291,6 @@ a {
   text-decoration: underline dashed rgba(255, 255, 255, 0.671)
 }
 
-.tooltip-bank {
-  z-index: 10;
-}
 
 /*----------------dashboard----------------------*/
 .buttons {
@@ -390,6 +384,17 @@ a {
   border: 1px solid black;
   padding: 2px;
   background-color: #e1bdad;
+}
+
+#greeting {
+  background-color: var(--pink);
+  padding: 10px;
+  border: 2px white solid;
+  font-size: 20px;
+  color: white;
+  text-transform: capitalize;
+
+
 }
 
 /*  Transfer/charge/deposit forms */
