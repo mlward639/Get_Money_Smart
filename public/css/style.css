@@ -300,6 +300,12 @@ a {
   justify-content: space-evenly;
 }
 
+.buttons p {
+  font-weight: bold;
+  font-family: 'Schoolbell';
+  font-size: 25px;
+}
+
 .button-rounded-hover {
   border: 0;
   border-radius: 5000px;
