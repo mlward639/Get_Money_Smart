@@ -9,7 +9,7 @@ Educational online banking application that allows students to manage their virt
 ## User Story
 
 AS A teacher of basic financial management
-I WANT TO have an instructional banking application
+I WANT TO have an functional mock-banking application
 SO THAT I can show students how to navigate an online banking platform in an instructional manner
 
 ## Acceptance criteria:
