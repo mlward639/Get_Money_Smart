@@ -2,22 +2,17 @@
 
   <div class='buttons'>
     <button
-      class='button button-rounded-hover transferMoney'
+      type='button'
+      class='button button-rounded-hover transferMoney primary'
       id='transferButton'
       onclick="location.href = '/api/transaction/transfermoney'"
-    ><a
-        class='tooltip-multiline tooltip-bottom'
-        data-tooltip='Transfer money between accounts.'
-      >Transfer</a></button>
+    >TRANSFER</button>
     <p> HELLO, {{user.fname}} {{user.lname}}</p>
     <button
       class='button button-rounded-hover depositMoney'
       id='depositButton'
       onclick="location.href = '/api/transaction/depositmoney'"
-    ><a
-        class='tooltip-multiline tooltip-bottom'
-        data-tooltip='To put money into your account.'
-      >Deposit</a></button>
+    >DEPOSIT</button>
   </div>
 
   <!-- Checking section -->
@@ -31,7 +26,7 @@
       ><span><a
             class='tooltip-multiline tooltip-bottom'
             data-tooltip='A bank account that allows a customer to deposit and withdraw money and write checks. Using a checking account can be safer and more convenient than handling cash.'
-          >Checking account</a></span><i
+          >CHECKING ACCOUNT</a></span><i
           class='fas fa-money-check-alt'
         ></i></button>
       <p class='feature-desc account_number'>Account Number:
@@ -55,7 +50,7 @@
       ><span><a
             class='tooltip-multiline tooltip-top'
             data-tooltip='A bank account that allows a customer to deposit and withdraw money and earn interest on the balance.'
-          >Savings Account</a></span><i
+          >SAVINGS ACCOUNT</a></span><i
           class='fas fa-money-check-alt'
         ></i></button>
       <p class='feature-desc account_number'>Account Number:
@@ -81,7 +76,7 @@
         <span><a
             class='tooltip-multiline tooltip-top'
             data-tooltip='A credit card is a type of payment card in which charges are made against a line of credit instead of the account holder’s cash deposits.'
-          >Credit card</a></span><i class='fas fa-money-check-alt'></i>
+          >CREDIT CARD</a></span><i class='fas fa-money-check-alt'></i>
       </button>
       <p class='feature-desc account_number'>Account Number:
         {{credit.account_number}}</p>
@@ -215,7 +210,7 @@
           type='button'
           class='btn btn-primary'
           data-dismiss='modal'
-          class='closebtn closeCheckingModal'
+          class='closebtn'
         >Close</button>
       </div>
     </div>
@@ -257,7 +252,7 @@
           type='button'
           class='btn btn-primary'
           data-dismiss='modal'
-          class='closebtn closeSavingsModal'
+          class='closebtn'
         >Close</button>
       </div>
     </div>
@@ -308,7 +303,7 @@
           type='button'
           class='btn btn-primary'
           data-dismiss='modal'
-          class='closebtn closeCreditModal'
+          class='closebtn'
         >Close</button>
       </div>
     </div>
