@@ -38,7 +38,10 @@ router.get('/', withAuth, async (req, res) => {
     const saving = savingData.get({ plain: true });
     const credit = creditData.get({ plain: true });
     const user = userData.get({ plain: true });
-    const history = historyData.length > 0 ? historyData.get({ plain: true }) : null;
+    const history =
+      historyData.length > 0
+        ? historyData.map((item) => item.get({ plain: true }))
+        : null;
     res.render('dashboard', {
       user,
       credit,
@@ -49,7 +52,6 @@ router.get('/', withAuth, async (req, res) => {
     });
   } catch (err) {
     res.status(500).json(err);
-
   }
 });
 
