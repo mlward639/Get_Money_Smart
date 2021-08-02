@@ -16,31 +16,28 @@ const chargeFormHandler = async (event) => {
   // Send POST request to API endpoint if required fields are filled out
   if (chargeTo && chargeAmount) {
     //NOT SURE ABOUT ROUTE AND PUT vs POST HERE (seems like put would completely override, i think want post to send the info and let backend manipulate it)
-    const response = await fetch(
-      'https://polar-river-76787.herokuapp.com/api/transaction/chargecard',
-      {
-        method: 'PUT',
-        body: JSON.stringify({
-          // chargeFrom,
-          chargeTo,
-          chargeAmount,
-          chargeComment,
-        }),
-        headers: { 'Content-Type': 'application/json' },
-      }
-    );
+    const response = await fetch('/api/transaction/chargecard', {
+      method: 'PUT',
+      body: JSON.stringify({
+        // chargeFrom,
+        chargeTo,
+        chargeAmount,
+        chargeComment,
+      }),
+      headers: { 'Content-Type': 'application/json' },
+    });
     console.log(response);
     // if response goes through correctly, display their transaction and then redirect browser to the dashboard page
     if (response.ok) {
-      let comment = '';
-      if (chargeComment) {
-        comment = `Comment: ${chargeComment}`;
-      } else {
-        comment = 'No comment entered.';
-      }
-      alert(`You charged $${chargeAmount} on your ${chargeFrom} at ${chargeTo}.
-      ${comment}
-      Be sure to pay of your credit card on time to avoid late penalties and interest accumulating.`);
+      //   let comment = '';
+      //   if (chargeComment) {
+      //     comment = `Comment: ${chargeComment}`;
+      //   } else {
+      //     comment = 'No comment entered.';
+      //   }
+      //   alert(`You charged $${chargeAmount} on your ${chargeFrom} at ${chargeTo}.
+      //   ${comment}
+      //   Be sure to pay of your credit card on time to avoid late penalties and interest accumulating.`);
       document.location.assign('/dashboard');
     } else {
       alert(response.statusText);
