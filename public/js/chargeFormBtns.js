@@ -29,15 +29,15 @@ const chargeFormHandler = async (event) => {
     console.log(response);
     // if response goes through correctly, display their transaction and then redirect browser to the dashboard page
     if (response.ok) {
-      let comment = '';
-      if (chargeComment) {
-        comment = `Comment: ${chargeComment}`;
-      } else {
-        comment = 'No comment entered.';
-      }
-      alert(`You charged $${chargeAmount} on your ${chargeFrom} at ${chargeTo}.
-      ${comment}
-      Be sure to pay of your credit card on time to avoid late penalties and interest accumulating.`);
+      //   let comment = '';
+      //   if (chargeComment) {
+      //     comment = `Comment: ${chargeComment}`;
+      //   } else {
+      //     comment = 'No comment entered.';
+      //   }
+      //   alert(`You charged $${chargeAmount} on your ${chargeFrom} at ${chargeTo}.
+      //   ${comment}
+      //   Be sure to pay of your credit card on time to avoid late penalties and interest accumulating.`);
       document.location.assign('/dashboard');
     } else {
       alert(response.statusText);
