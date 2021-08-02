@@ -13,5 +13,8 @@ var logout = async () => {
   }
 };
 
-var logoutBtn = document.getElementById('logout');
-logoutBtn.addEventListener('click', logout);
+window.onload=function(){
+  const logoutBtn = document.getElementById('logout')
+  logoutBtn.addEventListener('click', logout)
+}
+
