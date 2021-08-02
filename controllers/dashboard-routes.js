@@ -42,7 +42,7 @@ router.get('/', withAuth, async (req, res) => {
       historyData.length > 0
         ? historyData.map((item) => item.get({ plain: true }))
         : null;
-    console.log(history)
+    console.log(history);
     res.render('dashboard', {
       user,
       credit,

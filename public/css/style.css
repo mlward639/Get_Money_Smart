@@ -257,12 +257,25 @@ footer {
 }
 
 /*--------Tooltips--------*/
-.tooltip-bank {
-  color: #ffffff;
-  vertical-align: middle;
-  font-size: 40px;
-  font-family: 'Schoolbell', cursive;
+.welcome {
+  margin-top: 20px;
+  margin-bottom: -55px; 
+  display: block;
+  text-align: center;
+  width: 100%;
+  border: rgba(0, 0, 0, 0) 2px solid;
 }
+
+.welcome h2 {
+  background-color: var(--green);
+  width: 25%;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);  
+  font-family: 'Schoolbell', cursive;
+  color: white;
+}
+
 
 a {
   color: inherit;
@@ -270,7 +283,6 @@ a {
   font-size: inherit;
 }
 .tooltip-multiline {
-  /* CANT CHANGE FONT SIZE OF TOOLTIPS???? */
   text-decoration: underline dashed rgba(255, 255, 255, 0.671)
 }
 

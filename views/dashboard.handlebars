@@ -89,7 +89,8 @@
     <div class='account-balance-section'>
       <p class='feature-desc current_balance'><a
           class='tooltip-multiline tooltip-bottom'
-          data-tooltip='Unpaid balance is the amount that is still owed on a loan or credit card debt.' id="balance-number"
+          data-tooltip='Unpaid balance is the amount that is still owed on a loan or credit card debt.'
+          id='balance-number'
         ><b>Credit Card Balance:</b> {{credit.current_balance}}</a></p>
       <button type='button' class='primary button' id='chargeCard'>
         Charge Card
@@ -135,7 +136,7 @@
         </button>
       </div>
       <div class='modal-body'>
-        <!-- Iterate over creditData -->
+        <!-- Iterate over history of credit transactions -->
         {{#each history as |historyList|}}
           <div class='history col-md-5'>
             <p>
@@ -156,7 +157,7 @@
           type='button'
           class='btn btn-primary clearBtn'
           id='clearBtn'
-          onclick='clearURL()'
+          onclick='delButtonHandler()'
         >Clear transaction history</button>
         <button
           type='button'

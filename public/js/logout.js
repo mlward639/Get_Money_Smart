@@ -1,17 +1,17 @@
 // LOGOUT fetch request
-const logout = async () => {
-  const response = await fetch("/api/logout", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
+var logout = async () => {
+  const response = await fetch('/api/logout', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
   });
 
   // if successful, redirect to homepage
   if (response.ok) {
-    document.location.assign("/");
+    document.location.replace('/');
   } else {
     alert(response.statusText);
   }
 };
 
-  const logoutBtn = document.getElementById("logout")
-  logoutBtn.addEventListener("click", logout)
+var logoutBtn = document.getElementById('logout');
+logoutBtn.addEventListener('click', logout);
