@@ -2,11 +2,20 @@
   --green: #32b558;
   --pink: #b53260;
   --orange: #b55b32;
+  --yellow: #dea703;
+  --blue: #1779ba;
   font-family: 'Schoolbell', cursive;
+}
+body {
+  background: url(../assets/images/background.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 .topbar-responsive {
-  background: var(--orange);
+  background: var(--yellow);
   padding: 1rem 1.5rem;
   display: flex;
   justify-content: space-around;
@@ -27,7 +36,7 @@
 }
 
 .topbar-responsive .menu {
-  background: var(--orange);
+  background: var(--blue);
 }
 
 .topbar-responsive .menu li:last-of-type {
@@ -157,6 +166,19 @@
   height: auto;
 }
 
+#checkModal, #checkingModal, #savingModal, #creditModal{
+  font-family: inherit;
+  background-color: #b55b32d0; 
+}
+
+.modalMain{
+  background-color: var(--green);
+}
+
+.modalHeader, .modalFooter {
+  background-color: var(--pink);
+}
+
 /*SET a link colors so they dont change when clicked!!!!!!!!!!!!! */
 
 /*----------Registration Form--------*/
@@ -238,7 +260,7 @@ a {
 }
 .tooltip-multiline {
   /* CANT CHANGE FONT SIZE OF TOOLTIPS???? */
-  text-decoration: underline dashed rgba(88, 88, 88, 0.486);
+  text-decoration: underline dashed rgba(255, 255, 255, 0.671)
 }
 
 /*----------------dashboard----------------------*/
@@ -252,9 +274,7 @@ a {
   border: 0;
   border-radius: 5000px;
   padding: 1rem 2rem;
-  text-transform: uppercase;
   position: relative;
-  overflow: hidden;
   font-size: 1rem;
   letter-spacing: 2px;
   transition: all 0.35s ease;
@@ -316,7 +336,7 @@ a {
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  background: var(--orange);
+  background: var(--yellow);
   margin-top: 20px;
   margin-bottom: 20px;
 }
@@ -324,6 +344,19 @@ a {
 .account-info-section {
   display: flex;
   justify-content: space-between;
+}
+
+/*  Transfer/charge/deposit forms */
+.closebtn {
+  float: right;
+}
+
+.transfer, .deposit {
+  margin-top: 3.5%;
+}
+
+.charge {
+  margin-top: 4.5%;
 }
 
 @media print, screen and (min-width: 40em) {
@@ -410,8 +443,6 @@ a {
   border: 2px solid var(--green);
   background: transparent;
   color: var(--green);
-  text-transform: uppercase;
-  overflow: hidden;
   letter-spacing: 0.07rem;
   transition: all 0.2s ease-in-out;
   position: relative;

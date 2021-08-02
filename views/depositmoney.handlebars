@@ -1,7 +1,19 @@
 {{! This is a page to demonstrate depositing money }}
 <div class='translucent-form-overlay deposit'>
   <form class='deposit-form'>
-    <h3>Make a Deposit</h3>
+    <button
+      type='button'
+      class='btn btn-secondary btn-close closebtn closeDeposit'
+      data-dismiss='modal'
+      aria-label='Close'
+      onclick='closeDeposit()'
+    ><span aria-hidden='true'></span>
+    </button>
+    <h3>Make a
+      <a
+        class='tooltip-multiline tooltip-bottom'
+        data-tooltip='Put money into your account.'
+      >Deposit</a></h3>
     <div class='row columns deposit-from'>
       <label>From
         <select
@@ -51,6 +63,7 @@
     </div>
     <div class='row columns deposit-pic'>
       <label>
+        <button data-toggle='modal' data-target='#checkModal'></button>
         <a data-toggle='modal' data-target='#checkModal' class='checkModal'><i
             class='fas fa-camera fa-lg'
           ></i></a>
@@ -80,8 +93,8 @@
   aria-hidden='true'
 >
   <div class='modal-dialog modal-dialog-scrollable'>
-    <div class='modal-content'>
-      <div class='modal-header'>
+    <div class='modal-content modalMain'>
+      <div class='modal-header modalHeader'>
         <h5 class='modal-title' id='myModalLabel'>Check</h5>
         <button
           type='button'
@@ -95,7 +108,7 @@
       <div class='modal-body'>
         <img
           class='checkPic'
-          src='assets/images/different-parts-of-a-check.png'
+          src='/assets/images/different-parts-of-a-check.png'
         />
         <ul class='checkList'>
           <li>A check is a written order instructing the bank to pay a specific
@@ -108,10 +121,10 @@
             the bank will charge a fee and it's against the law.</li>
         </ul>
       </div>
-      <div class='modal-footer'>
+      <div class='modal-footer modalFooter'>
         <button
           type='button'
-          class='btn btn-secondary'
+          class='btn btn-primary'
           data-dismiss='modal'
           class='closebtn'
         >Close</button>
@@ -121,3 +134,21 @@
 </div>
 
 <script src='/js/depositFormBtns.js'></script>
+<!-- Additional scripts needed for modals -->
+<script src='js/dashboardBtns.js'></script>
+<script src='/js/logout.js'></script>
+<script
+  src='https://code.jquery.com/jquery-3.2.1.slim.min.js'
+  integrity='sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN'
+  crossorigin='anonymous'
+></script>
+<script
+  src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js'
+  integrity='sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q'
+  crossorigin='anonymous'
+></script>
+<script
+  src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js'
+  integrity='sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl'
+  crossorigin='anonymous'
+></script>
