@@ -9,27 +9,24 @@ const chargeFormHandler = async (event) => {
     .value.trim()
     .split('(');
   chargeFrom = chargeFrom[0].trim();
-  //console.log('charge from', chargeFrom);
   const chargeTo = document.querySelector('.chargeTo').value.trim();
-  //console.log('charge to', chargeTo);
   const chargeAmount = document.querySelector('.chargeAmt').value.trim();
-  //console.log('charge amt', chargeAmount);
   const chargeComment = document.querySelector('.chargeComment').value.trim();
-  //console.log('charge cmt', chargeComment);
 
   // Send POST request to API endpoint if required fields are filled out
-  if (chargeFrom && chargeTo && chargeAmount) {
+  if (chargeTo && chargeAmount) {
     //NOT SURE ABOUT ROUTE AND PUT vs POST HERE (seems like put would completely override, i think want post to send the info and let backend manipulate it)
-    const response = await fetch('/api/transaction/chargemoney', {
+    const response = await fetch('/api/transaction/chargecard', {
       method: 'PUT',
       body: JSON.stringify({
-        chargeFrom,
+        // chargeFrom,
         chargeTo,
         chargeAmount,
         chargeComment,
       }),
       headers: { 'Content-Type': 'application/json' },
     });
+    console.log(response);
     // if response goes through correctly, dislpay their transaction and then redirect browser to the dashboard page
     if (response.ok) {
       let comment = '';
@@ -50,9 +47,7 @@ const chargeFormHandler = async (event) => {
   }
 };
 
-document
-  .querySelector('#chargeBtn')
-  .addEventListener('click', chargeFormHandler);
+document.querySelector('#chargeBtn').addEventListener('click', chargeFormHandler);
 
 // error handling
 function errorMessage() {

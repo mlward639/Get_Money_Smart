@@ -66,10 +66,12 @@ router.post('/signup', async (req, res) => {
 //Log out and delete session data
 router.post('/logout', (req, res) => {
   if (req.session.logged_in) {
+    res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate');
+    res.header('Expires', '-1');
+    res.header('Pragma', 'no-cache');
     req.session.destroy(() => {
       res.status(204).end();
     });
-    res.status(204).end();
   } else {
     res.status(404).end();
   }
