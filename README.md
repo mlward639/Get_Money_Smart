@@ -9,7 +9,7 @@ Educational online banking application that allows students to manage their virt
 ## User Story
 
 AS A teacher of basic financial management
-I WANT TO have an functional mock-banking application
+I WANT TO have an instructional banking application
 SO THAT I can show students how to navigate an online banking platform in an instructional manner
 
 ## Acceptance criteria:
@@ -50,13 +50,7 @@ SO THAT I can show students how to navigate an online banking platform in an ins
 
 ## Installation
 
-- Use package.json to download dependencies. In terminal, type:
-
-        npm install
-
-- To begin application, type the following in the terminal:
-  
-  npm start
+- Navigate to the heroku link of deployed application
 
 ## Usage
 
@@ -67,7 +61,10 @@ SO THAT I can show students how to navigate an online banking platform in an ins
     - Transfer Money
     - Make payment on credit card
     - Create charges on credit card
+    - View credit card transaction history
     - Logoff
+- Hover over words with underlined dashes to view more information
+- Click on buttons to see educational modals
 
 ## Credits
 
@@ -113,13 +110,26 @@ Source for licensing information: <a href="https://opensource.org/licenses/MIT">
 
 ## Screenshots
 
-Screenshot of
+Screenshot of login page
 
-<img src='' alt = 'Screenshot of '>
+<img src='public\assets\images\screenshot-login-page.png' alt = 'Screenshot of login page'>
+
+Screenshot of signup page
+
+<img src='public\assets\images\screenshot-signup-page.png' alt = 'Screenshot of signup page'>
+
+
+Screenshot of dashboard page
+<img src='public\assets\images\screenshot-dashboard-page.png' alt = 'Screenshot of '>
+
+Screenshot of transfer page
+<img src='public\assets\images\screenshot-transfer-page.png' alt = 'Screenshot of '>
+
+Screenshot of view history page
+<img src='public\assets\images\screenshot-view-history-page.png' alt = 'Screenshot of '>
 
 ## URLs
 
-<a href="https://github.com/mlward639/Project2">Link to GitHub Repository</a>
-----------update link if name changes
+<a href="https://github.com/mlward639/Get_Money_Smart">Link to GitHub Repository</a>
 
 <a href="https://polar-river-76787.herokuapp.com/">Link to Deployed Heroku Site</a>

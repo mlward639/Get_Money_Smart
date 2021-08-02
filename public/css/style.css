@@ -179,20 +179,18 @@ footer {
   height: auto;
 }
 
-#checkModal, #checkingModal, #savingModal, #creditModal{
+#checkModal, #checkingModal, #savingModal, #creditModal, #historyModal{
   font-family: inherit;
   background-color: #e1bdad; 
 }
 
-.modalMain{
+.modalMain, {
   background-color: var(--orange);
 }
 
 .modalHeader, .modalFooter {
   background-color: var(--orange);
 }
-
-/*SET a link colors so they don't change when clicked!!!!!!!!!!!!! */
 
 /*----------Registration Form--------*/
 .reg-form {
