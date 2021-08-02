@@ -60,14 +60,14 @@
             <li>
               {{#if logged_in}}
                 <button
-                  class='button hollow topbar-responsive-button'
+                  class='button rounded-pill text-light btn-outline-danger'
                   id='logout'
                 >Logout</button>
               {{else}}
                 <a href='/login'>
                   <button
                     type='button'
-                    class='button hollow topbar-responsive-button'
+                    class='button rounded-pill text-light btn-success'
                   >Login</button>
                 </a>
               {{/if}}
@@ -82,7 +82,5 @@
       <!-- Render the sub layout -->
       {{{body}}}
     </main>
-
-    <script src='/js/logout.js'></script>
   </body>
 </html>
