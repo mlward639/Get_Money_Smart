@@ -7,7 +7,6 @@ router.get('/', (req, res) => {
     return;
   }
   res.render('login');
-  console.log('logged out');
 });
 
 //It will direct to login page

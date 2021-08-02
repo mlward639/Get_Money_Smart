@@ -153,7 +153,6 @@ router.put('/transfermoney', withAuth, async (req, res) => {
     let sender = req.body.transferFrom;
     let receiver = req.body.transferTo;
     let amount = parseInt(req.body.transferAmount);
-
     switch ((sender, receiver)) {
       case ('checking', 'savings'):
         checkingData.current_balance = checkingData.current_balance - amount;
@@ -161,9 +160,9 @@ router.put('/transfermoney', withAuth, async (req, res) => {
         await checkingData.save();
         await savingData.save();
         break;
-      case ('checking', 'credit'):
+      case ('checking', 'credit-card'):
         checkingData.current_balance = checkingData.current_balance - amount;
-        creditData.current_balance = creditData.current_balance + amount;
+        creditData.current_balance = creditData.current_balance - amount;
         await checkingData.save();
         await creditData.save();
         break;
@@ -173,7 +172,7 @@ router.put('/transfermoney', withAuth, async (req, res) => {
         await savingData.save();
         await checkingData.save();
         break;
-      case ('savings', 'credit'):
+      case ('savings', 'credit-card'):
         savingData.current_balance = savingData.current_balance - amount;
         creditData.current_balance = creditData.current_balance - amount;
         await savingData.save();

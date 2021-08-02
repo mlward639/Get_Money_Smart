@@ -26,7 +26,6 @@ const chargeFormHandler = async (event) => {
       }),
       headers: { 'Content-Type': 'application/json' },
     });
-    console.log(response);
     // if response goes through correctly, display their transaction and then redirect browser to the dashboard page
     if (response.ok) {
       //   let comment = '';
