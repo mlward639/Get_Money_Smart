@@ -131,16 +131,16 @@
       </div>
       <div class='modal-body'>
         <!-- Iterate over creditData -->
-        {{#each creditHistory as |history|}}
+        {{#each history as |historyList|}}
           <div class='history col-md-5'>
             <p>
               Date:
-              {{format_date_time history.time_charged}}
+              {{format_date_time historyList.time_charged}}
               <br />
               Merchant:
-              {{history.merchant}}
+              {{historyList.merchant}}
               <br />
-              Amount: ${{format_amount history.amount}}
+              Amount: ${{format_amount historyList.amount}}
             </p>
             <hr class='line' />
           </div>
