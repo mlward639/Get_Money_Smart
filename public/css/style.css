@@ -337,8 +337,17 @@ a {
   justify-content: space-between;
 }
 
+/*  Transfer/charge/deposit forms */
 .closebtn {
   float: right;
+}
+
+.transfer, .deposit {
+  margin-top: 3.5%;
+}
+
+.charge {
+  margin-top: 4.5%;
 }
 
 @media print, screen and (min-width: 40em) {
