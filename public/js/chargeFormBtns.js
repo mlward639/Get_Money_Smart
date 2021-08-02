@@ -27,7 +27,7 @@ const chargeFormHandler = async (event) => {
       headers: { 'Content-Type': 'application/json' },
     });
     console.log(response);
-    // if response goes through correctly, dislpay their transaction and then redirect browser to the dashboard page
+    // if response goes through correctly, display their transaction and then redirect browser to the dashboard page
     if (response.ok) {
       let comment = '';
       if (chargeComment) {
@@ -47,7 +47,9 @@ const chargeFormHandler = async (event) => {
   }
 };
 
-document.querySelector('#chargeBtn').addEventListener('click', chargeFormHandler);
+document
+  .querySelector('#chargeBtn')
+  .addEventListener('click', chargeFormHandler);
 
 // error handling
 function errorMessage() {

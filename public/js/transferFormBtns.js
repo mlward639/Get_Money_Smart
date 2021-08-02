@@ -39,8 +39,6 @@ const transferFormHandler = async (event) => {
       }),
       headers: { 'Content-Type': 'application/json' },
     });
-    console.log('from', transferFrom)
-    console.log('To', transferTo) 
     // if response goes through correctly, display their transaction and then redirect browser to the dashboard page
     if (response.ok) {
       let comment = '';
@@ -53,7 +51,7 @@ const transferFormHandler = async (event) => {
       ${comment}`);
       document.location.assign('/dashboard');
     } else {
-      alert(response.statusText);
+      alert('Please review your transaction balance');
     }
   } else if (!transferFrom || !transferTo || !transferAmount) {
     errorMessage();

@@ -154,7 +154,6 @@ router.put('/transfermoney', withAuth, async (req, res) => {
     let sender = req.body.transferFrom;
     let receiver = req.body.transferTo;
     let amount = parseInt(req.body.transferAmount);
-
     switch ((sender, receiver)) {
       case ('checking', 'savings'):
         checkingData.current_balance = checkingData.current_balance - amount;
