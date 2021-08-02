@@ -9,13 +9,9 @@ const chargeFormHandler = async (event) => {
     .value.trim()
     .split('(');
   chargeFrom = chargeFrom[0].trim();
-  //console.log('charge from', chargeFrom);
   const chargeTo = document.querySelector('.chargeTo').value.trim();
-  //console.log('charge to', chargeTo);
   const chargeAmount = document.querySelector('.chargeAmt').value.trim();
-  //console.log('charge amt', chargeAmount);
   const chargeComment = document.querySelector('.chargeComment').value.trim();
-  //console.log('charge cmt', chargeComment);
 
   // Send POST request to API endpoint if required fields are filled out
   if (chargeTo && chargeAmount) {
