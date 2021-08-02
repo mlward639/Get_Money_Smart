@@ -194,7 +194,7 @@ footer {
 }
 
 .modalMain {
-  background-color: var(--orange);
+  background-color: #fefefe;
 }
 
 .modalHeader,
@@ -643,5 +643,11 @@ a {
       -webkit-animation: fadeIn 1s ease-in;
       animation: fadeIn 1s ease-in;
     }
+  }
+}
+
+@media (max-width: 575.98px) {
+  .welcome {
+    display: none;
   }
 }
