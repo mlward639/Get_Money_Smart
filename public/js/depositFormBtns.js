@@ -3,14 +3,10 @@ const depositFormHandler = async (event) => {
   event.preventDefault();
   // Collect values from deposit money form
   const depositFrom = document.querySelector('.depositFrom').value.trim();
-  //console.log('deposit from', depositFrom);
   let depositTo = document.querySelector('.depositTo').value.trim().split('(');
   depositTo = depositTo[0].trim();
-  //console.log('deposit to', depositTo);
   const depositAmount = document.querySelector('.depositAmt').value.trim();
-  //console.log('deposit amt', depositAmount);
   const depositComment = document.querySelector('.depositComment').value.trim();
-  //console.log('deposit cmt', depositComment);
 
   // Send POST request to API endpoint if required fields are filled out
   if (depositFrom && depositTo && depositAmount) {

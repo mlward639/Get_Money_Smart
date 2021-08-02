@@ -2,11 +2,20 @@
   --green: #32b558;
   --pink: #b53260;
   --orange: #b55b32;
+  --yellow: #dea703;
+  --blue: #1779ba;
   font-family: 'Schoolbell', cursive;
+}
+body {
+  background: url(../assets/images/background.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 .topbar-responsive {
-  background: var(--orange);
+  background: var(--yellow);
   padding: 1rem 1.5rem;
   display: flex;
   justify-content: space-around;
@@ -27,7 +36,7 @@
 }
 
 .topbar-responsive .menu {
-  background: var(--orange);
+  background: var(--blue);
 }
 
 .topbar-responsive .menu li:last-of-type {
@@ -327,7 +336,7 @@ a {
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  background: var(--orange);
+  background: var(--yellow);
   margin-top: 20px;
   margin-bottom: 20px;
 }

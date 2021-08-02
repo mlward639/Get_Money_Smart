@@ -29,14 +29,14 @@
           >CHECKING ACCOUNT</a></span><i
           class='fas fa-money-check-alt'
         ></i></button>
-      <p class='feature-desc account_number'>Account Number:
+      <p class='feature-desc account_number'><b>Account Number:</b>
         {{checking.account_number}}</p>
     </div>
     <div class='account-balance-section'>
       <p class='feature-desc current_balance'><a
           class='tooltip-multiline tooltip-bottom'
           data-tooltip='Available balance is the amount of money in your account that you can use or withdraw.'
-        >Current Balance: {{checking.current_balance}}</a></p>
+        ><b>Current Balance:</b> {{checking.current_balance}}</a></p>
     </div>
   </div>
 
@@ -53,14 +53,14 @@
           >SAVINGS ACCOUNT</a></span><i
           class='fas fa-money-check-alt'
         ></i></button>
-      <p class='feature-desc account_number'>Account Number:
+      <p class='feature-desc account_number'><b>Account Number:</b>
         {{saving.account_number}}</p>
     </div>
     <div class='account-balance-section'>
       <p class='feature-desc current_balance'><a
           class='tooltip-multiline tooltip-bottom'
           data-tooltip='Available balance is the amount of money in your account that you can use or withdraw.'
-        >Current Balance: {{saving.current_balance}}</a></p>
+        ><b>Current Balance:</b> {{saving.current_balance}}</a></p>
     </div>
   </div>
 
@@ -78,14 +78,14 @@
             data-tooltip='A credit card is a type of payment card in which charges are made against a line of credit instead of the account holder’s cash deposits.'
           >CREDIT CARD</a></span><i class='fas fa-money-check-alt'></i>
       </button>
-      <p class='feature-desc account_number'>Account Number:
+      <p class='feature-desc account_number'><b>Account Number:</b>
         {{credit.account_number}}</p>
     </div>
     <div class='account-balance-section'>
       <p class='feature-desc current_balance'><a
           class='tooltip-multiline tooltip-bottom'
           data-tooltip='Unpaid balance is the amount that is still owed on a loan or credit card debt.'
-        >Credit Card Balance: {{credit.current_balance}}</a></p>
+        ><a>Credit Card Balance:</a> {{credit.current_balance}}</a></p>
       <button type='button' class='primary button' id='chargeCard'>
         Charge Card
       </button>
