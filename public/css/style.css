@@ -475,8 +475,7 @@ a {
 
 
 .button-hover-account {
-  border: 2px solid var(--green);
-  background: transparent;
+  border: 2px solid var(--green);background-color: #e1bdad;
   color: var(--green);
   letter-spacing: 0.07rem;
   transition: all 0.2s ease-in-out;
