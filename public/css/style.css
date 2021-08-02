@@ -10,7 +10,7 @@ body {
   background-color: #f0ded6;
   position: relative;
   min-height: 100%;
-  padding-bottom: 6rem;
+  padding-bottom: 10rem;
 }
 
 .topbar-responsive {
@@ -66,15 +66,15 @@ footer {
   padding-right: 40px;
 }
 
-  footer #footer-one {
-      text-align: center;
-  }
-  
-  footer #footer-two {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-  }
+footer #footer-one {
+  text-align: center;
+}
+
+footer #footer-two {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
 
 /* ----------- FORM css --------------- */
 
