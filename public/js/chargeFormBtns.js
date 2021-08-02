@@ -39,7 +39,8 @@ const chargeFormHandler = async (event) => {
       //   Be sure to pay of your credit card on time to avoid late penalties and interest accumulating.`);
       document.location.assign('/dashboard');
     } else {
-      alert(response.statusText);
+      // alert(response.statusText);
+      document.location.assign('/dashboard');
     }
   } else {
     errorMessage();
