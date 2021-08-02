@@ -157,6 +157,19 @@
   height: auto;
 }
 
+#checkModal, #checkingModal, #savingModal, #creditModal{
+  font-family: inherit;
+  background-color: #b55b32d0; 
+}
+
+.modalMain{
+  background-color: var(--green);
+}
+
+.modalHeader, .modalFooter {
+  background-color: var(--pink);
+}
+
 /*SET a link colors so they dont change when clicked!!!!!!!!!!!!! */
 
 /*----------Registration Form--------*/
