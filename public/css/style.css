@@ -57,9 +57,11 @@ footer {
   left: 0;
   right: 0;
   bottom: 0;
-  padding: 10px;
+  width: 100%;
   list-style: none;
   display: flex;
+  justify-content: space-between;
+  position: absolute;
   padding-left: 40px;
   padding-right: 40px;
 }
