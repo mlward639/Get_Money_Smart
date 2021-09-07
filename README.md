@@ -19,10 +19,10 @@ To run necessary dependencies, run the following command:
     npm install
     ```
 ## Usage
-![alt text](/public\assets\images\screenshot-login-page.png)
-![alt text](/public\assets\images\screenshot-dashboard-page.png)
-![alt text](/public\assets\images\screenshot-transfer-page.png)
-![alt text](/public\assets\images\screenshot-view-history-page.png)
+![alt text](\img\screenshot-login-page.png)
+![alt text](\img\screenshot-dashboard-page.png)
+![alt text](\img\screenshot-transfer-page.png)
+![alt text](\img\screenshot-view-history-page.png)
 ## License
 Copyright (C) 2021 Natnael Haile
 
