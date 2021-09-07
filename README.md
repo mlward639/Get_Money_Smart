@@ -2,6 +2,8 @@
 # Get Money Smart
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)<br/><br/>
 <img src="https://img.shields.io/github/last-commit/natnaelh14/Get_Money_Smart">
+## Live Link
+https://polar-river-76787.herokuapp.com/
 ## Description
 Educational online banking application that allows students to manage their virtual finances including bank accounts and credit cards. Features include ability to open new account, transfer money between bank accounts, and make payment on credit card. Tooltips and educational modals with descriptive comments are added to assist students in learning about finance.
 ## Table of Contents
