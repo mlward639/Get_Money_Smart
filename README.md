@@ -13,16 +13,14 @@ Educational online banking application that allows students to manage their virt
 * [Questions](#Questions)
 * [Contact](#Contact)
 ## Installation
-
-To run necessary dependencies, run the following command:
     ```
     npm install
     ```
 ## Usage
-![alt text](\img\screenshot-login-page.png)
-![alt text](\img\screenshot-dashboard-page.png)
-![alt text](\img\screenshot-transfer-page.png)
-![alt text](\img\screenshot-view-history-page.png)
+![alt text](/img/screenshot-login-page.png)
+![alt text](/img/screenshot-dashboard-page.png)
+![alt text](/img/screenshot-transfer-page.png)
+![alt text](/img/screenshot-view-history-page.png)
 ## License
 Copyright (C) 2021 Natnael Haile
 
