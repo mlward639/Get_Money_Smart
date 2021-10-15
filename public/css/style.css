@@ -18,19 +18,20 @@ body {
   background: -o-linear-gradient(white, #fff7f0);
   padding-right: 4rem;
   font-weight: bold;
+  height: 100px;
 }
 
 .topbar-responsive .topbar-responsive-logo {
   color: #000000;
 }
-
+/* 
 .topbar-responsive-logo img {
   margin-right: 20px;
-}
+} */
 
-.topbar-responsive-logo {
+/* .topbar-responsive-logo {
   font-size: 30px;
-}
+} */
 
 /* .topbar-responsive .menu {
   background: #fff;
@@ -151,9 +152,9 @@ footer #footer-two {
 .translucent-form-overlay {
   max-width: 500px;
   width: 100%;
-  background-color: #b6b9bb;
+  background-color: #ecdbcd;
   padding: 20px;
-  color: #fefefe;
+  color: black;
 }
 
 .translucent-form-overlay .columns.row {
@@ -162,7 +163,7 @@ footer #footer-two {
 
 .translucent-form-overlay h3,
 .translucent-form-overlay label {
-  color: #fefefe;
+  color: black;
 }
 
 .translucent-form-overlay input,
@@ -183,9 +184,9 @@ footer #footer-two {
 }
 
 /* --------- Credit transaction history modal --------*/
-#historyModal {
+/* #historyModal {
   font-family: inherit;
-}
+} */
 
 /*-------Educational Modals----------*/
 .checkPic {
@@ -203,12 +204,12 @@ footer #footer-two {
 } */
 
 .modalMain {
-  background-color: #fefefe;
+  background-color: #ecdbcd;
 }
 
 .modalHeader,
 .modalFooter {
-  background-color: #b6b9bb;
+  background-color: #cfab88;
 }
 
 /*----------Registration Form--------*/
@@ -227,10 +228,16 @@ footer #footer-two {
   margin-bottom: 1rem;
 }
 
-.reg-form .form-icons .input-group-label {
-  background-color: rgb(223, 99, 54);
+/* .reg-form .form-icons .input-group-label {
+  background-color: #ffb8ad;
+  border-color: #b6b9bb;
+} */
+
+.input-group-label {
+  background-color: #ccaa89;
   border-color: #b6b9bb;
 }
+
 
 /* .reg-form .form-icons .input-group-field {
   border-color: var(--green);
@@ -261,10 +268,10 @@ footer #footer-two {
   margin-bottom: 1rem;
 }
 
-.log-form .form-icons .input-group-label {
-  background-color: rgb(223, 99, 54);
+/* .log-form .form-icons .input-group-label {
+  background-color: #ffb8ad;
   border-color: #b6b9bb;
-}
+} */
 
 .log-form .form-icons .input-group-field {
   border-color: #b6b9bb;
@@ -302,9 +309,9 @@ a {
   font-family: inherit;
   font-size: inherit;
 }
-.tooltip-multiline {
+/* .tooltip-multiline {
   text-decoration: underline dashed rgba(255, 255, 255, 0.671);
-}
+} */
 
 /*----------------dashboard----------------------*/
 .buttons {
@@ -315,8 +322,17 @@ a {
 
 .buttons p {
   font-weight: bold;
-  font-family: 'Schoolbell';
   font-size: 25px;
+}
+
+.button {
+  background-color: #414040;
+  border: 5px solid #cfab88;
+}
+
+button:focus, .button:hover {
+  background-color: #595353;
+  color: #fefefe;
 }
 
 .button-rounded-hover {
@@ -353,14 +369,13 @@ a {
   bottom: 0px;
   left: 0px;
   right: 0px;
-  border: 5px solid rgb(223, 99, 54);
-  content: '';
+  border: 5px solid #cfab88;
   border-radius: inherit;
 }
 
 .button-rounded-hover:hover,
 .button-rounded-hover:focus {
-  background-color: #505050;
+  background-color: #595353;
 }
 
 .button-rounded-hover:hover:before,
@@ -384,7 +399,7 @@ a {
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  background: #b6b9bb;
+  background: #eddbcd;
   margin-top: 20px;
   margin-bottom: 20px;
 }
@@ -395,15 +410,15 @@ a {
 }
 
 #account-number {
-  border: 1px solid #433a3e;
-  padding: 2px;
-  background-color: #e3e3e3;
+  border: 3px solid #cfab88;
+  padding: 3px;
+  background-color: #fff7f0;
 }
 
 #balance-number {
-  border: 1px solid 433a3e;
-  padding: 2px;
-  background-color: #e3e3e3;
+  border: 3px solid #cfab88;
+  padding: 3px;
+  background-color: #fff7f0;
 }
 
 #greeting {
@@ -510,8 +525,8 @@ a {
     }
   }
   .button-hover-account {
-    border: 3px solid rgb(223, 99, 54);
-    background-color: #e3e3e3;
+    border: 3px solid #cfab88;
+    background-color: #eddbcd;
     color: black;
     letter-spacing: 0.07rem;
     transition: all 0.2s ease-in-out;
@@ -532,9 +547,10 @@ a {
   }
 
   .button-hover-account:hover {
-    border-color: rgb(223, 99, 54);
-    background-color: #b6b9bb;
+    border-color: #cfab88;
+    background-color: #fff7f0;
     transition: border-color 0.2s;
+    color: black;
   }
 
   .button-hover-account:hover span {
@@ -546,6 +562,10 @@ a {
     right: 12px;
   }
 
+  .button-hover-account:focus {
+    background-color: #ecdbcd;
+    color: black;
+  }
   /* -------------------------------------------------------------------------- */
 
   @media screen and (max-width: 39.9375em) {
@@ -556,14 +576,14 @@ a {
 
   .topbar-responsive .menu .topbar-responsive-button {
     color: #ffffff;
-    border-color: #ffffff;
+    /* border-color: #ffffff; */
     border-radius: 5000px;
     transition: color 0.15s ease-in, border-color 0.15s ease-in;
   }
 
   .topbar-responsive .menu .topbar-responsive-button:hover {
     color: black;
-    border-color: rgb(223, 99, 54);
+    text-decoration: underline;
   }
 
   @media screen and (max-width: 39.9375em) {
@@ -584,7 +604,7 @@ a {
     .topbar-responsive .top-bar-title span {
       position: absolute;
       right: 0;
-      border: 1px solid rgb(223, 99, 54);
+      /* border: 1px solid rgb(223, 99, 54); */
       border-radius: 5px;
       padding: 0.25rem 0.45rem;
       top: 50%;
@@ -668,7 +688,7 @@ a {
 }
 
 .button.primary:hover {
-  background-color: #484646;
+  background-color: #595353;
 }
 
 .btn-primary {
@@ -684,7 +704,25 @@ a {
   text-decoration: none;
 }
 
-/* .button-rounded-hover:after {
-  background-color: #484646;
-  color: #fff;
+/* #logout {
+  background-color: transparent;
 } */
+
+#logout:hover {
+  text-decoration: underline solid black 5px;
+  cursor:pointer;
+}
+
+/* #login {
+  background-color: transparent;
+} */
+
+#login:hover {
+  text-decoration: underline solid black 5px;
+  cursor:pointer;
+  color:black !Important;
+}
+
+a:hover {
+  text-decoration: none;
+}
