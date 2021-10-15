@@ -2,36 +2,43 @@
           class='tooltip-multiline tooltip-bottom-right tooltip-bank'
           data-tooltip='A bank is a financial institution that handles money, including keeping it for saving or commercial purposes, and exchanging, investing, and supplying it for loans.'
         >banking</a>!</h2></div> --}}
-<div class='login-page'>
-  <div class="newsletter-subscribe">
-    <div class="newsletter-subscribe-inner">
-      <h4>New User?</h4>
-      <button type="button" class="button topbar-responsive-button"><a href="/signup" class="register">Register</a></button>
+
+<section class='login-container'>
+  <div class='hero-image'>
+        <img src='/assets/images/invest.jpg' width="700" height="700">
+  </div>
+  <div class='login-page'>
+    <div class="newsletter-subscribe">
+      <div class="newsletter-subscribe-inner">
+        <h4>New User?</h4>
+        <button type="button" class="button topbar-responsive-button"><a href="/signup" class="register">Register</a></button>
+      </div>
+    </div>
+      
+    <div class="login">
+      <form class='log-form loginFormTest'>
+        <div class='form-icons'>
+          <h4>Login</h4>
+
+          <div class='input-group loginFormTest'>
+            <span class='input-group-label'>
+              <i class="fas fa-user"></i>
+            </span>
+            <input class="input-group-field" type="text" placeholder="username" id="username-login">
+          </div>
+
+          <div class='input-group loginFormTest'>
+            <span class='input-group-label'>
+              <i class='fa fa-key'></i>
+            </span>
+            <input class='input-group-field' type='password' placeholder='Password: min 8 characters' id="password-login">
+            </div>
+            <button class='button expanded' id='login-form'>Login</button>
+      </form>
     </div>
   </div>
-    
-  <div class="login">
-  <form class='log-form loginFormTest'>
-    <div class='form-icons'>
-      <h4>Login</h4>
+</section>
 
-      <div class='input-group loginFormTest'>
-        <span class='input-group-label'>
-          <i class="fas fa-user"></i>
-        </span>
-        <input class="input-group-field" type="text" placeholder="username" id="username-login">
-      </div>
-
-      <div class='input-group loginFormTest'>
-        <span class='input-group-label'>
-          <i class='fa fa-key'></i>
-        </span>
-        <input class='input-group-field' type='password' placeholder='Password: min 8 characters' id="password-login">
-        </div>
-        <button class='button expanded' id='login-form'>Login</button>
-   </form>
-  </div>
-</div>
 
 
 <script type="text/javascript" src="/js/login.js"></script>

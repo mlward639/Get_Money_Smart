@@ -3,7 +3,7 @@
 }
 
 body {
-  background-color: #fff7f0;
+  /* background-color: #fff7f0; */
   position: relative;
   min-height: 100%;
   padding-bottom: 10rem;
@@ -11,11 +11,11 @@ body {
 }
 
 .topbar-responsive {
-  background-image: linear-gradient(white, #fff7f0);
-  background: -webkit-linear-gradient(white, #fff7f0);
-  background: -moz-linear-gradient(white, #fff7f0);
-  background: -ms-linear-gradient(white, #fff7f0);
-  background: -o-linear-gradient(white, #fff7f0);
+  background-image: linear-gradient(#fee9d8, white);
+  background: -webkit-linear-gradient( #fee9d8 white);
+  background: -moz-linear-gradient(#fee9d8, white);
+  background: -ms-linear-gradient(#fee9d8, white);
+  background: -o-linear-gradient(#fee9d8, white);
   padding-right: 4rem;
   font-weight: bold;
   height: 100px;
@@ -55,12 +55,11 @@ body {
 footer {
   color: rgb(0, 0, 0);
   font-size: 15px;
-  background-color: #fff7f0;
-  background-image: linear-gradient(#fff7f0, white);
-  background: -webkit-linear-gradient(#fff7f0, white);
-  background: -moz-linear-gradient( #fff7f0, white);
-  background: -ms-linear-gradient(#fff7f0, white);
-  background: -o-linear-gradient(#fff7f0, white);
+  background-image: linear-gradient(white, #fee9d8);
+  background: -webkit-linear-gradient(white, #fee9d8);
+  background: -moz-linear-gradient( white, #fee9d8);
+  background: -ms-linear-gradient(white, #fee9d8);
+  background: -o-linear-gradient(white, #fee9d8);
   position: absolute;
   padding: 10px 10px 0px 10px;
   left: 0;
@@ -256,10 +255,23 @@ footer #footer-two p {
 
 /*----------Login Form--------*/
 
+.newsletter-subscribe {
+  margin-right: 100px;;
+}
+
 .login-page {
   /* margin-top: 10%; */
   display: flex;
-  justify-content: space-evenly;
+  justify-content: flex-end;
+  margin-right: 100px;
+  /* flex-direction: column; */
+  /* width:45% */
+}
+
+.hero-image {
+  /* flex-direction: column; */
+  /* flex-basis: 1; */
+  /* width:45% */
 }
 
 .log-form {
@@ -749,6 +761,16 @@ button:focus, .button:hover {
 /* #login {
   background-color: transparent;
 } */
+
+.login-container {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+
 
 #login:hover {
   text-decoration: underline solid black 5px;
