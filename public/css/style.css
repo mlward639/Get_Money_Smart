@@ -19,6 +19,7 @@ body {
   padding-right: 4rem;
   font-weight: bold;
   height: 100px;
+  margin-bottom: 100px;
 }
 
 .topbar-responsive .topbar-responsive-logo {
@@ -391,6 +392,10 @@ button:focus, .button:hover {
   opacity: 0.25;
 }
 
+.button.primary:focus, .button.primary:hover {
+  background-color: #414040;
+}
+
 .account-section {
   padding: 1rem;
 }
@@ -399,7 +404,7 @@ button:focus, .button:hover {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  max-width: 66%;
+  max-width: 75%;
   margin: auto;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
@@ -515,6 +520,15 @@ button:focus, .button:hover {
     font-size: 2rem;
   }
 
+.transaction-history a:hover {
+  color: white;
+  background-color: #414040;
+}
+
+.transaction-history:focus:after:active {
+  background-color: #414040;
+}
+
   @media print, screen and (min-width: 40em) {
     .account-section-feature {
       padding: 2rem;
@@ -570,6 +584,10 @@ button:focus, .button:hover {
   .button-hover-account:focus {
     background-color: #ecdbcd;
     color: black;
+  }
+
+  .topbar-responsive-button a:hover {
+    color: white;
   }
   /* -------------------------------------------------------------------------- */
 
@@ -708,6 +726,12 @@ button:focus, .button:hover {
 }
 
 .btn-primary:hover {
+  color: #fff;
+  background-color: #484646;
+  text-decoration: none;
+}
+
+.btn:active:focus {
   color: #fff;
   background-color: #484646;
   text-decoration: none;
