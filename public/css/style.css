@@ -3,25 +3,27 @@
   --pink: #b53260;
   --orange: #b55b32;
   --blue: #328cb5;
-  font-family: 'Schoolbell', cursive;
 }
 
 body {
-  background-color: #f0ded6;
+  background-color: #fff;
   position: relative;
   min-height: 100%;
   padding-bottom: 10rem;
+  font-family:  "Open Sans",sans-serif;
 }
 
 .topbar-responsive {
-  background: var(--orange);
+  background-image: linear-gradient(#b6b9bb, transparent);
+  background: -webkit-linear-gradient(#b6b9bb, transparent);
+  background: -moz-linear-gradient(#b6b9bb, transparent);
+  background: -ms-linear-gradient(#b6b9bb, transparent);
+  background: -o-linear-gradient(#b6b9bb, transparent);
   padding: 1rem 1.5rem;
-  display: flex;
-  justify-content: space-around;
 }
 
 .topbar-responsive .topbar-responsive-logo {
-  color: #ffffff;
+  color: #000000;
   vertical-align: middle;
 }
 
@@ -31,31 +33,34 @@ body {
 
 .topbar-responsive-logo {
   font-size: 40px;
-  font-family: 'Schoolbell', cursive;
 }
 
 .topbar-responsive .menu {
-  background: var(--orange);
+  background: #fff;
 }
 
 .topbar-responsive .menu li:last-of-type {
   margin-right: 0;
 }
 
-.topbar-responsive .menu a {
+/* .topbar-responsive .menu a {
   color: #ffffff;
   transition: color 0.15s ease-in;
-}
+} */
 
-.topbar-responsive .menu a:hover {
+/* .topbar-responsive .menu a:hover {
   color: var(--green);
-}
+} */
 
 footer {
-  color: white;
-  font-family: 'Schoolbell', cursive;
+  color: rgb(0, 0, 0);
   font-size: 15px;
-  background-color: var(--orange);
+  background-color: #dadee1;
+  background-image: linear-gradient(transparent, #b6b9bb);
+  background: -webkit-linear-gradient(transparent, #b6b9bb);
+  background: -moz-linear-gradient(transparent, #b6b9bb);
+  background: -ms-linear-gradient(transparent, #b6b9bb);
+  background: -o-linear-gradient(transparent, #b6b9bb);
   position: absolute;
   padding: 10px 10px 0px 10px;
   left: 0;
