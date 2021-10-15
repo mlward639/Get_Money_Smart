@@ -77,7 +77,12 @@ footer #footer-one {
 footer #footer-two {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: center;
+}
+
+footer #footer-two p {
+  margin-left: 25px;
+  margin-right:25px;
 }
 
 /* ----------- FORM css --------------- */
@@ -592,6 +597,10 @@ button:focus, .button:hover {
       margin: 0.875rem 0;
     }
   }
+
+  .top-bar, .top-bar ul {
+    background-color: transparent;
+}
 
   @media screen and (max-width: 39.9375em) {
     .topbar-responsive {
