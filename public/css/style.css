@@ -259,20 +259,12 @@ footer #footer-two p {
   margin-left: 100px;
 }
 
-.login-page {
-  /* margin-top: 10%; */
-  display: flex;
-  justify-content: flex-end;
-  margin-right: 100px;
-  /* flex-direction: column; */
-  /* width:45% */
-}
 
-.hero-image {
-  /* flex-direction: column; */
-  /* flex-basis: 1; */
-  /* width:45% */
-}
+
+/* .hero-image {
+  display: flex;
+  flex-direction: column;
+} */
 
 @media screen and (max-width: 1400px) {
   .hero-image {
@@ -286,19 +278,34 @@ footer #footer-two p {
   }
 }
 
+@media screen and (min-width: 1050px) {
+  
+.login-container {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.login-page {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 100px;
+}
+}
+
 @media screen and (max-width: 1050px) {
   .hero-image {
     display: none;
   }
 
   .login-container {
+    display: flex;
     justify-content: center;
   }
 
   .login-page {
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
   }
   .newsletter-subscribe {
     display: flex;
@@ -324,7 +331,7 @@ footer #footer-two p {
 } */
 
 .log-form .form-icons .input-group-field {
-  border-color: #b6b9bb;
+  border-color: #cfab88;
 }
 
 .log-form .form-icons .fa {
@@ -535,12 +542,12 @@ button:focus,
     flex-direction: column;
   }
 
-  .account-section-feature.top {
+  /* .account-section-feature.top {
     border-bottom: 1px solid rgb(223, 99, 54);
   }
   .account-section-feature.bottom {
     border-bottom: 1px solid rgb(223, 99, 54);
-  }
+  } */
 
   .account-section-feature .feature-title {
     margin-bottom: 0;
@@ -796,13 +803,6 @@ button:focus,
   background-color: transparent;
 } */
 
-.login-container {
-  display: flex;
-  width: 100%;
-  flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: space-between;
-}
 
 #login:hover {
   text-decoration: underline solid black 5px;
