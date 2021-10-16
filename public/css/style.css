@@ -12,7 +12,7 @@ body {
 
 .topbar-responsive {
   background-image: linear-gradient(#fee9d8, white);
-  background: -webkit-linear-gradient( #fee9d8 white);
+  background: -webkit-linear-gradient(#fee9d8 white);
   background: -moz-linear-gradient(#fee9d8, white);
   background: -ms-linear-gradient(#fee9d8, white);
   background: -o-linear-gradient(#fee9d8, white);
@@ -57,7 +57,7 @@ footer {
   font-size: 15px;
   background-image: linear-gradient(white, #fee9d8);
   background: -webkit-linear-gradient(white, #fee9d8);
-  background: -moz-linear-gradient( white, #fee9d8);
+  background: -moz-linear-gradient(white, #fee9d8);
   background: -ms-linear-gradient(white, #fee9d8);
   background: -o-linear-gradient(white, #fee9d8);
   position: absolute;
@@ -82,7 +82,7 @@ footer #footer-two {
 
 footer #footer-two p {
   margin-left: 25px;
-  margin-right:25px;
+  margin-right: 25px;
 }
 
 /* ----------- FORM css --------------- */
@@ -243,7 +243,6 @@ footer #footer-two p {
   border-color: #b6b9bb;
 }
 
-
 /* .reg-form .form-icons .input-group-field {
   border-color: var(--green);
 } */
@@ -256,7 +255,8 @@ footer #footer-two p {
 /*----------Login Form--------*/
 
 .newsletter-subscribe {
-  margin-right: 100px;;
+  margin-right: 100px;
+  margin-left: 100px;
 }
 
 .login-page {
@@ -272,6 +272,38 @@ footer #footer-two p {
   /* flex-direction: column; */
   /* flex-basis: 1; */
   /* width:45% */
+}
+
+@media screen and (max-width: 1400px) {
+  .hero-image {
+    width: 500px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .hero-image {
+    width: 350px;
+  }
+}
+
+@media screen and (max-width: 1050px) {
+  .hero-image {
+    display: none;
+  }
+
+  .login-container {
+    justify-content: center;
+  }
+
+  .login-page {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+  }
+  .newsletter-subscribe {
+    display: flex;
+    justify-content: center;
+  }
 }
 
 .log-form {
@@ -348,7 +380,8 @@ a {
   border: 5px solid #cfab88;
 }
 
-button:focus, .button:hover {
+button:focus,
+.button:hover {
   background-color: #595353;
   color: #fefefe;
 }
@@ -404,7 +437,8 @@ button:focus, .button:hover {
   opacity: 0.25;
 }
 
-.button.primary:focus, .button.primary:hover {
+.button.primary:focus,
+.button.primary:hover {
   background-color: #414040;
 }
 
@@ -532,14 +566,14 @@ button:focus, .button:hover {
     font-size: 2rem;
   }
 
-.transaction-history a:hover {
-  color: white;
-  background-color: #414040;
-}
+  .transaction-history a:hover {
+    color: white;
+    background-color: #414040;
+  }
 
-.transaction-history:focus:after:active {
-  background-color: #414040;
-}
+  .transaction-history:focus:after:active {
+    background-color: #414040;
+  }
 
   @media print, screen and (min-width: 40em) {
     .account-section-feature {
@@ -628,9 +662,10 @@ button:focus, .button:hover {
     }
   }
 
-  .top-bar, .top-bar ul {
+  .top-bar,
+  .top-bar ul {
     background-color: transparent;
-}
+  }
 
   @media screen and (max-width: 39.9375em) {
     .topbar-responsive {
@@ -734,7 +769,6 @@ button:focus, .button:hover {
   color: #fff;
   background-color: #414040;
   border-color: #414040;
-
 }
 
 .btn-primary:hover {
@@ -755,7 +789,7 @@ button:focus, .button:hover {
 
 #logout:hover {
   text-decoration: underline solid black 5px;
-  cursor:pointer;
+  cursor: pointer;
 }
 
 /* #login {
@@ -770,12 +804,10 @@ button:focus, .button:hover {
   justify-content: space-between;
 }
 
-
-
 #login:hover {
   text-decoration: underline solid black 5px;
-  cursor:pointer;
-  color:black !Important;
+  cursor: pointer;
+  color: black !important;
 }
 
 a:hover {
