@@ -3,7 +3,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)<br/><br/>
 <img src="https://img.shields.io/github/last-commit/natnaelh14/Get_Money_Smart">
 ## Live Link
-https://polar-river-76787.herokuapp.com/
+https://smart-bank-bank-app.herokuapp.com/
 ## Description
 Educational online banking application that allows students to manage their virtual finances including bank accounts and credit cards. Features include ability to open new account, transfer money between bank accounts, and make payment on credit card. Tooltips and educational modals with descriptive comments are added to assist students in learning about finance.
 ## Table of Contents
@@ -19,10 +19,8 @@ Educational online banking application that allows students to manage their virt
     npm install
     ```
 ## Usage
-![alt text](/img/screenshot-login-page.png)
-![alt text](/img/screenshot-dashboard-page.png)
-![alt text](/img/screenshot-transfer-page.png)
-![alt text](/img/screenshot-view-history-page.png)
+![alt text](/img/screenshot-01.png)
+![alt text](/img/screenshot-02.png)
 ## License
 Copyright (C) 2021 Natnael Haile
 
