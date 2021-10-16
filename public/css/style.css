@@ -286,19 +286,29 @@ footer #footer-two p {
   }
 }
 
+@media screen and (min-width: 1050) {
+  .login-container {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
 @media screen and (max-width: 1050px) {
   .hero-image {
     display: none;
   }
 
   .login-container {
+    display: flex;
     justify-content: center;
   }
 
   .login-page {
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
   }
   .newsletter-subscribe {
     display: flex;
@@ -795,14 +805,6 @@ button:focus,
 /* #login {
   background-color: transparent;
 } */
-
-.login-container {
-  display: flex;
-  width: 100%;
-  flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: space-between;
-}
 
 #login:hover {
   text-decoration: underline solid black 5px;
