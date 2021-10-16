@@ -256,7 +256,8 @@ footer #footer-two p {
 /*----------Login Form--------*/
 
 .newsletter-subscribe {
-  margin-right: 100px;;
+  margin-right: 100px;
+  margin-left: 100px;
 }
 
 .login-page {
@@ -272,6 +273,28 @@ footer #footer-two p {
   /* flex-direction: column; */
   /* flex-basis: 1; */
   /* width:45% */
+}
+
+@media screen and (max-width:1400px){
+  .hero-image {
+    width: 500px;
+  }
+}
+
+@media screen and (max-width:1200px){
+  .hero-image {
+    width: 350px;
+  }
+}
+
+@media screen and (max-width:1050px){
+  .hero-image {
+    display: none;
+  }
+  .login-page {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .log-form {
