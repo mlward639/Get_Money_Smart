@@ -366,9 +366,13 @@ a {
   font-family: inherit;
   font-size: inherit;
 }
-/* .tooltip-multiline {
-  text-decoration: underline dashed rgba(255, 255, 255, 0.671);
-} */
+
+.tooltip-multiline {
+  text-decoration: none;
+}
+.tooltip-multiline:hover:active:focus {
+  color: black;
+}
 
 /*----------------dashboard----------------------*/
 .buttons {
@@ -414,7 +418,7 @@ button:focus,
   left: 0px;
   right: 0px;
   border-radius: inherit;
-  background-color: #fefefe;
+  background-color: #433a3e;
   transition: all 0.3s;
   -webkit-transform: translateX(-100%);
   -ms-transform: translateX(-100%);
