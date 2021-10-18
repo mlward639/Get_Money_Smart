@@ -259,7 +259,10 @@ footer #footer-two p {
   margin-left: 100px;
 }
 
-
+.newsletter-subscribe-inner button {
+  display: flex;
+  justify-content: center;
+}
 
 /* .hero-image {
   display: flex;
@@ -307,9 +310,20 @@ footer #footer-two p {
     display: flex;
     flex-direction: column;
   }
-  .newsletter-subscribe {
+  /* .newsletter-subscribe button {
     display: flex;
     justify-content: center;
+  } */
+  /* .topbar-responsive-button {
+    color: #ffffff;
+    border-color: #ffffff;
+    border-radius: 5000px;
+    transition: color 0.15s ease-in, border-color 0.15s ease-in;
+    display: flex;
+    justify-content: center;
+  } */
+  #login {
+    background-color: none;
   }
 }
 
@@ -335,7 +349,7 @@ footer #footer-two p {
 }
 
 .log-form .form-icons .fa {
-  color: white;
+  color: rgb(0, 0, 0);
   width: 1rem;
 }
 
@@ -370,7 +384,13 @@ a {
 .tooltip-multiline {
   text-decoration: none;
 }
-.tooltip-multiline:hover:active:focus {
+.tooltip-multiline:hover {
+  color: black;
+}
+.tooltip-multiline:active {
+  color: black;
+}
+.tooltip-multiline:focus {
   color: black;
 }
 
