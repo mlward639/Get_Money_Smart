@@ -6,7 +6,7 @@
       class='btn btn-secondary btn-close closebtn closeWire'
       data-dismiss='modal'
       aria-label='Close'
-      onclick='closeTransfer()'
+      onclick='closeWire()'
     ><span aria-hidden='true'></span>
     </button>
     <h3>Make a
@@ -17,11 +17,7 @@
     <p>Wire From</p>
     <div class='row columns wire-from'>
       <label>From Account
-        <select
-          name='status wireFrom'
-          type='text'
-          class='wireOptions wireFrom'
-        >
+        <select name='status wireFrom' type='text' class='wireOptions wireFrom'>
           <option value='checking'>Checking (current balance:
             {{checking.current_balance}})</option>
           <option value='savings'>Savings (current balance:
@@ -31,7 +27,7 @@
     </div>
     <p>Wire To</p>
     <div class='row columns wire-to'>
-              <label>Full Name
+      <label>Full Name
         <input
           type='text'
           name='wireTo-name'
@@ -39,7 +35,7 @@
           placeholder='Any'
         />
       </label>
-            <label>To Account #
+      <label>To Account #
         <input
           type='text'
           name='wireTo-account'
@@ -50,12 +46,7 @@
     </div>
     <div class='row columns wire-amount'>
       <label>Wire Amount
-        <input
-          type='number'
-          name='wireAmt'
-          class='wireAmt'
-          placeholder='Any'
-        />
+        <input type='number' name='wireAmt' class='wireAmt' placeholder='Any' />
       </label>
     </div>
     <div class='row columns wire-comment'>
@@ -68,10 +59,7 @@
         />
       </label>
     </div>
-    <button
-      type='button'
-      class='primary button expanded search-button wireBtn'
-    >
+    <button type='button' class='primary button expanded search-button wireBtn'>
       Wire Money
     </button>
     <span id='error'></span>
