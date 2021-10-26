@@ -187,6 +187,31 @@ router.put('/transfermoney', withAuth, async (req, res) => {
   }
 });
 
+//Send data to 'wire money' handlebar to be rendered.
+router.get('/wiremoney', withAuth, async (req, res) => {
+  try {
+    const checkingData = await Checking.findOne({
+      where: {
+        user_id: req.session.user_id,
+      },
+    });
+    const savingData = await Saving.findOne({
+      where: {
+        user_id: req.session.user_id,
+      },
+    });
+    const checking = checkingData.get({ plain: true });
+    const saving = savingData.get({ plain: true });
+    res.render('wiremoney', {
+      checking,
+      saving,
+      logged_in: true,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 //Delete Transaction History
 router.delete('/clear', withAuth, async (req, res) => {
   try {
