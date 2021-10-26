@@ -1,0 +1,79 @@
+{{! This is a page to demonstrate wiring money }}
+<div class='translucent-form-overlay transfer'>
+  <form class='wire-form'>
+    <button
+      type='button'
+      class='btn btn-secondary btn-close closebtn closeWire'
+      data-dismiss='modal'
+      aria-label='Close'
+      onclick='closeTransfer()'
+    ><span aria-hidden='true'></span>
+    </button>
+    <h3>Make a
+      <a
+        class='tooltip-multiline tooltip-top'
+        data-tooltip='Wire money to different accounts.'
+      >Transfer</a></h3>
+    <div class='row columns wire-from'>
+      <label>From
+        <select
+          name='status wireFrom'
+          type='text'
+          class='wireOptions wireFrom'
+        >
+          <option value='checking'>Checking (current balance:
+            {{checking.current_balance}})</option>
+          <option value='savings'>Savings (current balance:
+            {{saving.current_balance}})</option>
+        </select>
+      </label>
+    </div>
+    <div class='row columns wire-to'>
+              <label>Full Name
+        <input
+          type='text'
+          name='wireTo-name'
+          class='wireTo-name'
+          placeholder='Any'
+        />
+      </label>
+            <label>Account #
+        <input
+          type='text'
+          name='wireTo-account'
+          class='wireTo-account'
+          placeholder='Any'
+        />
+      </label>
+    </div>
+    <div class='row columns wire-amount'>
+      <label>Amount
+        <input
+          type='number'
+          name='wireAmt'
+          class='wireAmt'
+          placeholder='Any'
+        />
+      </label>
+    </div>
+    <div class='row columns wire-comment'>
+      <label>Comment
+        <input
+          type='text'
+          name='wireComment'
+          class='wireComment'
+          placeholder='Any'
+        />
+      </label>
+    </div>
+    <button
+      type='button'
+      class='primary button expanded search-button wireBtn'
+    >
+      Wire Money
+    </button>
+    <span id='error'></span>
+  </form>
+</div>
+<script src='/js/logout.js'></script>
+<script src='/js/wireFormBtns.js'></script>
