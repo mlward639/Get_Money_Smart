@@ -2,16 +2,21 @@
 const wireFormHandler = async (event) => {
     event.preventDefault();
     // Collect values from wire money form
-    const wireFrom = document
+    let wireFrom = document
       .querySelector('.wireFrom')
       .value.trim()
       .split('(');
+    wireFrom = wireFrom[0].trim();
     const wireToName = document.querySelector('.wireTo-name').value;
     const wireAmount = document.querySelector('.wireAmt').value.trim();
     const wireComment = document.querySelector('.wireComment').value.trim();
     const wireToAccount = document
       .querySelector('.wireTo-account')
       .value.trim();
+    console.log('loggggg', wireFrom)
+    console.log('loggggg', wireToName)
+    console.log('loggggg', wireAmount)
+    console.log('loggggg', wireToAccount)
     // Send POST request to API endpoint if required fields are filled out
     if (
         wireFrom &&
@@ -41,21 +46,20 @@ const wireFormHandler = async (event) => {
         ${comment}`);
         document.location.assign('/dashboard');
       } else {
-        alert('Please review your transaction balance');
+        console.log('responsive test', response)
+        alert('Please review your transaction balance', response.msg);
       }
+    } else if (!wireFrom || !wireToName || !wireAmount || !wireToAccount) {
+      errorMessage();
     } else {
         alert('Please Check Your Input')
     }
-    // } else if (!transferFrom || !transferTo || !transferAmount) {
-    //   errorMessage();
-    // } else if (transferFrom === transferTo) {
-    //   errorMessage2();
-    // }
   };
   
-  document
-    .querySelector('.wireBtn')
-    .addEventListener('click', wireFormHandler);
+  window.onload = function () { 
+    let wire = document.querySelector('.wireBtn');
+    wire.addEventListener('click', wireFormHandler);
+    }
   
   // ERROR handling
   // From, To, and Amount are required fields
@@ -64,11 +68,6 @@ const wireFormHandler = async (event) => {
     error.textContent = "* Please fill in 'From', 'To', and 'Amount'";
   }
   
-  // Must transfer to a different account
-  function errorMessage2() {
-    var error = document.getElementById('error');
-    error.textContent = "* 'From' and 'To' must be different accounts.";
-  }
   
   // close the Transfer page and return to dashboard
   function closeWire() {
