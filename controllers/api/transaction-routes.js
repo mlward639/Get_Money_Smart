@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Checking, Saving, Credit, History, User } = require('../../models/');
+const { Checking, Saving, Credit, History } = require('../../models/');
 const withAuth = require('../../utils/auth');
 
 //Send data to 'chargecard' handlebar to be rendered.
@@ -236,21 +236,21 @@ router.post('/wiremoney', withAuth, async (req, res) => {
       },
     });
     if (!checkingWireData && !savingWireData) {
-      return res.json(400, {
-        error: 1,
-        msg: "Unable to find receiver's account #",
-      });
+      return res
+        .status(404)
+        .send({ message: "Unable to find receiver's Account Number" });
     }
     const sender = req.body.wireFrom;
     let amount = parseInt(req.body.wireAmount);
     switch (sender) {
       case 'checking':
         if (checkingWireData) {
-          if (checkingData.current_balance > amount) {
-            return res.json(400, {
-              error: 1,
-              msg: "You don't have enough money in your Checking Account",
-            });
+          if (amount > checkingData.current_balance) {
+            return res
+              .status(404)
+              .send({
+                message: "You don't have enough money in your Checking Account",
+              });
           }
           checkingWireData.current_balance =
             checkingWireData.current_balance + amount;
@@ -258,11 +258,12 @@ router.post('/wiremoney', withAuth, async (req, res) => {
           await checkingData.save();
           await checkingWireData.save();
         } else if (savingWireData) {
-          if (checkingData.current_balance - amount) {
-            return res.json(400, {
-              error: 1,
-              msg: "You don't have enough money in your Checking Account",
-            });
+          if (amount > checkingData.current_balance) {
+            return res
+              .status(404)
+              .send({
+                message: "You don't have enough money in your Checking Account",
+              });
           }
           savingWireData.current_balance =
             savingWireData.current_balance + amount;
@@ -273,10 +274,11 @@ router.post('/wiremoney', withAuth, async (req, res) => {
         break;
       case 'savings':
         if (checkingWireData) {
-          if (savingData.current_balance > amount) {
-            return res.json(400, {
-              error: 1,
-              msg: "You don't have enough money in your Savings Account",
+          if (amount > savingData.current_balance) {
+            return res
+            .status(404)
+            .send({
+              message: "You don\'t have enough money in your Savings Account",
             });
           }
           checkingWireData.current_balance =
@@ -285,11 +287,12 @@ router.post('/wiremoney', withAuth, async (req, res) => {
           await savingData.save();
           await checkingWireData.save();
         } else if (savingWireData) {
-          if (savingData.current_balance > amount) {
-            return res.json(400, {
-              error: 1,
-              msg: "You don't have enough money in your Savings Account",
-            });
+          if (amount > savingData.current_balance) {
+            return res
+              .status(404)
+              .send({
+                message: "You don\'t have enough money in your Savings Account",
+              });
           }
           savingWireData.current_balance =
             savingWireData.current_balance + amount;
@@ -303,10 +306,8 @@ router.post('/wiremoney', withAuth, async (req, res) => {
     }
     res.status(200).render('dashboard');
   } catch (err) {
-    res.status(500);
-    return res.json(500, {
-      error: 1,
-      msg: 'Unable to make the wire transfer. Please verify information',
+    res.status(500).send({
+      message: "Unable to make the wire transfer",
     });
   }
 });
