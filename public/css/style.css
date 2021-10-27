@@ -19,16 +19,15 @@ body {
   padding-right: 4rem;
   font-weight: bold;
   height: 100px;
-  margin-bottom: 100px;
 }
 
 .topbar-responsive .topbar-responsive-logo {
   color: #000000;
 }
-/* 
+
 .topbar-responsive-logo img {
-  margin-right: 20px;
-} */
+  margin-top: 20px;
+}
 
 /* .topbar-responsive-logo {
   font-size: 30px;
@@ -516,12 +515,17 @@ button:focus,
 }
 
 #greeting {
-  background-color: #433a3e;
-  padding: 10px;
-  border: 2px white solid;
   font-size: 20px;
-  color: white;
+  color: black;
   text-transform: capitalize;
+  display: flex;
+  justify-content: center;
+}
+
+#greeting span {
+  background-color: #ecdbcd;
+  padding: 5px;
+  border: 5px #cfab87 solid;
 }
 
 /*  Transfer/charge/deposit forms */
@@ -797,6 +801,7 @@ button:focus,
 .button.primary[disabled]:hover {
   background-color: #414040;
   color: #fefefe;
+  letter-spacing: 2px;
 }
 
 .button.primary:hover {
@@ -842,4 +847,47 @@ button:focus,
 
 a:hover {
   text-decoration: none;
+}
+
+@media screen and (max-width: 700px) {
+  .top-bar-title {
+    margin: 0px;
+  }
+  .topbar-responsive-logo img {
+    margin-top: 0px;
+    padding-top: 0px;
+  }
+  .topbar-responsive{
+    margin-bottom: 50px;
+    padding-right: 2rem;
+  }
+  #topbar-responsive {
+    display: flex;
+    justify-content: flex-end;
+  }
+  #greeting {
+    font-size: 15px;
+  }
+  .button.primary {
+    font-size: 12px;
+  }
+  .button-rounded-hover {
+    padding: 1rem 1rem;
+    font-size: 10px;
+  }
+  .button-hover-account {
+    font-size: 12px;
+  }
+  .account-section {
+    max-width: 90%;
+  }
+  #balance-number {
+    font-size: 12px;
+  }
+  #account-number {
+    font-size: 12px;
+  }
+  #footer-one p {
+    font-size: 5px;
+  }
 }

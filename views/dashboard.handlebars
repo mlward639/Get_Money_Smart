@@ -1,5 +1,5 @@
 <section class='dashboard-section'>
-
+  <p id='greeting'><span>{{user.fname}} {{user.lname}}</span></p>
   <div class='buttons'>
     <button
       type='button'
@@ -7,7 +7,6 @@
       id='transferButton'
       onclick="location.href = '/api/transaction/transfermoney'"
     >TRANSFER</button>
-    <p id='greeting'>{{user.fname}} {{user.lname}}</p>
         <button
       class='button button-rounded-hover wireMoney'
       id='wireButton'
@@ -101,10 +100,10 @@
           id='balance-number'
         ><b> Credit Card Balance:</b> ${{credit.current_balance}} </a></p>
       <button type='button' class='primary button' id='chargeCard'>
-        Charge Card
+        CHARGE CARD
       </button>
       <button type='button' class='primary button makePayment' id='makepayment'>
-        Make Payment
+        MAKE PAYMENT
       </button>
 
       <button
@@ -116,7 +115,7 @@
         <a
           class='tooltip-multiline tooltip-top'
           data-tooltip='View your prior transactions.'
-        >View transaction history</a>
+        >VIEW TRANSACTION HISTORY</a>
       </button>
     </div>
   </div>
