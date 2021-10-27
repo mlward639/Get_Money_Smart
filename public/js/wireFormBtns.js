@@ -13,10 +13,6 @@ const wireFormHandler = async (event) => {
     const wireToAccount = document
       .querySelector('.wireTo-account')
       .value.trim();
-    console.log('loggggg', wireFrom)
-    console.log('loggggg', wireToName)
-    console.log('loggggg', wireAmount)
-    console.log('loggggg', wireToAccount)
     // Send POST request to API endpoint if required fields are filled out
     if (
         wireFrom &&
@@ -46,8 +42,8 @@ const wireFormHandler = async (event) => {
         ${comment}`);
         document.location.assign('/dashboard');
       } else {
-        console.log('responsive test', response)
-        alert('Please review your transaction balance', response.msg);
+        let errMessage = await response.json().then((res) => res.message)
+        alert(errMessage)
       }
     } else if (!wireFrom || !wireToName || !wireAmount || !wireToAccount) {
       errorMessage();
