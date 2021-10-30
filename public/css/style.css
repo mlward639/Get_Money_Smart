@@ -21,6 +21,11 @@ body {
   height: 100px;
 }
 
+.register-button-container {
+    display: flex;
+    justify-content: center;
+  }
+
 .topbar-responsive .topbar-responsive-logo {
   color: #000000;
 }
@@ -284,6 +289,7 @@ footer #footer-two p {
   .login-container {
     display: flex;
     width: 100%;
+    margin-top: 100px;
     flex-wrap: wrap;
     justify-content: space-between;
   }
@@ -302,6 +308,7 @@ footer #footer-two p {
   .login-container {
     display: flex;
     justify-content: center;
+    margin-top: 100px;
   }
 
   .login-page {
@@ -466,14 +473,6 @@ button:focus,
   background-color: #595353;
 }
 
-.button-rounded-hover:hover:before,
-.button-rounded-hover:focus:before {
-  -webkit-transform: translateX(0%);
-  -ms-transform: translateX(0%);
-  transform: translateX(0%);
-  opacity: 0.25;
-}
-
 .button.primary:focus,
 .button.primary:hover {
   background-color: #414040;
@@ -524,8 +523,9 @@ button:focus,
 
 #greeting span {
   background-color: #ecdbcd;
-  padding: 5px;
-  border: 5px #cfab87 solid;
+  padding: 10px;
+  box-shadow: 3px 3px 20px rgba(154, 148, 148, 0.8);
+  /* border: 5px #cfab87 solid; */
 }
 
 /*  Transfer/charge/deposit forms */
